@@ -54,7 +54,7 @@ public class MiServicio implements IServicio{
             return "/assets/imagenes/portfolio/Adele_ProductoDestacado.jpg";
            }
            else{
-            return "error elemento no encontrado";
+            return "/assets/imagenes/portfolio/not_found.png";
            }
     }
     
