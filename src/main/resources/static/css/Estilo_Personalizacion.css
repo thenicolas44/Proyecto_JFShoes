@@ -1,0 +1,69 @@
+/*Buttons*/
+.btn-main-color {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #987454;
+    --bs-btn-border-color: #987454;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #8e6c4f;
+    --bs-btn-hover-border-color: #8e6c4f;
+    --bs-btn-focus-shadow-rgb: 255, 208, 38;
+    --bs-btn-active-color: #fff;
+    --bs-btn-active-bg: #816348;
+    --bs-btn-active-border-color: #816348;
+    --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+    --bs-btn-disabled-color: #d6d6d6;
+    --bs-btn-disabled-bg: #9b9b9b;
+    --bs-btn-disabled-border-color: #9b9b9b;
+}
+
+.btn-product{
+  --bs-btn-border-radius: 2rem;
+  max-height: 50px;
+  height: 50px;
+}
+
+/*Quantity Buttons*/
+.quantityButtons{
+
+  background-color: rgb(232, 232, 232)
+}
+
+/*Rating 5 estrellas*/
+.star-rating {
+  display: inline-block;
+  font-size: 0;
+  white-space: nowrap;
+  direction: rtl;
+}
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 30px;
+  color: #ccc;
+  display: inline-block;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1em;
+  margin-right: 0.1em;
+  cursor: pointer;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating input[type="radio"]:checked ~ label ~ label {
+  color: #ffdd00;
+}
+
+.star-rating label:before {
+  content: "\2606";
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.star-rating input[type="radio"]:checked ~ label:before,
+.star-rating input[type="radio"]:checked ~ label ~ label:before {
+  content: "\2605";
+}
