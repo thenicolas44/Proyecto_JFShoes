@@ -2,9 +2,15 @@ function fnProcesaPaciente(comp){
     let id = comp.id;
     var escogido=id;
     window.location.href="http://localhost:8080/detalle/ola/ss/"+escogido;
+    
 }
 
-function finInicioSession(){
+function fnInicioSession(){
     var usuario = document.getElementById("user").value;
-    window.alert("Bienvenido "+usuario);
+    var contra = document.getElementById("password").value;
+    
+    window.location.href="http://localhost:8080/inicio";
+}
+function envio(){
+    window.location.href="http://localhost:8080/inicio";
 }
