@@ -1,3 +1,13 @@
+
+@font-face {
+  font-family: Poppins-Regular;
+  src: url('../fuentes/fonts/poppins/Poppins-Regular.ttf'); 
+}
+
+body{
+  font-family: Poppins-Regular;
+}
+
 /*Buttons*/
 .btn-main-color {
     --bs-btn-color: #fff;
