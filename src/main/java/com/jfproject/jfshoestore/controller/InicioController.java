@@ -30,17 +30,17 @@ public class InicioController {
         Model modelo
     ){
         String nombre = miServicio.nanmeProduct(element);
-        String descripcion = miServicio.descProduct(element);
+        String descripción = miServicio.descProduct(element);
         String precio = miServicio.priceProduct(element);
         String enlace = miServicio.srcProduct(element);
-        String conecting = (user +"/"+password+"/"+element);
+        String connecting = (user +"/"+password+"/"+element);
 
 
         modelo.addAttribute("nombre", nombre);
-        modelo.addAttribute("descripcion", descripcion);
+        modelo.addAttribute("descripción", descripción);
         modelo.addAttribute("precio", precio);
         modelo.addAttribute("enlace", enlace);
-        modelo.addAttribute("elemento", conecting);
+        modelo.addAttribute("elemento", connecting);
         return "detalle";
     }
     @RequestMapping("/acerca")
