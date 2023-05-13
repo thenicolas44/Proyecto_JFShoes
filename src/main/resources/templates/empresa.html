@@ -4,9 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JF-Acerca de</title>
+    <title>JF - Acerca de nosotros</title>
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <link th:href="@{Css/Estilo_Tienda.css}" rel="stylesheet" />
+    <link th:href="@{Css/Estilo_Letras.css}" rel="stylesheet" />
 </head>
 <body>
-    <h1>acerca de la empresa</h1>
+    <section class="page-section" id="about">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase">Acerca de la empresa</h2>
+                <br> <br> <br>
+            </div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Sueño.jpg}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Enero 2019</h4>
+                            <h4 class="subheading">Sueño</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-about">La empresa surgió producto de un sueño que tuvo el fundador Jhonatan Fuentes, quien soño que estaba fabricando zapatos. Luego de ese suceso, al contarselo a su esposa la fundadora Ana Apolinario, compartieron ideas, y ambos decidieron formalizar la empresa JF</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Comienzo.png}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Marzo 2019</h4>
+                            <h4 class="subheading">Comienzo</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-about">Iniciaron fabricando zapatos formales debido a que el fundador es parte de la institución policial, y decidió introducir por medio de prendas de vestir adecuadas a la división, iniciando con media docena para posteriormente ofrecerles a sus colegas.</p></div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Evolucion.jpg}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Junio 2021</h4>
+                            <h4 class="subheading">Evolucion</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-about">La empresa fue volviendose más reconocida, llegando a fabricar mayor cantidad de productos para sus ventas, llegando a necesitar mas espacio para los calzados. Es por esta razón que decidieron agregar nuevas categorías a su catálogo como sandalías, zapatillas, botines, etc.</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Actualidad.jpg}" alt="..." /></div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4>Abril 2023</h4>
+                            <h4 class="subheading">Actualidad</h4>
+                        </div>
+                        <div class="timeline-body"><p class="text-about">Actualmente, la empresa cuenta con un mercado habitual de clientes, también tiene su propia fabrica y están en búsqueda de cumplir más objetivos.</p></div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-image">
+                        <h4>
+                            SE PARTE
+                            <br />
+                            DE NUESTRA
+                            <br />
+                            HISTORIA!
+                        </h4>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section class="page-section bg-light" id="team">
+        <div class="container">
+            <div class="text-center">
+                
+                <div class="row justify-content-center">
+                    <div class="lineGraphic "></div>
+                    <h2 class="section-heading text-uppercase">Fundadores</h2>
+                    <div class="lineGraphic "></div>
+                </div>
+                <h3 class="section-subheading text-muted text-center">Equipo con alto despempeño en su rol.</h3>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" th:src="@{/assets/imagenes/team/Jhonatan.jpg}" alt="..." />
+                        <h4>Jhonatan Fuentes</h4>
+                        <p class="text-muted text-center">Gerente</p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Twitter Profile"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Parveen Anand LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="team-member">
+                        <img class="mx-auto rounded-circle" th:src="@{/assets/imagenes/team/Ana.jpg}" alt="..." />
+                        <h4>Ana Apolinario</h4>
+                        <p class="text-muted text-center">Supervisora</p>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Twitter Profile"><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen Facebook Profile"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Diana Petersen LinkedIn Profile"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center"><p class="large text-muted">"En JF buscamos lo mejor para ti, con más de 5 años ofreciendo diferentes alternativas para tu estilo, porque la moda es un concepto y tú lo representas".</p></div>
+            </div>
+        </div>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 </body>
 </html>
