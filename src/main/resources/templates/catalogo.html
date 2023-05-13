@@ -25,7 +25,7 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="footer-black" data-active-color="danger">
       <div class="logo">
-        <a><img class="logo-normal" src="../assets/Logo-JF.png" alt="..." /></a>
+        <a th:href="@{/inicio}"><img class="logo-normal" src="../assets/Logo-JF.png" alt="..." /></a>
         <span class="simple-text text-center">
           JF CALZADOS
         </span>
@@ -141,7 +141,7 @@
                         </div>
                         <!-- ACCIONES-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Ver opciones</a></div>
+                            <div class="text-center"><a id ="3" onclick="fnProcesaPaciente(this);" class="btn btn-outline-dark mt-auto" >Ver opciones</a></div>
                         </div>
                     </div>
                 </div>
@@ -361,6 +361,7 @@
   <script th:src="@{/js/plugins/bootstrap-notify.js}"></script>
   
   <script th:src="@{/demo/demo.js}"></script>
+  <script th:src="@{/js/src_login.js}"></script>
   
   <script>
     $(document).ready(function() {
