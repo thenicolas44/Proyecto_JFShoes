@@ -12,6 +12,21 @@ public class UsuarioModel {
     @Column(unique = true, nullable = false, name = "user_id")
     private long id;
 
+    @Column(name="NOMBRE",length=50,nullable=false)
+    private String nombre;
+    @Column(name="APELLIDO",length=100,nullable=false)
+    private String apellido;
+    @Column(name="CORREO",length=30,nullable=false)
+    private String correo;
+    @Column(name="CONTRASEÑA",length=10,nullable=false)
+    private String contraseña;
+    @Column(name="NICKNAME",length=15,nullable=false)
+    private String nickname;
+    @Column(name="IDENTIFICACION",length=20,nullable=false)
+    private String identificacion;
+    @Column(name="TIPO_IDENTIFICACION",length=8,nullable=false)
+    private String tipoIdentificacion;
+
     public long getId() {
         return id;
     }
@@ -60,11 +75,5 @@ public class UsuarioModel {
     public void setTipoIdentificacion(String tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
     }
-    private String nombre;
-    private String apellido;
-    private String correo;
-    private String contraseña;
-    private String nickname;
-    private String identificacion;
-    private String tipoIdentificacion;
+    
 }

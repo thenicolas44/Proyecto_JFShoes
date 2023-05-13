@@ -15,7 +15,9 @@ public class ProductoModel {
     private String descripcion;
     private String color;
     private String talla;
-    private String id_categoria;
+    @ManyToOne(fetch=FetchType.LAZY,optional=false)
+    @JoinColumn(name="categoria_id")
+    private CategoriaModel id_categoria;
     
     public long getId() {
         return id;
@@ -52,11 +54,5 @@ public class ProductoModel {
     }
     public void setTalla(String talla) {
         this.talla = talla;
-    }
-    public String getId_categoria() {
-        return id_categoria;
-    }
-    public void setId_categoria(String id_categoria) {
-        this.id_categoria = id_categoria;
     }
 }
