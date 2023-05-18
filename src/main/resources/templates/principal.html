@@ -12,8 +12,23 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
         <link th:href="@{Css/Estilo_Tienda.css}" rel="stylesheet" />
         <link th:href="@{Css/Estilo_Letras.css}" rel="stylesheet" />
+        <link th:href="@{Css/Estilo_Intro.css}"rel="stylesheet">
     </head>
     <body id="page-top">
+        <div class="intro">
+            <img th:src="@{/assets/Logo-JF-BN.ico}" alt="clarkode logo">
+            <h1 class="logo">
+                <span class="logo-parts">J</span>
+                <span class="logo-parts">F</span>
+                <span class="logo-parts"></span>
+                <span class="logo-parts">S</span>
+                <span class="logo-parts">H</span>
+                <span class="logo-parts">O</span>
+                <span class="logo-parts">E</span>
+                <span class="logo-parts">S</span>
+            </h1>
+            <P>Sé parte de Nuestra Historia </P>
+        </div>
         <!-- Navegación en la barra superior -->
         <!-- Navegador -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
@@ -47,8 +62,8 @@
                                 </svg>
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#portfolio">Destacados</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/principal}">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/catalogo}">Destacados</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
@@ -345,6 +360,7 @@
         <!-- Core theme JS-->
         <script th:src="@{/js/src_login.js}"></script>
         <script th:src="@{/js/scripts.js}"></script>
+        <script th:src="@{/js/app.js}"></script>
         
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <!-- * *                               SB Forms JS                               * *-->
