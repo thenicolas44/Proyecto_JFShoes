@@ -1,371 +1,96 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>JF - Inicio</title>
-        <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <link th:href="@{Css/Estilo_Tienda.css}" rel="stylesheet" />
-        <link th:href="@{Css/Estilo_Letras.css}" rel="stylesheet" />
-        <link th:href="@{Css/Estilo_Intro.css}"rel="stylesheet">
-    </head>
-    <body id="page-top">
-        <div class="intro">
-            <img th:src="@{/assets/Logo-JF-BN.ico}" alt="clarkode logo">
-            <h1 class="logo">
-                <span class="logo-parts">J</span>
-                <span class="logo-parts">F</span>
-                <span class="logo-parts"></span>
-                <span class="logo-parts">S</span>
-                <span class="logo-parts">H</span>
-                <span class="logo-parts">O</span>
-                <span class="logo-parts">E</span>
-                <span class="logo-parts">S</span>
-            </h1>
-            <P>Sé parte de Nuestra Historia </P>
-        </div>
-        <!-- Navegación en la barra superior -->
-        <!-- Navegador -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
-        <div class="container">
-            
-            <a class=" navbar-brand" th:href="@{/inicio}"><img class="logo-nav" th:src="@{/assets/imagenes/Logo-JF.png}" alt="..." /></a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars ms-1"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <svg width="20" height="20" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link">
-                            <svg width="20" height="20" viewBox="0 0 17 17"><path d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z" fill="currentColor"></path>
-                            </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" th:href="@{/login}">
-                            <svg width="17" height="17" viewBox="0 0 17 17">
-                                <g>
-                                </g>
-                                    <path d="M17 16.488c-0.063-2.687-2.778-4.999-6.521-5.609v-1.374c0.492-0.473 0.842-1.207 1.071-1.833 0.332-0.166 0.624-0.536 0.794-1.033 0.238-0.688 0.146-1.323-0.206-1.629 0.028-0.238 0.046-0.481 0.015-0.723-0.079-0.663 0.065-1.038 0.194-1.368 0.106-0.277 0.229-0.591 0.106-0.945-0.442-1.273-1.727-1.974-3.618-1.974l-0.264 0.005c-1.313 0.047-1.707 0.6-1.971 1.115-0.033 0.062-0.077 0.146-0.077 0.151-1.712 0.153-1.697 1.569-1.684 2.707l0.003 0.369c0 0.205 0.009 0.419 0.026 0.639-0.425 0.3-0.504 1.005-0.179 1.737 0.185 0.415 0.452 0.729 0.749 0.892 0.243 0.674 0.625 1.47 1.179 1.965v1.283c-3.798 0.589-6.554 2.907-6.617 5.625l-0.012 0.512h17.023l-0.011-0.512zM1.054 16c0.392-2.094 2.859-3.821 6.122-4.204l0.441-0.052v-2.666l-0.216-0.15c-0.393-0.272-0.791-0.947-1.090-1.851l-0.083-0.281-0.294-0.051c-0.053-0.019-0.208-0.153-0.33-0.428-0.075-0.168-0.104-0.312-0.112-0.415l0.51 0.143-0.096-0.749c-0.042-0.33-0.064-0.651-0.064-0.95l-0.003-0.38c-0.015-1.341 0.051-1.634 0.773-1.699 0.545-0.048 0.752-0.449 0.876-0.689 0.15-0.292 0.28-0.543 1.12-0.574l0.227-0.004c0.829 0 2.279 0.169 2.669 1.282 0 0.043-0.052 0.177-0.090 0.275-0.145 0.374-0.364 0.939-0.254 1.853 0.024 0.188-0.007 0.424-0.040 0.675l-0.089 0.805 0.441-0.048c0.008 0.104-0.004 0.269-0.075 0.472-0.097 0.289-0.242 0.438-0.237 0.454h-0.36l-0.114 0.342c-0.283 0.853-0.65 1.497-1.009 1.768l-0.198 0.15v2.726l0.438 0.055c3.211 0.401 5.641 2.123 6.030 4.192h-14.893z" fill="currentColor"></path>
-                                </svg>
-                        </a>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/principal}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/catalogo}">Destacados</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-        <!-- Mensaje Principal -->
-        <header class="masthead">
-            <div class="container">
-                <div class="masthead-subheading">Bienvenido a la tienda de Calzado</div>
-                <div class=" ">
-                    <h1 class="font-amelinda text-uppercase ">Jhonatan Fuentes</h1> 
-                </div>
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/catalogo}">Ir a la Tienda Virtual</a>
-            </div>
-        </header>
+<head>
+	<title>JF-Login</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" th:href="@{/fuentes/fonts/font-awesome-4.7.0/css/font-awesome.min.css}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" th:href="@{/fuentes/fonts/iconic/css/material-design-iconic-font.min.css}">
 
-        <!-- Productos Destacados para Mujeres -->
-        <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-                <div class="text-lg-start">
-                    <h2 class="section-heading text-uppercase Titulo_Productos_Destacados">Productos Destacados Para Mujeres</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-8">
-                        <!-- Producto destacado N°1 -->
-                        <div class="portfolio-item" >
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" th:src="@{/assets/imagenes/portfolio/Yummy_ProductoDestacado.jpg}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" >JUMMY</div>
-                                <div class="text-lg-start">Características: </div>
-                                <ul>
-                                    <li class="text-lg-start">Modelo: Jummy para Mujeres</li>
-                                    <li class="text-lg-start">Talla: 35 - 39</li>
-                                    <li class="text-lg-start">Color: Blanco</li>
-                                </ul>
-                                <div class="text-center Color_Costo">
-                                    <Font size="5">
-                                        S/95.00
-                                    </Font>
-                                </div>
-                                <!-- th:href="@{/detalle}"-->
-                                <a id="1" class="btn btn-secondary btn-xl text-uppercase"  onclick = "fnProcesaPaciente(this);">¡Obtener Ya!</a>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-8">
-                        <!-- Producto destacado N°2 -->
-                        <div class="portfolio-item" id="adele">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" th:src="@{/assets/imagenes/portfolio/Adele_ProductoDestacado.jpg}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading" >ADELE</div>
-                                <div class="text-lg-start">Características: </div>
-                                <ul>
-                                    <li class="text-lg-start">Modelo: Adele para Mujeres</li>
-                                    <li class="text-lg-start">Talla: 35 - 38</li>
-                                    <li class="text-lg-start">Color: Negro</li>
-                                </ul>
-                                <div class="text-center Color_Costo">
-                                    <Font size="5">
-                                        S/120.00
-                                    </Font>
-                                </div>
-                                <a id="2" class="btn btn-secondary btn-xl text-uppercase" onclick = "fnProcesaPaciente(this);" >¡Obtener Ya!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-8">
-                        <!-- Producto destacado N°3 -->
-                        <div class="portfolio-item" id="oreana">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" th:src="@{/assets/imagenes/portfolio/OreanaProductoDestacado.jpg}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">OREANA</div>
-                                <div class="text-lg-start">Características: </div>
-                                <ul>
-                                    <li class="text-lg-start">Modelo: Oreana para Mujeres</li>
-                                    <li class="text-lg-start">Talla: 36 - 38</li>
-                                    <li class="text-lg-start">Color: Blanco</li>
-                                </ul>
-                                <div class="text-center Color_Costo">
-                                    <Font size="5">
-                                        S/105.00
-                                    </Font>
-                                </div>
-                                <a class="btn btn-secondary btn-xl text-uppercase">¡Obtener Ya!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+<!--===============================================================================================-->
+	<link rel="stylesheet" th:href="@{/css/Estilo_borders.css}">
+	<link rel="stylesheet" th:href="@{/css/Estilo_login.css}">
+<!--===============================================================================================-->
 
-        <!-- Productos Destacados para Hombres -->
-        <section class="page-section bg-light" id="portfolio">
-            <div class="container">
-                <div class="text-lg-start">
-                    <h2 class="section-heading text-uppercase Titulo_Productos_Destacados">Productos Destacados Para Hombres</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-sm-6 mb-8">
-                        <!-- Producto destacado N°1 -->
-                        <div class="portfolio-item" id="andrew">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" th:src="@{/assets/imagenes/portfolio/Andrew_ProductoDestacado.jpg}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">ANDREW</div>
-                                <div class="text-lg-start">Características: </div>
-                                <ul>
-                                    <li class="text-lg-start">Modelo: ANDREW para Hombres</li>
-                                    <li class="text-lg-start">Talla: 42 - 44</li>
-                                    <li class="text-lg-start">Color: Marrón</li>
-                                </ul>
-                                <div class="text-center Color_Costo">
-                                    <Font size="5">
-                                        S/139.00
-                                    </Font>
-                                </div>
-                                <a class="btn btn-secondary btn-xl text-uppercase">¡Obtener Ya!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-8">
-                        <!-- Producto destacado N°2 -->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" th:src="@{/assets/imagenes/portfolio/Fransciscana_ProductoDestacado.jpg}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">FRANSCISCANA</div>
-                                <div class="text-lg-start">Características: </div>
-                                <ul>
-                                    <li class="text-lg-start">Modelo: Fransciscana para Hombres</li>
-                                    <li class="text-lg-start">Talla: 42 - 45</li>
-                                    <li class="text-lg-start">Color: Marrón</li>
-                                </ul>
-                                <div class="text-center Color_Costo">
-                                    <Font size="5">
-                                        S/150.00
-                                    </Font>
-                                </div>
-                                <a class="btn btn-secondary btn-xl text-uppercase">¡Obtener Ya!</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6 mb-8">
-                        <!-- Producto destacado N°3 -->
-                        <div class="portfolio-item">
-                            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
-                                <div class="portfolio-hover">
-                                    <div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
-                                </div>
-                                <img class="img-fluid" th:src="@{/assets/imagenes/portfolio/Kyle_ProductoDestacado.jpg}" alt="..." />
-                            </a>
-                            <div class="portfolio-caption">
-                                <div class="portfolio-caption-heading">KYLE</div>
-                                <div class="text-lg-start">Características: </div>
-                                <ul>
-                                    <li class="text-lg-start">Modelo: Kyle para Hombres</li>
-                                    <li class="text-lg-start">Talla: 38 - 44</li>
-                                    <li class="text-lg-start">Color: Marrón</li>
-                                </ul>
-                                <div class="text-center Color_Costo">
-                                    <Font size="5">
-                                        S/135.00
-                                    </Font>
-                                </div>
-                                <a class="btn btn-secondary btn-xl text-uppercase">¡Obtener Ya!</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Parte sin utilizar (De momento)
-        <div class="py-5">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/microsoft.svg" alt="..." aria-label="Microsoft Logo" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/google.svg" alt="..." aria-label="Google Logo" /></a>
-                    </div>
-                    <div class="col-md-3 col-sm-6 my-3">
-                        <a href="#!"><img class="img-fluid img-brand d-block mx-auto" src="assets/img/logos/facebook.svg" alt="..." aria-label="Facebook Logo" /></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        -->
-        <!-- Contacto-->
-        <section class="page-section" id="contact">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Contactanos</h2>
-            </div>
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- * * SB Forms Contact Form * *-->
-                <!-- * * * * * * * * * * * * * * *-->
-                <!-- This form is pre-integrated with SB Forms.-->
-                <!-- To make this form functional, sign up at-->
-                <!-- https://startbootstrap.com/solution/contact-forms-->
-                <!-- to get an API token!-->
-                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                    <div class="row align-items-stretch mb-5">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <!-- Nombre Completo -->
-                                <input class="form-control" id="name" type="text" placeholder="Nombre Completo" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="name:required">Escriba su nombre completo</div>
-                            </div>
-                            <div class="form-group">
-                                <!-- Correo Elétronico -->
-                                <input class="form-control" id="email" type="email" placeholder="Correo Electronico" data-sb-validations="required,email" />
-                                <div class="invalid-feedback" data-sb-feedback="email:required">Escriba su correo electronico</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Correo Electronico no valido</div>
-                            </div>
-                            <div class="form-group mb-md-0">
-                                <!-- Número de telefono -->
-                                <input class="form-control" id="phone" type="tel" placeholder="Número de telefono" data-sb-validations="required" />
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">Escriba su número de telefono</div>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group form-group-textarea mb-md-0">
-                                <!-- Mensaje de consulta-->
-                                <textarea class="form-control" id="message" placeholder="Escribe tu consulta" data-sb-validations="required"></textarea>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">Escriba su mensaje</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Submit success message-->
-                    <!---->
-                    <!-- This is what your users will see when the form-->
-                    <!-- has successfully submitted-->
-                    <div class="d-none" id="submitSuccessMessage">
-                        <div class="text-center text-white mb-3">
-                            <div class="fw-bolder">Form submission successful!</div>
-                            To activate this form, sign up at
-                            <br />
-                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                        </div>
-                    </div>
-                    <!-- Mensaje de error -->
-                    <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error al enviar el mensaje!</div></div>
-                    <!-- Botón de enviar-->
-                    <div class="text-center"><button class="btn btn-primary btn-xl text-uppercase disabled" id="submitButton" type="submit">Enviar Mensaje</button></div>
-                </form>
-            </div>
-        </section>
-        <!-- Parte Final del Sitio Web -->
-        <footer class="footer py-4">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 ">Copyright &copy; Tu Website 2023</div>
-                    <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="text-decoration-none" th:href="@{/acerca}">Acerca de Nosotros</a>
-                    </div>
-                    <div class="col-lg-4 text-lg-end">
-                        <a class="link-dark text-decoration-none me-3" href="#!">Política de Privacidad</a>
-                        <a class="link-dark text-decoration-none me-3" href="#!">Terminos de Uso</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <div class="col-lg-12 text-center">
-            <a class="btn btn-dark btn-social mx-2" th:href="@{/#!}" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script th:src="@{/js/src_login.js}"></script>
-        <script th:src="@{/js/scripts.js}"></script>
-        <script th:src="@{/js/app.js}"></script>
-        
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <!-- * *                               SB Forms JS                               * *-->
-        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100 p-l-55 p-r-55 p-t-65 p-b-54">
+				<form class="login100-form validate-form">
+					<span class="login100-form-title p-b-49">
+						Iniciar sesión
+					</span>
+
+					<div class="wrap-input100 validate-input m-b-23" data-validate = "Username is reauired">
+						<span class="label-input100">Nombre de usuario o correo electrónico</span>
+						<input class="input100" type="text" id="user" placeholder="Escribe tu nombre de usuario">
+						<span class="focus-input100" data-symbol="&#xf206;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Password is required">
+						<span class="label-input100">Contraseña</span>
+						<input class="input100" type="password" id="password" placeholder="Escribe tu contraseña">
+						<span class="focus-input100" data-symbol="&#xf190;"></span>
+					</div>
+					
+					<div class="text-right p-t-8 p-b-31">
+						<a href="#">
+							¿Olvidaste tu contraseña?
+						</a>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+							<button onclick="fnInicioSession();" class="login100-form-btn" type="button">
+								Iniciar sesión
+							</button>
+							
+						</div>
+					</div>
+					
+					<div class="txt1 text-center p-t-54 p-b-20">
+						<span>
+							O regístrate usando
+						</span>
+					</div>
+					
+					<div class="flex-c-m">
+						<a href="https://es-la.facebook.com/" class="login100-social-item bg1">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="https://twitter.com/login" class="login100-social-item bg2">
+							<i class="fa fa-twitter"></i>
+						</a>
+
+						<a href="https://mail.google.com/mail?hl=es" class="login100-social-item bg3">
+							<i class="fa fa-google"></i>
+						</a>
+					</div>
+
+					<div class="flex-col-c p-t-155">
+						<span class="txt1 p-b-17">
+							O regístrate aquí
+						</span>
+
+						<a href="#" class="txt2">
+							Registrarse
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+<!-- 	<script th:src="@{/js/funciones_login.js}"></script>-->
+   <script th:src="@{/js/src_login.js}"></script>
+</body>
 </html>
