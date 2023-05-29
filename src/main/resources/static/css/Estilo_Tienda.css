@@ -16,6 +16,10 @@
   src: url(../fuentes/Amelinda.otf);
 }
 
+.Posicion_Izquierda_Link{
+  margin-left: 643px;
+}
+
 .logo-nav{
   max-width: 100px;
   
