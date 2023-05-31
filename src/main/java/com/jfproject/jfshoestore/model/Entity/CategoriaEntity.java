@@ -1,19 +1,23 @@
-package com.jfproject.jfshoestore.model;
+package com.jfproject.jfshoestore.model.Entity;
 
 import jakarta.persistence.*;
 
 @Entity
 @Table(name="categoria")
-public class CategoriaModel {
-    
+public class CategoriaEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true,nullable = false,name = "categoria_id")
     private long id;
+    @Column(name="user_sexo",length=10,nullable=false)
     private String sexo;
+    @Column(name="user_temporada",length=20,nullable=false)
     private String temporada;
+    @Column(name="user_modelo",length=20,nullable=false)
     private String modelo;
+    @Column(name="user_ocacion",length=50,nullable=false)
     private String ocacion;
+
     public long getId() {
         return id;
     }
@@ -44,6 +48,4 @@ public class CategoriaModel {
     public void setOcacion(String ocacion) {
         this.ocacion = ocacion;
     }
-
-    
 }

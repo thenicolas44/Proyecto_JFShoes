@@ -1,32 +1,33 @@
-package com.jfproject.jfshoestore.model;
+package com.jfproject.jfshoestore.model.Entity;
 
 import jakarta.persistence.*;
 
 
 @Entity
 @Table(name = "usuario")
-public class UsuarioModel {
-    
+public class UsuarioEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, name = "user_id")
     private long id;
 
-    @Column(name="NOMBRE",length=50,nullable=false)
+    @Column(name="user_NOMBRE",length=50,nullable=false)
     private String nombre;
-    @Column(name="APELLIDO",length=100,nullable=false)
+    @Column(name="user_APELLIDO",length=100,nullable=false)
     private String apellido;
-    @Column(name="CORREO",length=30,nullable=false)
+    @Column(name="user_CORREO",length=30,nullable=false)
     private String correo;
-    @Column(name="CONTRASEÑA",length=10,nullable=false)
+    @Column(name="user_CONTRASEÑA",length=10,nullable=false)
     private String contraseña;
-    @Column(name="NICKNAME",length=15,nullable=false)
+    @Column(name="user_NICKNAME",length=15,nullable=false)
     private String nickname;
-    @Column(name="IDENTIFICACION",length=20,nullable=false)
+    @Column(name="user_IDENTIFICACION",length=20,nullable=false)
     private String identificacion;
-    @Column(name="TIPO_IDENTIFICACION",length=8,nullable=false)
+    @Column(name="user_TIPO_IDENTIFICACION",length=8,nullable=false)
     private String tipoIdentificacion;
-
+    @Column(name = "user_TIPO_USUARIO", length = 15, nullable = false ,columnDefinition = "VARCHAR2(8) DEFAULT 'Cliente'")
+    private String tipoUsuario;
+    
     public long getId() {
         return id;
     }
@@ -75,5 +76,12 @@ public class UsuarioModel {
     public void setTipoIdentificacion(String tipoIdentificacion) {
         this.tipoIdentificacion = tipoIdentificacion;
     }
+    public String getTipoUsuario() {
+        return tipoUsuario;
+    }
+    public void setTipoUsuario(String tipoUsuario) {
+        this.tipoUsuario = tipoUsuario;
+    }
+
     
 }
