@@ -1,5 +1,9 @@
 package com.jfproject.jfshoestore.model.dao;
 
-public interface IUsuarioDao {
+import org.springframework.data.repository.CrudRepository;
+
+import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
+
+public interface IUsuarioDao extends CrudRepository<UsuarioEntity,Long>{
     
 }
