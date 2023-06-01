@@ -9,3 +9,8 @@ function fnInicioSession(){
     var contra = document.getElementById("password").value;
     window.location.href="http://localhost:8080/detalle/"+usuario+"/"+contra+"/1";
 }
+
+function fnMostrarValue(){
+    var valor = document.getElementById("id_tipo").value;
+    window.alert(valor);
+}

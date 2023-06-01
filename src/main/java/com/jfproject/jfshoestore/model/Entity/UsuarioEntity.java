@@ -25,7 +25,7 @@ public class UsuarioEntity {
     private String identificacion;
     @Column(name="user_TIPO_IDENTIFICACION",length=8,nullable=false)
     private String tipoIdentificacion;
-    @Column(name = "user_TIPO_USUARIO", length = 15, nullable = false ,columnDefinition = "VARCHAR2(8) DEFAULT 'Cliente'")
+    @Column(name = "user_TIPO_USUARIO", columnDefinition = "VARCHAR2(100) DEFAULT 'Cliente'")
     private String tipoUsuario;
     
     public long getId() {

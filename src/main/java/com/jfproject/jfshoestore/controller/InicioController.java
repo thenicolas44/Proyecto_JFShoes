@@ -50,7 +50,7 @@ public class InicioController {
 
     @RequestMapping("/login")
     public String login(){
-        return "login";
+        return "login/LoginRegistro";
     }
     
 }

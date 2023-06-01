@@ -207,7 +207,14 @@ iframe {
   line-height: 1.2;
   text-align: center;
 }
-
+.login100-form-subtitle{
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 20px;
+  color: #27212134;
+  line-height: 1.2;
+  text-align: center;
+}
 
 
 /*------------------------------------------------------------------
