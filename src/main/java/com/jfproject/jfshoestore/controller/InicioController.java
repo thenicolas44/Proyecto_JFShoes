@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
 import com.jfproject.jfshoestore.model.service.IServicio;
 
 @Controller
@@ -15,7 +16,9 @@ public class InicioController {
     private IServicio miServicio;
 
     @RequestMapping("/inicio")
-    public String principal(){
+    public String principal(Model modelo){
+        UsuarioEntity user = new UsuarioEntity();
+        modelo.addAttribute("usuario", user);
         return "principal";
     }
     @RequestMapping("/catalogo")

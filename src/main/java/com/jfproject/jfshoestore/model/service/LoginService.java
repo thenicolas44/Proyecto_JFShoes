@@ -13,8 +13,8 @@ public class LoginService implements ILoginService{
     private IUsuarioDao userDAO;
 
     @Override
-    public UsuarioEntity buscarUser(Long id) {
-        return userDAO.findById(id).orElse(null);
+    public UsuarioEntity buscarUser(String nombre) {
+        return userDAO.findbyname(nombre);
     }
 
     @Override

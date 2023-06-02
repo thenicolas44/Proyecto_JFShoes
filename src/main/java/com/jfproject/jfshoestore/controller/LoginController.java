@@ -3,6 +3,7 @@ package com.jfproject.jfshoestore.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
@@ -28,5 +29,19 @@ public class LoginController {
     public String guardarRegistro(UsuarioEntity user){
         loginService.registrarUser(user);
         return "redirect:/login/";
+    }
+    @RequestMapping("/{usuario}/{contra}")
+    public String inicioSession(
+        @PathVariable(value = "usuario") String usuario,
+        @PathVariable(value = "contra") String contra,
+        Model modelo
+    ){
+        UsuarioEntity user = loginService.buscarUser(usuario);
+        if(usuario != null && user.getContraseña().equals(contra)){
+            modelo.addAttribute("usuario", user);
+            return "principal";
+        }
+        modelo.addAttribute("mensaje", "Error usuario o contraseña incorrecto");
+        return "login/LoginInicio";
     }
 }
