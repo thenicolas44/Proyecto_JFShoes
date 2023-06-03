@@ -22,4 +22,9 @@ public class LoginService implements ILoginService{
         userDAO.save(nuevoUser);
     }
 
+    @Override
+    public UsuarioEntity buscarId(Long id) {
+        return userDAO.findById(id).orElse(null);
+    }
+
 }

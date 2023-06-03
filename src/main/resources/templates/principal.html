@@ -34,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
         <div class="container">
             
-            <a class=" navbar-brand" th:href="@{/inicio}"><img class="logo-nav" th:src="@{/assets/imagenes/Logo-JF.png}" alt="..." /></a>
+            <a class=" navbar-brand" th:href="@{/jf-store/} + (${usuario.id != 0 ? usuario.id : ''})"><img class="logo-nav" th:src="@{/assets/imagenes/Logo-JF.png}" alt="..." /></a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -62,8 +62,8 @@
                                 </svg>
                         </a>
                     </li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/inicio}">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" th:href="@{/catalogo}">Destacados</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Destacados</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
             </div>
@@ -76,7 +76,7 @@
                 <div class=" ">
                     <h1 class="font-amelinda text-uppercase ">Jhonatan Fuentes</h1> 
                 </div>
-                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/catalogo}">Ir a la Tienda Virtual</a>
+                <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">Ir a la Tienda Virtual</a>
             </div>
         </header>
 
@@ -110,7 +110,7 @@
                                     </Font>
                                 </div>
                                 <!-- th:href="@{/detalle}"-->
-                                <a id="1" class="btn btn-secondary btn-xl text-uppercase"  onclick = "fnProcesaPaciente(this);">¡Obtener Ya!</a>
+                                <a id="1" class="btn btn-secondary btn-xl text-uppercase"  onclick = "fnDetalle(this);">¡Obtener Ya!</a>
                                 
                             </div>
                         </div>
@@ -137,7 +137,7 @@
                                         S/120.00
                                     </Font>
                                 </div>
-                                <a id="2" class="btn btn-secondary btn-xl text-uppercase" onclick = "fnProcesaPaciente(this);" >¡Obtener Ya!</a>
+                                <a id="2" class="btn btn-secondary btn-xl text-uppercase" onclick = "fnDetalle(this);" >¡Obtener Ya!</a>
                             </div>
                         </div>
                     </div>

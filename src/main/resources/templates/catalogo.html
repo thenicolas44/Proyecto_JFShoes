@@ -25,7 +25,7 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="footer-black" data-active-color="danger">
       <div class="logo">
-        <a th:href="@{/inicio}"><img class="logo-normal" src="../assets/Logo-JF.png" alt="..." /></a>
+        <a th:href="@{/inicio}"><img class="logo-normal" th:src="@{/assets/Logo-JF.png}" alt="..." /></a>
         <span class="simple-text text-center">
           JF CALZADOS
         </span>
@@ -129,7 +129,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- PRODUCTO ALBA-->
-                        <img class="card-img-top product_Store" src="../assets/products/Alba.JPG" alt="..." />
+                        <img class="card-img-top product_Store" th:src="@{/assets/products/Alba.JPG}" alt="..." />
                         <!-- DETALLE-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -141,7 +141,7 @@
                         </div>
                         <!-- ACCIONES-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a id ="3" onclick="fnProcesaPaciente(this);" class="btn btn-outline-dark mt-auto" >Ver opciones</a></div>
+                            <div class="text-center"><a id ="3" onclick="fnDetalle(this);" class="btn btn-outline-dark mt-auto" >Ver opciones</a></div>
                         </div>
                     </div>
                 </div>
@@ -150,7 +150,7 @@
                         <!-- EN VENTA-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!--PRODUCTO HANNA-->
-                        <img class="card-img-top" src="../assets/products/Hanna.JPG" alt="..." />
+                        <img class="card-img-top" th:src="@{/assets/products/Hanna.JPG}" alt="..." />
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- NOMBRE-->
@@ -179,7 +179,7 @@
                         <!-- EN VENTA-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- IMAGEN ITZELL -->
-                        <img class="card-img-top" src="../assets/products/Itzell.JPG" alt="..." />
+                        <img class="card-img-top" th:src="@{/assets/products/Itzell.JPG}" alt="..." />
                         <!-- DETALLE -->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -199,7 +199,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- IMAGEN CABALLERO -->
-                        <img class="card-img-top " src="../assets/products/Pantufla caballero.jpg" alt="..." />
+                        <img class="card-img-top " th:src="@{/assets/products/Pantufla caballero.jpg}" alt="..." />
                         <!-- DETALLE -->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -228,7 +228,7 @@
                         <!-- EN VENTA -->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- PANTUFLA IMAGEN -->
-                        <img class="card-img-top" src="../assets/products/Pantufla dama.jpg" alt="..." />
+                        <img class="card-img-top" th:src="@{/assets/products/Pantufla dama.jpg}" alt="..." />
                         <!-- DETALLE -->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -250,7 +250,7 @@
                         <!-- EN VENTA -->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- IMAGEN ANDREW -->
-                        <img class="card-img-top" src="../assets/products/Sandalia Andrew.jpg" alt="..." />
+                        <img class="card-img-top" th:src="@{/assets/products/Sandalia Andrew.jpg}" alt="..." />
                         <!-- DETALLE DE PRODUCTO-->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -272,7 +272,7 @@
                         <!-- EN VENTA -->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <!-- IMAGEN XIME -->
-                        <img class="card-img-top" src="../assets/products/Xime.JPG" alt="..." />
+                        <img class="card-img-top" th:src="@{/assets/products/Xime.JPG}" alt="..." />
                         <!-- DETALLE PRODUCTO -->
                         <div class="card-body p-4">
                             <div class="text-center">
@@ -299,7 +299,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- IMAGEN YUMMY -->
-                        <img class="card-img-top" src="../assets/products/Yummy.JPG" alt="..." />
+                        <img class="card-img-top" th:src="@{/assets/products/Yummy.JPG}" alt="..." />
                         <!-- DETALLE PRODUCTO -->
                         <div class="card-body p-4">
                             <div class="text-center">
