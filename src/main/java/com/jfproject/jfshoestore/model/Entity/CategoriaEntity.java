@@ -1,51 +1,68 @@
 package com.jfproject.jfshoestore.model.Entity;
 
+import java.io.Serializable;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="categoria")
-public class CategoriaEntity {
+@Table(name = "CATEGORIAS")
+public class CategoriaEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true,nullable = false,name = "categoria_id")
-    private long id;
-    @Column(name="user_sexo",length=10,nullable=false)
-    private String sexo;
-    @Column(name="user_temporada",length=20,nullable=false)
-    private String temporada;
-    @Column(name="user_modelo",length=20,nullable=false)
-    private String modelo;
-    @Column(name="user_ocacion",length=50,nullable=false)
-    private String ocacion;
+    @Column(name="CAT_ID")
+    private Long id;
 
-    public long getId() {
+    @Column(name="CAT_SEXO")
+    private String sexo;
+
+    @Column(name="CAT_TEMPORADA")
+    private String temporada;
+
+    @Column(name="CAT_MODELO")
+    private String modelo;
+
+    @Column(name = "CAT_OCASION")
+    private String ocasion;
+
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
+
     public String getSexo() {
         return sexo;
     }
+
     public void setSexo(String sexo) {
         this.sexo = sexo;
     }
+
     public String getTemporada() {
         return temporada;
     }
+
     public void setTemporada(String temporada) {
         this.temporada = temporada;
     }
+
     public String getModelo() {
         return modelo;
     }
+
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
-    public String getOcacion() {
-        return ocacion;
+
+    public String getOcasion() {
+        return ocasion;
     }
-    public void setOcacion(String ocacion) {
-        this.ocacion = ocacion;
+
+    public void setOcasion(String ocasion) {
+        this.ocasion = ocasion;
     }
+
+    
 }
