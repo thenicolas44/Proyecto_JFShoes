@@ -1,0 +1,27 @@
+.textHora{
+    font-size: 200px;
+    padding-top: 20px;
+}
+
+.textFecha{
+    font-size: 50px;
+    padding-bottom: 100px;
+}
+
+.textBienvenido{
+    font-size: 50px;
+    padding-bottom: 20px;
+}
+
+.textFecha, .textHora, .textBienvenido{
+    font-family: PoppinsFont;
+    text-align: center;
+    color: #000000;
+}
+
+
+
+@font-face {
+    font-family: PoppinsFont;
+    src: url(../fonts/Poppins-Regular.ttf);
+}
