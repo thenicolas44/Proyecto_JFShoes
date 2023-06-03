@@ -1,31 +1,31 @@
 package com.jfproject.jfshoestore.model.Entity;
 
+import java.io.Serializable;
 import jakarta.persistence.*;
 
-
 @Entity
-@Table(name = "usuario")
-public class UsuarioEntity {
+@Table(name = "usuarios")
+public class UsuarioEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false, name = "user_id")
+    @Column(unique = true, nullable = false, name = "USER_ID")
     private long id;
 
-    @Column(name="user_NOMBRE",length=50,nullable=false)
+    @Column(name="USER_NOMBRE",length=50,nullable=false)
     private String nombre;
-    @Column(name="user_APELLIDO",length=100,nullable=false)
+    @Column(name="USER_APELLIDO",length=100,nullable=false)
     private String apellido;
-    @Column(name="user_CORREO",length=30,nullable=false)
+    @Column(name="USER_CORREO",length=30,nullable=false)
     private String correo;
-    @Column(name="user_CONTRASEÑA",length=10,nullable=false)
+    @Column(name="USER_CONTRASEÑA",length=10,nullable=false)
     private String contraseña;
-    @Column(name="user_NICKNAME",length=15,nullable=false)
+    @Column(name="USER_NICKNAME",length=15,nullable=false)
     private String nickname;
-    @Column(name="user_IDENTIFICACION",length=20,nullable=false)
+    @Column(name="USER_IDENTIFICACION",length=20,nullable=false)
     private String identificacion;
-    @Column(name="user_TIPO_IDENTIFICACION",length=8,nullable=false)
+    @Column(name="USER_TIPOIDENTIFICACION",length=8,nullable=false)
     private String tipoIdentificacion;
-    @Column(name = "user_TIPO_USUARIO", columnDefinition = "VARCHAR2(100) DEFAULT 'Cliente'")
+    @Column(name = "USER_TIPO_USUARIO", columnDefinition = "VARCHAR2(100) DEFAULT 'Cliente'")
     private String tipoUsuario;
     
     public long getId() {
