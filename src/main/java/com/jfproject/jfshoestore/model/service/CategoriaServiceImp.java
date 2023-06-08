@@ -5,14 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.jfproject.jfshoestore.model.dao.ICategoriaDAO;
+import com.jfproject.jfshoestore.model.dao.ICategoriaDao;
 import com.jfproject.jfshoestore.model.Entity.CategoriaEntity;
 
 @Service
 public class CategoriaServiceImp implements ICategoriaService{
 
     @Autowired
-    private ICategoriaDAO categoriaDAO;
+    private ICategoriaDao categoriaDAO;
 
     @Override
     public void guardarCategoria(CategoriaEntity categoria) {
