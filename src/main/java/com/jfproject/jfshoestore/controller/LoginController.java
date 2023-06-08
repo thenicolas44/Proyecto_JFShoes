@@ -38,9 +38,15 @@ public class LoginController {
     ){
         UsuarioEntity user = loginService.buscarUser(usuario);
         if(usuario != null && user.getContraseña().equals(contra)){
-            modelo.addAttribute("usuario", user);
-            Long id = user.getId();
-            return "redirect:/jf-store/"+ id;
+            if(user.getTipoUsuario().equals("Administrador")){
+                return "redirect:/admin/";
+            }
+            if(user.getTipoUsuario().equals("Cliente")){
+                modelo.addAttribute("usuario", user);
+                Long id = user.getId();
+                return "redirect:/jf-store/"+ id;
+            }
+            
         }
         modelo.addAttribute("mensaje", "Error usuario o contraseña incorrecto");
         return "login/LoginInicio";

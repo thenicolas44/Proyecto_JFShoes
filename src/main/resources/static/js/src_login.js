@@ -35,8 +35,12 @@ function fnInicioSession(){
     window.location.href="http://localhost:8080/login/"+usuario+"/"+contra;
 }
 
+function fnrevaluar(){
+    var input = document.getElementById("tipo_user");
+    input.value = "Cliente";
+}
 function fnMostrarValue(){
-    var valor = document.getElementById("id_tipo").value;
+    var valor = document.getElementById("tipo_user").value;
     window.alert(valor);
 }
 
