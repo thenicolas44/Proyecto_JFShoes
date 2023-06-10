@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JF - Detalle Zapatilla </title>
+    <title></title>
     <!-- Favicon-->
     <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -55,187 +55,8 @@
         </div>
     </nav>
 
-    <section class="pb-0">
-        <div class="container pt-3 pb-4">
-            <ol class="navbar-nav list-group-horizontal breadcrumb">
-                <li class="nav-item breadcrumb-item"><a th:href="@{/inicio}">Inicio</a></li>
-                <li class="nav-item breadcrumb-item"><a th:href="@{/catalogo}">Catálogo</a></li>
-                <li class="nav-item breadcrumb-item"><a th:href="${element}">Zapatilla <span th:text="${nombre}"></span> </a></li>
-            </ol>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-md-12 pb-5 text-center">
-                    <img class="img-fluid" th:src="${enlace}" alt="..." style="max-height: 400px;">
-                </div>
-                
-                <div class="col-lg-7">
-                    <div class="py-1 px-5">
-                        <h2>Zapatilla <span th:text="${nombre}"></span></h2>
-                    </div>
-                    <div class="py-1 px-5 text-lg-end">
-                        <h3>S/<span th:text="${precio}"></span></h3>
-                    </div>
-                    <div class="row py-1 px-5">
-                        <div class="star-rating">
-                            <input type="radio" name="rating" id="rating-1" value="1">
-                            <label for="rating-1">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-2" value="2">
-                            <label for="rating-2">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-3" value="3">
-                            <label for="rating-3">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-4" value="4">
-                            <label for="rating-4">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-5" value="5">
-                            <label for="rating-5">&#9733;</label>
-                        </div>
-                        <div class="pt-2">
-                            <p>4.8</p>
-                        </div>
-                        <div class="pt-2">
-                            <a href="#contact" style="text-decoration: underline;">Escribir un comentario</a>
-                        </div>
-                    </div>
-                    <div class="row py-1 px-5">
-                        <div>
-                            <p>Seleccionar color</p>
-                        </div>
-                        <div>
-                            <select class="form-select" name="" id="colorProduct">
-                                <option>Elige una opción</option>
-                                <option>Azul</option>
-                                <option>Negro</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="row py-1 px-5">
-                        <div>
-                            <p>Seleccionar Talla</p>
-                        </div>
-                        <div>
-                            <select class="form-select" name="" id="sizeProduct">
-                                <option>Elige una opción</option>
-                                <option>35</option>
-                                <option>36</option>
-                                <option>37</option>
-                                <option>38</option>
-                                <option>39</option>
-                                <option>40</option>
-                            </select>
-                        </div>
-
-                        <div class="py-1 px-5">
-                            <span style="cursor:pointer;" onclick="disminuirCantidad();">
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17" class="bg-light">
-                                    <g>
-                                    </g>
-                                    <path d="M15 8v1h-13v-1h13z" fill="#000000"></path>
-                                </svg>
-                            </span>
-                            <input id="txtCantidad" type="number" class="input-text qty text ajax-ready" value="1" title="Cantidad" size="4" min="1" max="10" step="1" placeholder="" inputmode="numeric" autocomplete="off">
-                            <span style="cursor:pointer;" onclick="aumentarCantidad();">
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
-                                    <g>
-                                    </g>
-                                        <path d="M16 9h-7v7h-1v-7h-7v-1h7v-7h1v7h7v1z" fill="#000000"></path>
-                                </svg>
-                            </span>
-                        </div>
-
-                    </div>
-                    
-                    <div class="row py-3 px-5">
-                        <div class="col-md-6 pb-3">
-                            <button class="btn btn-product btn-main-color" style="width: -webkit-fill-available;">Comprar ahora</button>
-                        </div>
-                        <div class="col-md-6 pb-3">
-                            <button class="btn btn-product btn-main-color" style="width: -webkit-fill-available;">Añadir al carrito</button>
-                        </div>
-                    </div>
-                </div>    
-            </div> 
-        </div>
-    </section>
-
-    <!--PRODUCTOS RELACIONADOS-->
-
-    <section class="pb-1">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 my-0 py-0">
-                    <p class="fw-bolder">Productos relacionados</p>
-                </div>
-                <div class="col-12 my-0 py-0">
-                    <p>Según tus preferencias</p>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-sm-6 col-md-4 col-lg-3 pb-5 portafolio-link">
-                    <a class="portafolio-link">
-                        <img class="img-fluid portafolio-hover" th:src="@{/assets/imagenes/products/Alba.JPG}" alt="...">
-                    </a>
-                    <div class="row justify-content-center pt-4">
-                        Zapatilla Alba
-                    </div>
-                    <div class="row justify-content-center py-2">
-                        S/219.00
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 pb-5">
-                    <img class="img-fluid" th:src="@{/assets/imagenes/products/Hanna.JPG}" alt="...">
-                    <div class="row justify-content-center pt-4">
-                        Zapatilla Hanna
-                    </div>
-                    <div class="row justify-content-center py-2">
-                        <span style="text-decoration: line-through;">S/219.00</span>
-                        S/153.00
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 pb-5">
-                    <img class="img-fluid" th:src="@{/assets/imagenes/products/Itzell.JPG}" alt="...">
-                    <div class="row justify-content-center pt-4">
-                        Zapatilla Itzell
-                    </div>
-                    <div class="row justify-content-center py-2">
-                        <p>S/219.00</p>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 pb-5">
-                    <img class="img-fluid" th:src="@{/assets/imagenes/products/Yummy.JPG}" alt="...">
-                    <div class="row justify-content-center pt-4">
-                        Zapatilla Yummy
-                    </div>
-                    <div class="row justify-content-center py-2">
-                        <p>S/219.00</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!--INFORMACION ADICIONAL DEL PRODUCTO-->
-
-    <section>
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <p>Caracteristicas</p>
-                    <ul>
-                        <li>Material: Cuero</li>
-                        <li>Forro: Cuerdo Badana</li>
-                        <li>Planta: Espanso</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <p>Información adicional</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, inventore neque pariatur officiis sint quam similique nesciunt repellat exercitationem omnis dicta, voluptas rerum sequi odio aspernatur recusandae voluptatem? Eaque, qui.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!--CONTACTO-->
-    <section class="page-section" id="contact">
+    <section class="page-section" id="contact" th:fragment="contacto">
         <div class="text-center">
             <h2 class="section-heading text-uppercase">Contactanos</h2>
         </div>
@@ -294,7 +115,7 @@
         </div>
     </section>
     <!-- Parte Final del Sitio Web -->
-    <footer class="footer py-4">
+    <footer class="footer py-4" th:fragment="footer">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-4 ">Copyright &copy; Tu Website 2023</div>
@@ -308,7 +129,7 @@
             </div>
         </div>
     </footer>
-    <div class="col-lg-12 text-center">
+    <div class="col-lg-12 text-center" th:fragment="redes">
         <a class="btn btn-dark btn-social mx-2" th:href="@{/#!}" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         <a class="btn btn-dark btn-social mx-2" href="#!" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
