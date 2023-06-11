@@ -361,6 +361,27 @@ iframe {
   transition: all 0.4s;
 }
 
+.login100-form-newbtn {
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #c7c7c7;
+  background: -webkit-linear-gradient(right, #694301, #837e51, #9d7125, #5f5126);
+  background: -o-linear-gradient(right, #e79300, #e7d63b, #e79300, #e7d63b);
+  background: -moz-linear-gradient(right, #e79300, #e7d63b, #e79300, #e7d63b);
+  background: linear-gradient(right, #e79300, #e7d63b, #e79300, #e7d63b);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+
+
 .login100-form-btn {
   font-family: Poppins-Medium;
   font-size: 16px;

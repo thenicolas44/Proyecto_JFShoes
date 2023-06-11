@@ -6,13 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
-import com.jfproject.jfshoestore.model.dao.IUsuario_ADao;
+import com.jfproject.jfshoestore.model.dao.IUsuarioDao;
 
 @Service
 public class UsuarioServiceImp implements IUsuarioService{
 
     @Autowired
-    private IUsuario_ADao usuarioDAO;
+    private IUsuarioDao usuarioDAO;
 
     @Override
     public void guardarUsuario(UsuarioEntity usuario) {

@@ -25,6 +25,12 @@ public class LoginController {
         modelo.addAttribute("usuario", usuario);
         return "login/LoginRegistro";
     }
+    @RequestMapping("/jf-registro")
+    public String registroAdmin(Model modelo){
+        UsuarioEntity usuario = new UsuarioEntity();
+        modelo.addAttribute("usuario", usuario);
+        return "login/LoginManager";
+    }
     @RequestMapping("/guardar")
     public String guardarRegistro(UsuarioEntity user){
         loginService.registrarUser(user);

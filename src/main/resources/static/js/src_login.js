@@ -47,3 +47,7 @@ function fnMostrarValue(){
 function fnRegistrate(){
     window.location.href="http://localhost:8080/login/registrar";
 }
+
+function fnRegistroAdmin(){
+    window.location.href = "http://localhost:8080/login/jf-registro";
+}
