@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head th:replace="layouts/plantillaMantenimiento :: cabecera">
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+            <!-- Navigation -->            
+            <nav th:replace="layouts/plantillaMantenimiento :: navSuperior">
+                <!-- /.navbar-top-links -->
+            </nav>
+            
+            <aside th:replace="layouts/plantillaMantenimiento :: asideLateral">
+            </aside>
+            
+            <!-- /.sidebar -->
+
+            <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Mantener categoria</h1>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    <div th:replace="layouts/plantillaMantenimiento :: paneles">
+                    </div>
+
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="panel panel-success">
+                                <div class="panel-heading">
+                                    <b class="panel-tittle">Registro de categoria</b>
+                                </div>
+                                <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="post">
+                                    <div class="panel-body">
+                                        <input type="hidden" th:field="*{id}">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>Sexo: </label>
+                                                <input th:field="*{sexo}" type="text" class="form-control" placeholder="Ingresar sexo">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Temporada: </label>
+                                                <input th:field="*{temporada}" type="text" class="form-control" placeholder="Ingresar temporada">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row mt-3">
+                                            <div class="col-md-6">
+                                                <label>Modelo: </label>
+                                                <input th:field="*{modelo}" type="text" class="form-control" placeholder="Ingresar modelo">
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Ocasion: </label>
+                                                <input th:field="*{ocasion}" type="text" class="form-control" placeholder="Ingresar ocasion">
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="row">
+                                            <div class="col-lg-6 text-right">
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class="fa-solid fa-floppy-disk"></i>
+                                                     Guardar</button>
+                                            </div>
+                                            <div class="col-lg-6 text-left">
+                                                <button type="submit" class="btn btn-info">
+                                                    <i class="fa-solid fa-floppy-disk"></i>
+                                                     Limpiar y regresar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Listado-->
+                    <br>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    <b class="panel-tittle">Todas las categorias</b>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Sexo</th>
+                                                    <th class="text-center">Temporada</th>
+                                                    <th class="text-center">Modelo</th>
+                                                    <th class="text-center">Ocasion</th>
+                                                    <th colspan="2" class="text-center">Acciones</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody class="table-group-divider">
+                                                <tr th:each="item: ${listaCategorias}">
+                                                    <td th:text="${item.sexo}"></td>
+                                                    <td th:text="${item.temporada}"></td>
+                                                    <td th:text="${item.modelo}"></td>
+                                                    <td th:text="${item.ocasion}"></td>
+                                                    <td class="text-center">
+                                                        
+                                                        <a th:href="@{/categoria/mostrarEditar/} + ${item.id}" class="btn btn-primary" >
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </a>
+                                                        
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a th:href="@{/categoria/eliminar/} + ${item.id}" onclick="return confirm('¿Desea eliminar la categoria?')" class="btn btn-danger">
+                                                            <i class="fa-solid fa-trash"></i>
+                                                            
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /#page-wrapper -->
+
+        </div>
+
+        <!-- Bootstrap Core JavaScript -->
+        <div th:replace="layouts/plantillaMantenimiento :: footer">
+        </div>
+    </body>
+
+</html>
