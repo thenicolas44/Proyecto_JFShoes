@@ -20,7 +20,7 @@ public class CategoriaController {
         CategoriaEntity categoria = new CategoriaEntity();
         model.addAttribute("categoria", categoria);
         model.addAttribute("listaCategorias", categoriaService.mostrarCategorias());
-        return "categoria";
+        return "categoria/categoria";
     }
 
     @RequestMapping("/guardar")
@@ -35,7 +35,7 @@ public class CategoriaController {
         categoria = categoriaService.buscarCategoria(id);
         model.addAttribute("categoria", categoria);
         model.addAttribute("listaCategorias", categoriaService.mostrarCategorias());
-        return "categoria";
+        return "categoria/categoria";
     }
     
 

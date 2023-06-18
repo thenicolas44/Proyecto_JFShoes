@@ -10,4 +10,8 @@ public class AdminController {
     public String inicio(){
         return "admin/index";
     }
+    @RequestMapping("/prueba")
+    public String prueba(){
+        return "layouts/LoginLayout";
+    }
 }

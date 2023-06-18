@@ -11,17 +11,13 @@
         <title>Jhonatan Fuentes - Administrador</title>
         <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
 
-        
-        <!-- Bootstrap Core CSS  -->
-        <link th:href="@{/css/bootstrap v3/bootstrap.min.css}" rel="stylesheet">
-
-        <!-- Custom CSS -->
-        <link th:href="@{/css/bootstrap v3/startmin.css}" rel="stylesheet">
-
-        <!-- Custom Fonts -->
-        <link th:href="@{/css/all.css}" rel="stylesheet">
-        <link th:href="@{/css/all.min.css}" rel="stylesheet">
+        <link th:href="@{/administrador_usuarios/css/bootstrap.min.css}" rel="stylesheet">
+        <link th:href="@{/administrador_usuarios/css/metisMenu.min.css}" rel="stylesheet">
+        <link th:href="@{/administrador_usuarios/css/timeline.css}" rel="stylesheet">
+        <link th:href="@{/administrador_usuarios/css/startmin.css}" rel="stylesheet">
+        <link th:href="@{/administrador_usuarios/css/morris.css}" rel="stylesheet">
         <link th:href="@{/administrador_usuarios/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+        <link th:href="@{/administrador_usuarios/css/EstiloInicio.css}" rel="stylesheet">
 
     </head>
 
@@ -71,7 +67,7 @@
                             </li>
                             <li class="divider"></li>
                             <li>
-                                <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                                <a th:href="@{/login/}"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                             </li>
                         </ul>
                     </li>
@@ -103,7 +99,7 @@
                             <a th:href="@{/categoria/}"><i class="fa-solid fa-code-branch"></i> Mantener Categorias</a>
                         </li>
                         <li>
-                            <a th:href="@{/categoria/}"><i class="fa-solid fa-box"></i> Mantener Productos</a>
+                            <a th:href="@{/producto/}"><i class="fa-solid fa-box"></i> Mantener Productos</a>
                         </li>
                         <li>
                             <a th:href="@{/categoria/}"><i class="fa-regular fa-credit-card"></i> Mantener Metodos</a>

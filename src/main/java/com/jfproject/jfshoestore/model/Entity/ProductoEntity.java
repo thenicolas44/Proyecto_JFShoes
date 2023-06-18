@@ -22,7 +22,7 @@ public class ProductoEntity {
     private Integer talla;
     @ManyToOne(fetch=FetchType.LAZY,optional=false)
     @JoinColumn(name="categoria_id")
-    private CategoriaEntity id_categoria;
+    private CategoriaEntity categoria;
     
     public long getId() {
         return id;
@@ -60,12 +60,13 @@ public class ProductoEntity {
     public void setTalla(Integer talla) {
         this.talla = talla;
     }
-    public CategoriaEntity getId_categoria() {
-        return id_categoria;
+    public CategoriaEntity getCategoria() {
+        return categoria;
     }
-    public void setId_categoria(CategoriaEntity id_categoria) {
-        this.id_categoria = id_categoria;
+    public void setCategoria(CategoriaEntity categoria) {
+        this.categoria = categoria;
     }
-
+    
+    
     
 }
