@@ -1,27 +1,34 @@
 package com.jfproject.jfshoestore.model.Entity;
 
-import java.math.BigDecimal;
+import java.io.Serializable;
+
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="producto")
-public class ProductoEntity {
+@Table(name="PRODUCTOS")
+public class ProductoEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true, nullable = false, name="product_id")
+    @Column(unique = true, nullable = false, name="PRODUCT_ID")
     private long id;
-    @Column(name="product_nombre",length=100,nullable=false)
+
+    @Column(name="PRODUCT_NOMBRE",length=100,nullable=false)
     private String nombre_producto;
-    @Column(name = "product_precio", precision = 10, scale = 2, nullable = false)
-    private BigDecimal precio;
-    @Column(name="product_descripcion",length=250,nullable=false)
+
+    @Column(name = "PRODUCT_PRECIO", nullable = false)
+    private float precio;
+
+    @Column(name="PRODUCT_DESCRIPCION",length=250,nullable=false)
     private String descripcion;
-    @Column(name="product_color",length=250,nullable=false)
+
+    @Column(name="PRODUCT_COLOR",length=250,nullable=false)
     private String color;
-    @Column(name="product_talla",nullable=false)
+
+    @Column(name="PRODUCT_TALLA",nullable=false)
     private Integer talla;
+    
     @ManyToOne(fetch=FetchType.LAZY,optional=false)
-    @JoinColumn(name="categoria_id")
+    @JoinColumn(name="CAT_ID")
     private CategoriaEntity categoria;
     
     public long getId() {
@@ -36,10 +43,10 @@ public class ProductoEntity {
     public void setNombre_producto(String nombre_producto) {
         this.nombre_producto = nombre_producto;
     }
-    public BigDecimal getPrecio() {
+    public float getPrecio() {
         return precio;
     }
-    public void setPrecio(BigDecimal precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
     public String getDescripcion() {
@@ -66,6 +73,7 @@ public class ProductoEntity {
     public void setCategoria(CategoriaEntity categoria) {
         this.categoria = categoria;
     }
+
     
     
     

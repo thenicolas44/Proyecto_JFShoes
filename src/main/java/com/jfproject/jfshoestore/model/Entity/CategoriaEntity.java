@@ -9,19 +9,19 @@ import jakarta.persistence.*;
 public class CategoriaEntity implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="CAT_ID")
+    @Column(unique = true , name="CAT_ID",nullable=false)
     private Long id;
 
-    @Column(name="CAT_SEXO")
+    @Column(name="CAT_SEXO",nullable=false)
     private String sexo;
 
-    @Column(name="CAT_TEMPORADA")
+    @Column(name="CAT_TEMPORADA",nullable=false)
     private String temporada;
 
-    @Column(name="CAT_MODELO")
+    @Column(name="CAT_MODELO",nullable=false)
     private String modelo;
 
-    @Column(name = "CAT_OCASION")
+    @Column(name = "CAT_OCASION",nullable=false)
     private String ocasion;
 
     public Long getId() {
