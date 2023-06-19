@@ -21,48 +21,51 @@
                             <div class="panel-heading">
                                 <b class="panel-tittle">Registro de Productos</b>
                             </div>
-                            <form action="">
+                            <form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <label>Nombre: </label>
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{nombre_producto}" type="text" class="form-control">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Description: </label>
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{descripcion}" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <label>Talla: </label>
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{talla}" type="text" class="form-control">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Color: </label>
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{color}" type="text" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row mt-3">
                                         <div class="col-md-6">
                                             <label>Precio: </label>
-                                            <input type="text" class="form-control">
+                                            <input th:field="*{precio}" type="text" class="form-control">
                                         </div>
                                         <div class="col-md-6">
                                             <label>Categoria: </label>
-                                            <input type="text" class="form-control">
+                                            <select th:field="*{categoria.id}" class="form-control">
+                                                <option value="">Seleccione una de las Categorias</option>
+                                                <option th:each="elemento: ${listaCategoria}"  th:value="${elemento.id}" th:text="${elemento.modelo}"></option>
+                                            </select>
                                         </div>
                                     </div>
                                     <br>
                                     <div class="row">
                                         <div class="col-lg-6 text-right">
-                                            <button class="btn btn-success">
+                                            <button class="btn btn-success" type="submit">
                                                 <i class="fa-solid fa-floppy-disk"></i>
                                                 Guardar Producto
                                             </button>
                                         </div>
                                         <div class="col-lg-6 text-left">
-                                            <button class="btn btn-info">
+                                            <button class="btn btn-info" type="button">
                                                 <i class="fa-solid fa-floppy-disk"></i>
                                                 Limpiar
                                             </button>
@@ -76,7 +79,47 @@
                 </div>
                 <br>
                 <div class="row">
-
+                    <div class="col-lg-12">
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <b class="panel-tittle">Todos los Productos</b>
+                            </div>
+                            
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive ">
+                                <table class="table table-bordered table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Nombre</th>
+                                            <th class="text-center">Descripcion</th>
+                                            <th class="text-center">Talla</th>
+                                            <th class="text-center">Color</th>
+                                            <th class="text-center">Precio</th>
+                                            <th class="text-center">Categoria</th>
+                                            <th class="text-center" colspan="2">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="table-group-divider">
+                                        <tr th:each = "item: ${listaProducto}">
+                                            <td th:text="${item.nombre_producto}"></td>
+                                            <td th:text="${item.precio}"></td>
+                                            <td th:text="${item.descripcion}"></td>
+                                            <td th:text="${item.color}"></td>
+                                            <td th:text="${item.talla}"></td>
+                                            <td th:text="${item.categoria.modelo}"></td>
+                                            <td class="text-center">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </td>
+                                            <td class="text-center">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.jfproject.jfshoestore.model.Entity.ProductoEntity;
+import com.jfproject.jfshoestore.model.service.ICategoriaService;
 import com.jfproject.jfshoestore.model.service.IProductoService;
 
 @Controller
@@ -14,12 +15,14 @@ import com.jfproject.jfshoestore.model.service.IProductoService;
 public class ProductoController {
     @Autowired
     private IProductoService productoService;
-
+    @Autowired
+    private ICategoriaService categoriaService;
     @RequestMapping("/")
     public String producto(Model modelo){
         ProductoEntity producto = new ProductoEntity();
         modelo.addAttribute("producto", producto);
-        modelo.addAttribute("listaProductos", productoService.mostrarProducto());
+        modelo.addAttribute("listaProducto", productoService.mostrarProducto());
+        modelo.addAttribute("listaCategoria", categoriaService.mostrarCategorias());
         return "producto/producto";
     }
 
