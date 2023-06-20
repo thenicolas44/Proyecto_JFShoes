@@ -30,8 +30,15 @@ public class ProductoService implements IProductoService{
     }
 
     @Override
-    public void eliminarProducto(Long id) {
-        productDao.deleteById(id);
+    public String eliminarProducto(Long id) {
+        String rpta="";
+        try {
+            productDao.deleteById(id);
+            rpta="Se elimino el producto correctamente";
+        } catch (Exception e) {
+            rpta=e.getMessage();
+        }
+        return rpta;
     }
     
 }

@@ -8,5 +8,5 @@ public interface IProductoService {
     public void guardarProducto(ProductoEntity producto);
     public ArrayList<ProductoEntity> mostrarProducto();
     public ProductoEntity buscarProducto(Long id);
-    public void eliminarProducto(Long id);
+    public String eliminarProducto(Long id);
 }

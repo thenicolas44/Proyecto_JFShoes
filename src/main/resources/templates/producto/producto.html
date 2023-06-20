@@ -15,6 +15,10 @@
                 </div>
                 <div th:replace="layouts/plantillaMantenimiento :: paneles"></div>
                 <br>
+                <div class="alert alert-warning alert-dismissible fade show" th:if="${mensaje != null}" role="alert">
+                    <span th:text="${mensaje}">borradoXD</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="panel panel-success">
@@ -84,41 +88,48 @@
                             <div class="panel-heading">
                                 <b class="panel-tittle">Todos los Productos</b>
                             </div>
+                            <div class="panel-body">
+                                <div class="table-responsive ">
+                                    <table class="table table-bordered table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Nombre</th>
+                                                <th class="text-center">Descripcion</th>
+                                                <th class="text-center">Talla</th>
+                                                <th class="text-center">Color</th>
+                                                <th class="text-center">Precio</th>
+                                                <th class="text-center">Categoria</th>
+                                                <th class="text-center" colspan="2">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="table-group-divider">
+                                            <tr th:each = "item: ${listaProducto}">
+                                                <td th:text="${item.nombre_producto}"></td>
+                                                <td th:text="${item.precio}"></td>
+                                                <td th:text="${item.descripcion}"></td>
+                                                <td th:text="${item.color}"></td>
+                                                <td th:text="${item.talla}"></td>
+                                                <td th:text="${item.categoria.modelo}"></td>
+                                                <td class="text-center">
+                                                    <a href="#" class="btn btn-primary">
+                                                        <i class="fa-solid fa-pen-to-square"></i>
+                                                    </a>
+                                                    
+                                                </td>
+                                                <td class="text-center">
+                                                    <a th:href="@{/producto/eliminar/} + ${item.id}" class="btn btn-danger" onclick="return  confirm('Desea eliminar el Producto?')">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </a>
+                                                    
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             
                         </div>
-                        <div class="panel-body">
-                            <div class="table-responsive ">
-                                <table class="table table-bordered table-striped table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-center">Nombre</th>
-                                            <th class="text-center">Descripcion</th>
-                                            <th class="text-center">Talla</th>
-                                            <th class="text-center">Color</th>
-                                            <th class="text-center">Precio</th>
-                                            <th class="text-center">Categoria</th>
-                                            <th class="text-center" colspan="2">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="table-group-divider">
-                                        <tr th:each = "item: ${listaProducto}">
-                                            <td th:text="${item.nombre_producto}"></td>
-                                            <td th:text="${item.precio}"></td>
-                                            <td th:text="${item.descripcion}"></td>
-                                            <td th:text="${item.color}"></td>
-                                            <td th:text="${item.talla}"></td>
-                                            <td th:text="${item.categoria.modelo}"></td>
-                                            <td class="text-center">
-                                                <i class="fa-solid fa-pen-to-square"></i>
-                                            </td>
-                                            <td class="text-center">
-                                                <i class="fa-solid fa-trash"></i>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 
