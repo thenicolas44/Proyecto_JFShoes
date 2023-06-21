@@ -10,6 +10,31 @@ function fnProcesaPaciente(comp){
     window.location.href="http://localhost:8080/jf-store/detalle"+rutaDeseada+"/"+escogido;
     
 }
+const contenedorProductos = document.getElementById('contenedor-productos');
+
+// Calcula el ancho total del contenedor de productos
+const anchoTotal = contenedorProductos.scrollWidth;
+
+// Establece la posición inicial del desplazamiento
+let scrollPosition = 0;
+
+// Función para mover automáticamente la barra deslizadora
+function moveSlider() {
+  // Incrementa la posición de desplazamiento
+  scrollPosition += 200; // Ajusta la cantidad de desplazamiento según tus necesidades
+
+  // Verifica si la posición de desplazamiento ha alcanzado el final
+  if (scrollPosition >= anchoTotal) {
+    // Reinicia la posición de desplazamiento al principio
+    scrollPosition = 0;
+  }
+
+  // Aplica el desplazamiento al contenedor de productos
+  contenedorProductos.scrollLeft = scrollPosition;
+}
+
+// Intervalo para el desplazamiento automático
+setInterval(moveSlider, 3000); // Ajusta el intervalo de tiempo según tus necesidades
 
 function fnDetalle(identificador){
     let id = identificador.id;
