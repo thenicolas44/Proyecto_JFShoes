@@ -25,7 +25,7 @@
   <div class="wrapper ">
     <div class="sidebar" data-color="footer-black" data-active-color="danger">
       <div class="logo">
-        <a th:href="@{/inicio}"><img class="logo-normal" th:src="@{/assets/Logo-JF.png}" alt="..." /></a>
+        <a th:href="@{/jf-store/} + (${usuario.id != 0 ? usuario.id : ''})"><img class="logo-normal" th:src="@{/assets/Logo-JF.png}" alt="..." /></a>
         <span class="simple-text text-center">
           JF CALZADOS
         </span>
@@ -129,6 +129,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- PRODUCTO ALBA-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <img class="card-img-top product_Store" th:src="@{/assets/products/Alba.JPG}" alt="..." />
                         <!-- DETALLE-->
                         <div class="card-body p-4">
@@ -141,7 +142,7 @@
                         </div>
                         <!-- ACCIONES-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a id ="3" onclick="fnDetalle(this);" class="btn btn-outline-dark mt-auto btn-rd" >Ver opciones</a></div>
+                            <div class="text-center"><a id ="3" onclick="fnDetalle(this);" class="btn btn-outline-dark mt-auto btn-rd" >Agregar al carrito</a></div>
                         </div>
                     </div>
                 </div>
@@ -165,7 +166,7 @@
                                 </div>
                                 <!-- PRECIO-->
                                 <!-- <span class="text-muted text-decoration-line-through">S/249.00</span>-->
-                                S/219.00
+                                S/230.00
                             </div>
                         </div>
                         <!-- ACCIONES-->
@@ -187,7 +188,7 @@
                                 <h5 class="fw-bolder">Zapatilla Itzell</h5>
                                 <!-- PRECIO-->
                                 <!--<span class="text-muted text-decoration-line-through">S/269.00</span>-->
-                                S/219.00
+                                S/209.00
                             </div>
                         </div>
                         <!-- ACCIÓN -->
@@ -199,12 +200,13 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- IMAGEN CABALLERO -->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <img class="card-img-top " th:src="@{/assets/products/Pantufla caballero2.jpg}" alt="..." />
                         <!-- DETALLE -->
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- NOMBRE-->
-                                <h5 class="fw-bolder">Pantufla caballero</h5>
+                                <h5 class="fw-bolder">Pantufla Caballero</h5>
 
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -236,7 +238,6 @@
                                 <h5 class="fw-bolder">Pantufla dama</h5>
                                 <!-- PRECIO -->
                                 <span class="text-muted text-decoration-line-through">S/99.00</span>
-                                S/99.00
                             </div>
                         </div>
                         <!-- ACCIONES -->
@@ -299,6 +300,7 @@
                 <div class="col mb-5">
                     <div class="card h-100">
                         <!-- IMAGEN YUMMY -->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
                         <img class="card-img-top" th:src="@{/assets/products/Yummy.JPG}" alt="..." />
                         <!-- DETALLE PRODUCTO -->
                         <div class="card-body p-4">
@@ -314,7 +316,7 @@
                                     <div class="bi-star-fill"></div>
                                 </div>
                                 <!-- PRECIO-->
-                                S/219.00
+                                S/195.00
                             </div>
                         </div>
                         <!-- ACCIÓN-->
