@@ -63,6 +63,7 @@
                         </a>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio_principal">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="#portfolio">Destacados</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
                 </ul>
@@ -79,6 +80,128 @@
                 <a class="btn btn-primary btn-xl text-uppercase" th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">Ir a la Tienda Virtual</a>
             </div>
         </header>
+
+        <!-- Productos de la Empresa: Barra deslizadora (INICIO) -->
+        <section class="page-section bg-light" id="portfolio_principal">
+            <div class="text-center">
+                <h2 class="section-heading text-uppercase Titulo_Productos_Destacados">Productos de la Empresa</h2>
+            </div>
+            <div id="contenedor-padre">
+                <div id="contenedor-productos">
+                    <div class="sector">
+                        <!-- N°1: Zapatilla JUMMY -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">JUMMY</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Yummy_ProductoDestacado.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/195.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°2: Zapatilla ADELE -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">ADELE</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Adele_ProductoDestacado.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/190.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°3: Zapatilla OREANA -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">OREANA</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/OreanaProductoDestacado.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/185.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°4: Zapatilla ALBA -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">ALBA</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Alba.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/219.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°5 Zapatilla Hanna -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">HANNA</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Hanna.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/230.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°6 Zapatilla Itzell -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">ITZELL</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Itzell.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/209.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°7 Zapatilla AndreW -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">ANDREW</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Andrew_ProductoDestacado.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/139.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°8 Zapatilla Fransciscana -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">FRANSCISCANA</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Fransciscana_ProductoDestacado.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/150.00
+                                </font>
+                            </div>
+                        </div>
+                        <!-- N°9 Zapatilla Kyle -->
+                        <div class="producto">
+                            <h3 class="text-center Color_Costo">KYLE</h3>
+                            <a th:href="@{/jf-store/catalogo/} + (${usuario.id != 0 ? usuario.id : ''})">
+                                <img class="img-fluid" th:src="@{/assets/imagenes/Productos_Presentacion/Kyle_ProductoDestacado.jpg}" alt="..." />
+                            </a>
+                            <div class="text-center Color_Costo">
+                                <font size="5">
+                                    S/150.00
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Productos de la Empresa: Barra deslizadora (FIN) -->
 
         <!-- Productos Destacados para Mujeres -->
         <section class="page-section bg-light" id="portfolio">
