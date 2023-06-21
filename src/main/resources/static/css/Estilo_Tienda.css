@@ -16,6 +16,50 @@
   src: url(../fuentes/Amelinda.otf);
 }
 
+
+#contenedor-padre {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  scroll-behavior: smooth; /* Permite un desplazamiento suave */
+}
+
+#contenedor-productos {
+  width: 1300px;
+  height: 500px;
+  overflow-x: scroll;
+  white-space: nowrap; /* Evita que los productos se desplacen verticalmente */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.sector {
+  display: inline-block;
+  vertical-align: top;
+  padding: 10px;
+}
+
+.producto{
+  padding: 10px;
+  margin: 5px;
+  background-color: #f0f0f0;
+  display: inline-block;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 25%; /* Establece un ancho máximo del 100% */
+  height: auto; /* Mantiene la proporción de aspecto */
+}
+
+.producto:hover {
+  background-color: rgba(188, 188, 188, 0.314); /* Cambia el color de fondo del div al pasar el cursor por encima */
+  /* Otros estilos para resaltar el contenido, como cambio de color de texto o borde */
+  /* Puedes agregar aquí cualquier otro estilo deseado */
+}
+
+/**/
+
 .Posicion_Izquierda_Link{
   margin-left: 643px;
 }
