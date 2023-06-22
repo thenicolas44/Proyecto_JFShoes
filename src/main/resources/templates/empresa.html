@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JF - Acerca de nosotros</title>
+    <title>JF - Acerca de la Empresa</title>
     <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-    <link th:href="@{Css/Estilo_Tienda.css}" rel="stylesheet" />
-    <link th:href="@{Css/Estilo_Letras.css}" rel="stylesheet" />
+    <link th:href="@{/css/Estilo_Tienda.css}" rel="stylesheet" />
+    <link th:href="@{/css/Estilo_Letras.css}" rel="stylesheet" />
 </head>
 <body>
-    <section class="page-section" id="about">
+    <section class="page-section" id="Contenido">
         <div class="container">
             <!-- Botones de Regreso o Explorar la Tienda Virtual -->
             <div class="pb-5">
-                <a class ="col-lg-3 btn btn-primary" th:href="@{/inicio}"> Regresar a la Página Principal</a>
-                <a class ="col-lg-3 btn btn-primary Posicion_Izquierda_Link" th:href="@{/catalogo}"> Explorar el Catálogo</a>
+                <a class ="col-lg-3 btn btn-primary" th:href="@{/jf-store/}"> Regresar a la Página Principal</a>
+                <a class ="col-lg-3 btn btn-primary Posicion_Izquierda_Link" th:href="@{/jf-store/catalogo/}"> Explorar el Catálogo</a>
             </div>
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Acerca de la empresa</h2>
@@ -26,7 +26,7 @@
             </div>
             <ul class="timeline">
                 <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Sueño.jpg}" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/imagenes/about/Sueño.jpg}" alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>Enero 2019</h4>
@@ -36,7 +36,7 @@
                     </div>
                 </li>
                 <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Comienzo.png}" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/imagenes/about/Comienzo.png}" alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>Marzo 2019</h4>
@@ -46,7 +46,7 @@
                     </div>
                 </li>
                 <li>
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Evolucion.jpg}" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/imagenes/about/Evolucion.jpg}" alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>Junio 2021</h4>
@@ -56,7 +56,7 @@
                     </div>
                 </li>
                 <li class="timeline-inverted">
-                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{assets/imagenes/about/Actualidad.jpg}" alt="..." /></div>
+                    <div class="timeline-image"><img class="rounded-circle img-fluid" th:src="@{/assets/imagenes/about/Actualidad.jpg}" alt="..." /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4>Abril 2023</h4>
@@ -117,7 +117,7 @@
             </div>
         </div>
         <div class="text-center">
-            <a class ="btn btn-primary" href="#about"> Volver al Inicio</a>
+            <a class ="btn btn-primary" href="#Contenido"> Volver al Inicio</a>
         </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
