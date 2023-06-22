@@ -71,7 +71,7 @@ public class InicioController {
     }
 */
 
-    @RequestMapping("/acerca")
+    @RequestMapping("/acerca/")
     public String empresa(){
         return "empresa";
     }
