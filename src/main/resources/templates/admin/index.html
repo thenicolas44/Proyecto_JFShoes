@@ -1,139 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
-    
-    <head th:replace="layouts/plantillaMantenimiento :: cabecera"></head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>JF-Administrador-Usuarios</title>
+        <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
+
+        <style>
+            @font-face {
+            font-family: 'Poppins-Regular';
+            src: url('../fuentes/fonts/poppins/Poppins-Regular.ttf') format(truetype); 
+            }
+            body{
+                font-family: 'Poppins-Regular';
+            }
+        </style>
+
+        <link th:href="@{/administrador_usuarios/css/sb-admin-2.min.css}" rel="stylesheet">
+
+        <link th:href="@{/administrador_usuarios/css/font-awesome.min.css}" rel="stylesheet" type="text/css">
+
+        <link th:href="@{/administrador_usuarios/css/EstiloInicio.css}" rel="stylesheet">
+
+    </head>
 
     <body>
         <div id="wrapper">
             <!-- Barra de navegación en las interfaces del Administrador -->
-            <nav th:replace="layouts/plantillaMantenimiento :: navSuperior">
-                <!-- Barra de navegación en las interfaces del Administrador -->
-            </nav>
-
-            <aside th:replace="layouts/plantillaMantenimiento :: asideLateral">
-                
-            </aside>
-
-            <!-- Contenido de la Interfaz Usuario en el Sistema -->
-            <div id="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h1 class="page-header text-center textBienvenido">BIENVENIDO ADMINISTRADOR</h1>
-                        </div>
-                    </div>
-
-                    <br><br>
-
-                    <div class="row">
-                        <div class="textHora">
-                            <span id="horaForm"></span>
-                        </div>
-                        <div class="textFecha">
-                            <span id="fechaForm"></span>
-                        </div>                                   
-                    </div>
-                    
-                    <div th:replace="layouts/plantillaMantenimiento :: paneles">
-                        <!--
-                        <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-comments fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div class="huge">13</div>
-                                            <div>Nuevos Mensajes</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Mensajes Totales: 45</span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
+            <ul th:replace="layouts/plantillaMantenimiento :: asideLateral">
+            </ul>
+            
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <nav th:replace="layouts/plantillaMantenimiento :: navSuperior"></nav>
+                    <div class="container-fluid px-4">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h1 class="page-header text-center textBienvenido">BIENVENIDO ADMINISTRADOR</h1>
                             </div>
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-green">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-tasks fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div class="huge">30</div>
-                                            <div>Nuevos Productos</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Productos Totales: 75</span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <br>
 
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
+                        <div class="row">
+                            <div class="textHora col-12 text-center">
+                                <span id="horaForm"></span>
                             </div>
+                            <div class="textFecha col-12 text-center">
+                                <span id="fechaForm"></span>
+                            </div>                                   
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-yellow">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-shopping-cart fa-5x"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div class="huge">5</div>
-                                            <div>Nuevas Ventas</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Total de Ventas: 50</span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
-                            </div>
+                        
+                        <div th:replace="layouts/plantillaMantenimiento :: paneles">
                         </div>
-                        <div class="col-lg-3 col-md-6">
-                            <div class="panel panel-red">
-                                <div class="panel-heading">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <i class="fa fa-user fa-5x" aria-hidden="true"></i>
-                                        </div>
-                                        <div class="col-xs-9 text-right">
-                                            <div class="huge">5</div>
-                                            <div>Nuevos Usuarios</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <a href="#">
-                                    <div class="panel-footer">
-                                        <span class="pull-left">Total de Usuarios: 100</span>
-                                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        -->
+                        
                     </div>
                 </div>
             </div>
+
+
+            <!-- Contenido de la Interfaz Usuario en el Sistema -->
+            
         </div>
         <div th:replace="layouts/plantillaMantenimiento :: footer"></div>
         
-        <script th:src="@{/administrador_usuarios/js/libreriaUsuario.js}"></script>
         <script th:src="@{/administrador_usuarios/js/fecha.js}"></script>
     </body>
 </html>
