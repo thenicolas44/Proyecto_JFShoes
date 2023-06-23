@@ -76,3 +76,37 @@ function fnRegistrate(){
 function fnRegistroAdmin(){
     window.location.href = "http://localhost:8080/login/jf-registro";
 }
+
+function aplicarFiltros() {
+    var checkboxes = document.querySelectorAll('.filtro input[type="checkbox"]');
+    var genero = document.querySelector('input[name="genero"]:checked').id;
+    var productos = document.getElementsByClassName("producto");
+  
+    var filtrosSeleccionados = [];
+    for (var i = 0; i < checkboxes.length; i++) {
+      if (checkboxes[i].checked) {
+        filtrosSeleccionados.push(checkboxes[i].value);
+      }
+    }
+  
+    for (var i = 0; i < productos.length; i++) {
+      var producto = productos[i];
+      var tieneFiltro = false;
+  
+      for (var j = 0; j < filtrosSeleccionados.length; j++) {
+        if (producto.classList.contains(filtrosSeleccionados[j])) {
+          tieneFiltro = true;
+          break;
+        }
+      }
+  
+      if (
+        (filtrosSeleccionados.length === 0 || tieneFiltro) &&
+        (genero === "todos" || producto.dataset.genero === genero)
+      ) {
+        producto.style.display = "block";
+      } else {
+        producto.style.display = "none";
+      }
+    }
+  }
