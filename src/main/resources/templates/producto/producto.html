@@ -141,6 +141,51 @@
 
         </div>
     </div>
+
+    <!-- Modal 
+    <div class="modal fade" id="modalEditarProducto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Producto</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
+                <div class="modal-body">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Categoría:</label>
+                            <select class="form-select" name="categoria.id" id="cboCategoria">
+                                <option value="">Seleccione una opción:</option>
+                                <option th:each="item: ${listaCat}" th:value="${item.id}" th:text="${item.nombre}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Nombre del producto:</label>
+                            <input type="text" name="nombre" id="txtNombre" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Precio del producto:</label>
+                            <input type="text" name="precio" id="txtPrecio" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-info">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    -->
     <div th:replace="layouts/plantillaMantenimiento :: footer"></div>
 </body>
 </html>

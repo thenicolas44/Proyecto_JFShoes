@@ -23,7 +23,7 @@ public class UsuarioEntity implements Serializable{
     private String nickname;
     @Column(name="USER_IDENTIFICACION",length=20,nullable=false)
     private String identificacion;
-    @Column(name="USER_TIPOIDENTIFICACION",length=8,nullable=false)
+    @Column(name="USER_TIPOIDENTIFICACION",length=15,nullable=false)
     private String tipoIdentificacion;
     @Column(name = "USER_TIPO_USUARIO", columnDefinition = "VARCHAR2(100) DEFAULT 'Cliente'")
     private String tipoUsuario;
