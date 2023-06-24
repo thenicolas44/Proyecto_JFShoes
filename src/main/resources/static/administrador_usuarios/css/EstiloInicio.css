@@ -1,3 +1,4 @@
+
 .textHora{
     font-size: 200px;
     padding-top: 20px;
@@ -14,14 +15,7 @@
 }
 
 .textFecha, .textHora, .textBienvenido{
-    font-family: PoppinsFont;
+    font-family: Poppins-Regular;
     text-align: center;
     color: #000000;
-}
-
-
-
-@font-face {
-    font-family: PoppinsFont;
-    src: url(../fonts/Poppins-Regular.ttf);
 }
