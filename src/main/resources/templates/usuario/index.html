@@ -1,168 +1,196 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head th:replace="layouts/plantillaMantenimiento :: cabecera">
-    </head>
+<head th:replace="layouts/plantillaMantenimiento :: cabecera">
+</head>
 
+<body>
+    <div id="wrapper">
+        <!-- Barra de navegación en las interfaces del Administrador -->
+        <ul th:replace="layouts/plantillaMantenimiento :: asideLateral"></ul>
 
-    <body>
-        <div id="wrapper">
-            <!-- Barra de navegación en las interfaces del Administrador -->
-            <ul th:replace="layouts/plantillaMantenimiento :: asideLateral"></ul>
+        <div id="content-wrapper" class="d-flex flex-column">
+            <div id="content">
+                <nav th:replace="layouts/plantillaMantenimiento :: navSuperior"></nav>
 
-            <div id="content-wrapper" class="d-flex flex-column">
-                <div id="content">
-                    <nav th:replace="layouts/plantillaMantenimiento :: navSuperior"></nav>
+                <div class="container-fluid px-4">
 
-                    <div class="container-fluid px-4">
-
-                        <div class="row">
-                            <div class="col-lg-12 text-center">
-                                <h1 class="page-header text-center contorno-color">USUARIOS DEL SISTEMA</h1>
-                                <img style="width: 500px;" th:src="@{/administrador_usuarios/Imagenes/personas-usuarios.png}" class="Imagen_Medio">
-                            </div>
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h1 class="page-header text-center contorno-color">USUARIOS DEL SISTEMA</h1>
+                            <img style="width: 500px;" th:src="@{/administrador_usuarios/Imagenes/personas-usuarios.png}" class="Imagen_Medio">
                         </div>
+                    </div>
 
-                        <br><br>
-                        <div th:replace="layouts/plantillaMantenimiento :: paneles">
-                        </div>
+                    <br><br>
+                    <div th:replace="layouts/plantillaMantenimiento :: paneles">
+                    </div>
 
-                        <div class="row py-2">
-                            <div class="col-lg-10">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <span th:text="${titulo}"></span>
-                                    </div>
-                                    <p></p>
-                                        <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
-                                            <div class="card-body">
-                                                <input type="hidden" th:field="*{id}">
-                                                <div class="row table table-bordered table-hover">
-                                                    <p></p>
-                                                    <div class="col-md-4">
-                                                        <label>Nombre del Usuario:</label>
-                                                        <input th:field="*{nombre}" type="text" class="form-control" placeholder="Ingrese el nombre"/>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Apellido del Usuario:</label>
-                                                        <input th:field="*{apellido}" type="text" class="form-control" placeholder="Ingrese el apellido"/>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Correo del Usuario:</label>
-                                                        <input th:field="*{correo}" type="text" class="form-control" placeholder="Ingrese el correo"/>
-                                                        <p></p>
-                                                    </div>
-        
-                                                    <div class="col-md-4">
-                                                        <label>Contraseña del Usuario:</label>
-                                                        <input th:field="*{contraseña}" type="text" class="form-control" placeholder="Ingrese la contraseña"/>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label>Nickname del Usuario:</label>
-                                                        <input th:field="*{nickname}" type="text" class="form-control" placeholder="Ingrese el nickname"/>
-                                                    </div>
-                                                    <div class="col-md-4 col-md-4">
-                                                        <label>Identificación del Usuario:</label>
-                                                        <input th:field="*{identificacion}" type="text" class="form-control" placeholder="Ingrese el DNI"/>
-                                                        <p></p>
-                                                    </div>
-                                                    
-                                                    <div class="col-md-4 col-md-4">
-                                                        <label>Tipo de Identificación del Usuario:</label>
-                                                        <input th:field="*{tipoIdentificacion}" type="text" class="form-control" placeholder="Ingrese el DNI"/>
-                                                        <p></p>
-                                                    </div>
-        
-                                                    <div class="col-md-4">
-                                                        <label>Tipo del Usuario:</label>
-                                                        <select th:field="*{tipoUsuario}" class="form-control">
-                                                            <option value="">Seleccione una unidad</option>
-                                                            <option value="Cliente">Cliente</option>
-                                                            <option value="Administrador">Administrador</option>
-                                                        </select>
-                                                        <p></p>
-                                                    </div>
-                                                </div>
-                                                <div class="row mt-3">
-                                                <div class="col-12 text-center">
-                                                    <button type="button" class="btn btn-secondary" onclick="limpiar_Form_Usuario();">
-                                                        <i class="fa-solid fa-circle-plus"></i>
-                                                        Crear Usuario
-                                                    </button>
-                                                    <button type="submit" class="btn btn-success">
-                                                        <i class="fa-solid fa-floppy-disk"></i>
-                                                        Guardar Usuario
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
+                    <div class="row py-2">
+                        <div class="col-lg-10 form-container">
+                            <div class="card">
+                                <div class="card-header">
+                                    <span th:text="${titulo}"></span>
                                 </div>
-                            </div>
-                            <!-- Fin del listado de los productos Registrados -->
-                        </div>
-                        <br>
-                        <div class="row">
-                            <!-- Listado de los productos Registrados -->
-                            <div class="col-lg-12">
-                                <div class="card border-success">
-                                    <div class="card-header bg-success text-white">
-                                        Usuarios Registrados
-                                    </div>
-                                    <p></p>
+                                <p></p>
+                                <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
                                     <div class="card-body">
-                                        <div class="table-responsive">
-                                            <table class="table table-bordered table-hover ">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Nombre</th>
-                                                        <th>Apellido</th>
-                                                        <th>Correo</th>
-                                                        <th>Nickname</th>
-                                                        <th>Identificación</th>
-                                                        <th>N° de Identificación</th>
-                                                        <th>Tipo de Usuario</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr th:each="item: ${listaUsuarios}" class="text-center">
-                                                        <td th:text="${item.nombre}"></td>
-                                                        <td th:text="${item.apellido}"></td>
-                                                        <td th:text="${item.correo}"></td>
-                                                        <td th:text="${item.nickname}"></td>
-                                                        <td th:text="${item.identificacion}"></td>
-                                                        <td th:text="${item.tipoIdentificacion}"></td>
-                                                        <td th:text="${item.tipoUsuario}"></td>
-                                                        <td class="text-center">
-                                                            <a th:href="@{/usuarios/mostrarEditar/} + ${item.id}" class="btn btn-primary">
-                                                                <i class="fa fa-pencil-square" aria-hidden="true"></i>
-                                                            </a>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <a th:href="@{/usuarios/eliminar/} + ${item.id}" class="btn btn-danger" 
-                                                                onclick="return confirm('Desea eliminar el usuario?')">
-                                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                        <input type="hidden" th:field="*{id}">
+                                        <div class="row table table-bordered table-hover">
+                                            <p></p>
+                                            <div class="col-md-4">
+                                                <label>Nombre del Usuario:</label>
+                                                <input th:field="*{nombre}" type="text" class="form-control" placeholder="Ingrese el nombre" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Apellido del Usuario:</label>
+                                                <input th:field="*{apellido}" type="text" class="form-control" placeholder="Ingrese el apellido" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Correo del Usuario:</label>
+                                                <input th:field="*{correo}" type="text" class="form-control" placeholder="Ingrese el correo" />
+                                                <p></p>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Contraseña del Usuario:</label>
+                                                <input th:field="*{contraseña}" type="text" class="form-control" placeholder="Ingrese la contraseña" />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label>Nickname del Usuario:</label>
+                                                <input th:field="*{nickname}" type="text" class="form-control" placeholder="Ingrese el nickname" />
+                                            </div>
+                                            <div class="col-md-4 col-md-4">
+                                                <label>Identificación del Usuario:</label>
+                                                <input th:field="*{identificacion}" type="text" class="form-control" placeholder="Ingrese el DNI" />
+                                                <p></p>
+                                            </div>
+
+                                            <div class="col-md-4 col-md-4">
+                                                <label>Tipo de Identificación del Usuario:</label>
+                                                <input th:field="*{tipoIdentificacion}" type="text" class="form-control" placeholder="Ingrese el DNI" />
+                                                <p></p>
+                                            </div>
+
+                                            <div class="col-md-4">
+                                                <label>Tipo del Usuario:</label>
+                                                <select th:field="*{tipoUsuario}" class="form-control">
+                                                    <option value="">Seleccione una unidad</option>
+                                                    <option value="Cliente">Cliente</option>
+                                                    <option value="Administrador">Administrador</option>
+                                                </select>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-12 text-center">
+                                                <button type="button" class="btn btn-secondary" onclick="limpiar_Form_Usuario();">
+                                                    <i class="fa-solid fa-circle-plus"></i>
+                                                    Crear Usuario
+                                                </button>
+                                                <button type="submit" class="btn btn-success">
+                                                    <i class="fa-solid fa-floppy-disk"></i>
+                                                    Guardar Usuario
+                                                </button>
+                                            </div>
                                         </div>
                                     </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- Fin del listado de los productos Registrados -->
+                    </div>
+                    <br>
+                    <div class="row">
+                        <!-- Listado de los productos Registrados -->
+                        <div class="col-lg-12">
+                            <div class="card border-success">
+                                <div class="card-header bg-success text-white">
+                                    Usuarios Registrados
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <input type="text" id="searchInput" class="form-control" placeholder="Buscador de Usuarios (Ingrese el Nombre del Usuario)" oninput="Buscardor_Usuarios()" />
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="usersTable" class="table table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nombre</th>
+                                                    <th>Apellido</th>
+                                                    <th>Correo</th>
+                                                    <th>Nickname</th>
+                                                    <th>Identificación</th>
+                                                    <th>N° de Identificación</th>
+                                                    <th>Tipo de Usuario</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr th:each="item: ${listaUsuarios}" class="text-center">
+                                                    <td th:text="${item.nombre}"></td>
+                                                    <td th:text="${item.apellido}"></td>
+                                                    <td th:text="${item.correo}"></td>
+                                                    <td th:text="${item.nickname}"></td>
+                                                    <td th:text="${item.identificacion}"></td>
+                                                    <td th:text="${item.tipoIdentificacion}"></td>
+                                                    <td th:text="${item.tipoUsuario}"></td>
+                                                    <td class="text-center">
+                                                        <a th:href="@{/usuarios/mostrarEditar/} + ${item.id}" class="btn btn-primary">
+                                                            <i class="fa fa-pencil-square" aria-hidden="true"></i>
+                                                        </a>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <a th:href="@{/usuarios/eliminar/} + ${item.id}" class="btn btn-danger" onclick="return confirm('Desea eliminar el usuario?')">
+                                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <br>
                     </div>
+                    <br>
                 </div>
             </div>
-
-            <!-- Contenido de la Interfaz Usuario en el Sistema -->
-            
         </div>
-        
-        <div th:replace="layouts/plantillaMantenimiento :: footer">
 
-        </div>
-    </body>
+    </div>
+    <div th:replace="layouts/plantillaMantenimiento :: footer">
+    </div>
+
+    <!-- Script para buscar a los Usuarios -->
+    <script>
+        function Buscardor_Usuarios() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("searchInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("usersTable");
+            tr = table.getElementsByTagName("tr");
+
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .form-container {
+            margin: 0 auto;
+            width: 50%;
+        }
+    </style>
+
+</body>
+
 </html>
