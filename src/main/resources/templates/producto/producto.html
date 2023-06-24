@@ -113,7 +113,14 @@
                                                     <td th:text="${item.talla}"></td>
                                                     <td th:text="${item.categoria.modelo}"></td>
                                                     <td class="text-center">
-                                                        <a href="#" class="btn btn-primary">
+                                                        <a href="#" class="btn btn-primary editarProducto"
+                                                            th:data-id="${item.id}"
+                                                            th:data-categoria="${item.categoria.id}"
+                                                            th:data-nombre="${item.nombre_producto}"
+                                                            th:data-precio="${item.precio}"
+                                                            th:data-descripcion="${item.descripcion}"
+                                                            th:data-color="${item.color}"
+                                                            th:data-talla="${item.talla}">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </a>
                                                         
@@ -142,13 +149,15 @@
         </div>
     </div>
 
-    <!-- Modal 
+    <!-- Modal -->
     <div class="modal fade" id="modalEditarProducto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Producto</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark" style="color: #222020;"></i>
+                </button>
             </div>
             <form th:action="@{/producto/guardar}" th:object="${producto}" method="post">
                 <div class="modal-body">
@@ -156,16 +165,34 @@
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Categoría:</label>
-                            <select class="form-select" name="categoria.id" id="cboCategoria">
+                            <select class="form-control" name="categoria.id" id="cboCategoria">
                                 <option value="">Seleccione una opción:</option>
-                                <option th:each="item: ${listaCat}" th:value="${item.id}" th:text="${item.nombre}"></option>
+                                <option th:each="item: ${listaCategoria}" th:value="${item.id}" th:text="${item.modelo}"></option>
                             </select>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Nombre del producto:</label>
-                            <input type="text" name="nombre" id="txtNombre" class="form-control"/>
+                            <input type="text" name="nombre_producto" id="txtNombre" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Description del producto:</label>
+                            <input type="text" name="descripcion" id="txtDescripcion" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Talla del producto:</label>
+                            <input type="text" name="talla" id="txtTalla" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Color del producto:</label>
+                            <input type="text" name="color" id="txtColor" class="form-control"/>
                         </div>
                     </div>
                     <div class="row">
@@ -174,9 +201,10 @@
                             <input type="text" name="precio" id="txtPrecio" class="form-control"/>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                     <button type="submit" class="btn btn-info">
                         <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
                     </button>
@@ -185,7 +213,8 @@
         </div>
         </div>
     </div>
-    -->
+    
     <div th:replace="layouts/plantillaMantenimiento :: footer"></div>
+    <script type="text/javascript" th:src="@{/js/ModalsMantenimiento.js}"></script>
 </body>
 </html>
