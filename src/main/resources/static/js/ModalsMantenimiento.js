@@ -39,8 +39,8 @@
             document.getElementById('txtContrasenia').value = item.dataset.contrasenia;
             document.getElementById('txtNickname').value = item.dataset.nickname;
             document.getElementById('txtIdentificacion').value = item.dataset.identificacion;
-            document.getElementById('txtTipoIdentificacion').value = item.dataset.tipoIdentificacion;
-            document.getElementById('txtTipoUsuario').value = item.dataset.tipoUsuario;
+            document.getElementById('txtTipoIdentificacion').value = item.dataset.tipoidentificacion;
+            document.getElementById('txtTipoUsuario').value = item.dataset.tipouser;
             new bootstrap.Modal(document.getElementById('modalEditarUsuario')).show();
         });
     });

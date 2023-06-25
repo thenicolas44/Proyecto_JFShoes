@@ -25,8 +25,6 @@
                         <br><br>
                         <div th:replace="layouts/plantillaMantenimiento :: paneles">
                         </div>
-
-                       
                         <br>
                         <div class="row">
                             <!-- Listado de los productos Registrados -->
@@ -68,8 +66,8 @@
                                                                 th:data-contrasenia="${item.contrasenia}"
                                                                 th:data-nickname="${item.nickname}"
                                                                 th:data-identificacion="${item.identificacion}"
-                                                                th:data-tipoIdentificacion="${item.tipoIdentificacion}"
-                                                                th:data-tipoUsuario="${item.tipoUsuario}">
+                                                                th:data-tipoidentificacion="${item.tipoIdentificacion}"
+                                                                th:data-tipouser="${item.tipoUsuario}">
                                                             <i class="fa-solid fa-pen-to-square"></i>
                                                         </a>
                                                         </td>
@@ -105,7 +103,7 @@
                             </button>
                         </div>
 
-                        <form th:action="@{/usuarios/form}" th:object="${usuario}" method="post">
+                        <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
 
                             <div class="modal-body">
                                 <input type="hidden" th:field="*{id}"/>
@@ -120,14 +118,14 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label>Apellido:</label>
-                                        <input type="text" name="apellido" id="txtApellido" class="form-control"/>
+                                        <input type="text" name="apellido" id="txtApellido" class="form-control" />
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label>Correo:</label>
-                                        <input type="text" name="correo" id="txtCorreo" class="form-control" disabled/>
+                                        <input type="email" name="correo" id="txtCorreo" class="form-control" readonly/>
                                     </div>
                                 </div>
 
@@ -144,14 +142,14 @@
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label>Tipo de identificacion:</label>
-                                        <input type="text" name="tipoIdentificacion" id="txtTipoIdentificacion" class="form-control"/>
+                                        <input type="text" name="tipoIdentificacion" id="txtTipoIdentificacion" class="form-control" readonly/>
                                     </div>
                                 </div>
 
                                 <div class="row">
                                     <div class="col-12 mb-3">
                                         <label>Tipo de usuario:</label>
-                                        <input type="text" name="tipoUsuario" id="txtTipoUsuario" class="form-control" disabled/>
+                                        <input type="text" name="tipoUsuario" id="txtTipoUsuario" class="form-control" readonly/>
                                     </div>
                                 </div>
                             </div>
