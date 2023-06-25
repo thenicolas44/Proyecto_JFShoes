@@ -33,7 +33,6 @@
                                     </div>
                                     <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="post">
                                         <div class="card-body">
-                                            <input type="hidden" th:field="*{id}">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label>Sexo: </label>
@@ -63,9 +62,9 @@
                                                         Guardar</button>
                                                 </div>
                                                 <div class="col-lg-6 text-left">
-                                                    <button type="submit" class="btn btn-info">
+                                                    <button type="button" class="btn btn-info" onclick="fnLimpiarCategoria();">
                                                         <i class="fa-solid fa-floppy-disk"></i>
-                                                        Limpiar y regresar</button>
+                                                        Limpiar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -103,11 +102,14 @@
                                                         <td th:text="${item.modelo}"></td>
                                                         <td th:text="${item.ocasion}"></td>
                                                         <td class="text-center">
-                                                            
-                                                            <a th:href="@{/categoria/mostrarEditar/} + ${item.id}" class="btn btn-primary" >
+                                                            <a href="#" class="btn btn-primary editarCategoria" 
+                                                                th:data-id="${item.id}"
+                                                                th:data-sexo="${item.sexo}"
+                                                                th:data-temporada="${item.temporada}"
+                                                                th:data-modelo="${item.modelo}"
+                                                                th:data-ocacion="${item.ocasion}">
                                                                 <i class="fa-solid fa-pen-to-square"></i>
                                                             </a>
-                                                            
                                                         </td>
                                                         <td class="text-center">
                                                             <a th:href="@{/categoria/eliminar/} + ${item.id}" onclick="return confirm('¿Desea eliminar la categoria?')" class="btn btn-danger">
@@ -134,9 +136,59 @@
 
         </div>
 
+        <!-- Modal -->
+    <div class="modal fade" id="modalEditarCategoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Categoria</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark" style="color: #222020;"></i>
+                </button>
+            </div>
+            <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="post">
+                <div class="modal-body">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Sexo:</label>
+                            <input type="text" name="sexo" id="txtSexo" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Temporada:</label>
+                            <input type="text" name="temporada" id="txtTemporada" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Modelo:</label>
+                            <input type="text" name="modelo" id="txtModelo" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Ocacion:</label>
+                            <input type="text" name="ocasion" id="txtOcacion" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-info">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    
         <!-- Bootstrap Core JavaScript -->
         <div th:replace="layouts/plantillaMantenimiento :: footer">
         </div>
+        <script type="text/javascript" th:src="@{/js/ModalsMantenimiento.js}"></script>
     </body>
 
 </html>

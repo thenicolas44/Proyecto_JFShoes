@@ -13,3 +13,25 @@
         });
     });
 })();
+
+(function(){
+    var listaBotonesEditar = document.querySelectorAll(".editarCategoria");
+    listaBotonesEditar.forEach(item =>{
+        item.addEventListener("click", e =>{
+            document.getElementById('id').value = item.dataset.id;
+            document.getElementById('txtSexo').value = item.dataset.sexo;
+            document.getElementById('txtTemporada').value = item.dataset.temporada;
+            document.getElementById('txtModelo').value = item.dataset.modelo;
+            document.getElementById('txtOcacion').value = item.dataset.ocacion;
+            new bootstrap.Modal(document.getElementById('modalEditarCategoria')).show();
+        });
+    });
+})();
+
+function fnLimpiarProducto(){
+    window.location.href = "http://localhost:8080/producto/";
+}
+
+function fnLimpiarCategoria(){
+    window.location.href = "http://localhost:8080/categoria/";
+}
