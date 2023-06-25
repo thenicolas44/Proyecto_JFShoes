@@ -18,7 +18,7 @@ public class UsuarioEntity implements Serializable{
     @Column(name="USER_CORREO",length=30,nullable=false)
     private String correo;
     @Column(name="USER_CONTRASEÑA",length=10,nullable=false)
-    private String contraseña;
+    private String contrasenia;
     @Column(name="USER_NICKNAME",length=15,nullable=false)
     private String nickname;
     @Column(name="USER_IDENTIFICACION",length=20,nullable=false)
@@ -52,11 +52,11 @@ public class UsuarioEntity implements Serializable{
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
     }
     public String getNickname() {
         return nickname;
