@@ -28,6 +28,24 @@
     });
 })();
 
+(function(){
+    var listaBotonesEditar = document.querySelectorAll(".editarUsuario");
+    listaBotonesEditar.forEach(item =>{
+        item.addEventListener("click", e =>{
+            document.getElementById('id').value = item.dataset.id;
+            document.getElementById('txtNombre').value = item.dataset.nombre;
+            document.getElementById('txtApellido').value = item.dataset.apellido;
+            document.getElementById('txtCorreo').value = item.dataset.correo;
+            document.getElementById('txtContrasenia').value = item.dataset.contrasenia;
+            document.getElementById('txtNickname').value = item.dataset.nickname;
+            document.getElementById('txtIdentificacion').value = item.dataset.identificacion;
+            document.getElementById('txtTipoIdentificacion').value = item.dataset.tipoIdentificacion;
+            document.getElementById('txtTipoUsuario').value = item.dataset.tipoUsuario;
+            new bootstrap.Modal(document.getElementById('modalEditarUsuario')).show();
+        });
+    });
+})();
+
 function fnLimpiarProducto(){
     window.location.href = "http://localhost:8080/producto/";
 }
@@ -35,3 +53,4 @@ function fnLimpiarProducto(){
 function fnLimpiarCategoria(){
     window.location.href = "http://localhost:8080/categoria/";
 }
+
