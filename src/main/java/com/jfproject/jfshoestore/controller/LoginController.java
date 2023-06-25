@@ -43,7 +43,7 @@ public class LoginController {
         Model modelo
     ){
         UsuarioEntity user = loginService.buscarUser(usuario);
-        if(usuario != null && user.getContraseña().equals(contra)){
+        if(usuario != null && user.getContrasenia().equals(contra)){
             if(user.getTipoUsuario().equals("Administrador")){
                 return "redirect:/admin/";
             }
