@@ -11,6 +11,23 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+/* ESTILOS DE LOS ICONOS */
+.Estilo_Icono{
+  font-size: 24px;
+  padding-right: 10px;
+  transition: color 0.3s;
+  vertical-align: middle;
+}
+
+.Estilo_Icono:hover{
+  color:#ffc800;
+}
+
+.Espacio_Icono{
+  padding-right: 50px;
+}
+
+
  @font-face {
   font-family: Amelinda;
   src: url(../fuentes/Amelinda.otf);
