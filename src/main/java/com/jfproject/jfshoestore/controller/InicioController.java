@@ -6,14 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jfproject.jfshoestore.model.Entity.ProductoEntity;
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
-import com.jfproject.jfshoestore.model.service.IServicio;
+import com.jfproject.jfshoestore.model.service.IProductoService;
 
 @Controller
 @RequestMapping("/jf-store")
 public class InicioController {
+    
+
     @Autowired
-    private IServicio miServicio;
+    private IProductoService productoService;
 
     @RequestMapping("/")
     public String principal(Model modelo){
