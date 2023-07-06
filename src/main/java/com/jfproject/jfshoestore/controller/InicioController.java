@@ -30,20 +30,23 @@ public class InicioController {
 
     @RequestMapping("/detalle/{producto}/")
     public String detalle(
-        @PathVariable(value = "producto") int producto,
+        @PathVariable(value = "producto") Long producto,
         Model modelo
     ){
-        UsuarioEntity user = new UsuarioEntity();
-        modelo.addAttribute("usuario", user);
-        String nombre = miServicio.nanmeProduct(producto);
-        String descripción = miServicio.descProduct(producto);
-        String precio = miServicio.priceProduct(producto);
-        String enlace = miServicio.srcProduct(producto);
+        ProductoEntity product = new ProductoEntity();
+        product = productoService.buscarProducto(producto);
+        if(product == null){
+            product = new ProductoEntity();
+            product.setNombre_producto("producto no encontrado");
+            product.setPrecio(0);
+            product.setDescripcion("Sin descripcion");
+            product.setColor("--");
+            product.setTalla(0);
+            product.setImagen("...");   
+        }
         
-        modelo.addAttribute("nombre", nombre);
-        modelo.addAttribute("descripción", descripción);
-        modelo.addAttribute("precio", precio);
-        modelo.addAttribute("enlace", enlace);
+        modelo.addAttribute("producto", product);
+
         return "detalle";
     }
 
