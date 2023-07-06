@@ -10,9 +10,9 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <link th:href="@{/Css/Estilo_Tienda.css}" rel="stylesheet" />
-        <link th:href="@{/Css/Estilo_Letras.css}" rel="stylesheet" />
-        <link th:href="@{/Css/Estilo_Intro.css}"rel="stylesheet">
+        <link th:href="@{/css/Estilo_Tienda.css}" rel="stylesheet" />
+        <link th:href="@{/css/Estilo_Letras.css}" rel="stylesheet" />
+        <link th:href="@{/css/Estilo_Intro.css}"rel="stylesheet">
     </head>
     <body id="page-top">
         <div class="intro">
@@ -42,7 +42,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
-
+                    <span sec:authentication="name" class="Color_NombreUsuario"></span>
                     <!-- ICONOS PRINCIPALES -->
                     <!-- ICONO DEL USUARIO-->
                     <li>
@@ -53,9 +53,11 @@
 
                     <!-- ICONO DEL CERRAR SESION -->
                     <li>
-                        <a class="nav-link">
-                            <i class="fa-solid fa-door-open Estilo_Icono"></i>
-                        </a>
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit" class="boton-logout">
+                                <i class="fa-solid fa-door-open Estilo_Icono"></i>
+                            </button>
+                        </form>
                     </li>
 
                     <!-- ICONO DEL CARRITO -->
