@@ -24,21 +24,21 @@
             <ol class="navbar-nav list-group-horizontal breadcrumb">
                 <li class="nav-item breadcrumb-item"><a th:href="@{/jf-store/}">INICIO</a></li>
                 <li class="nav-item breadcrumb-item"><a th:href="@{/jf-store/catalogo/}">CATÁLOGO</a></li>
-                <li class="nav-item breadcrumb-item"><a th:href="${element}">ZAPATILLA <span th:text="${nombre}"></span> </a></li>
+                <li class="nav-item breadcrumb-item"><a th:href="${element}">ZAPATILLA <span th:text="${producto.nombre_producto}"></span> </a></li>
             </ol>
         </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-5 col-md-12 pb-5 text-center">
-                    <img class="img-fluid" th:src="${enlace}" alt="..." style="max-height: 400px;">
+                    <img class="img-fluid" th:src="@{'/assets/products/' + ${producto.imagen}}" alt="..." style="max-height: 400px;">
                 </div>
                 
                 <div class="col-lg-7">
                     <div class="py-1 px-5">
-                        <h2>Zapatilla <span th:text="${nombre}"></span></h2>
+                        <h2>Zapatilla <span th:text="${producto.nombre_producto}"></span></h2>
                     </div>
                     <div class="py-1 px-5 text-lg-end">
-                        <h3>S/<span th:text="${precio}"></span></h3>
+                        <h3>S/<span th:text="${producto.precio}"></span></h3>
                     </div>
                     <div class="row py-1 px-5">
                         <div class="star-rating">
@@ -57,7 +57,7 @@
                             <p>4.8</p>
                         </div>
                         <div class="pt-2">
-                            <a href="#contact" style="text-decoration: underline;">Escribir un comentario</a>
+                            <a id="owo" href="#contact" style="text-decoration: underline;">Escribir un comentario</a>
                         </div>
                     </div>
                     <div class="row py-1 px-5">
@@ -110,7 +110,7 @@
                     
                     <div class="row py-3 px-5">
                         <div class="col-md-6 pb-3">
-                            <button class="btn btn-product col-lg-3 btn-primary" style="width: -webkit-fill-available;">Comprar ahora</button>
+                            <button onclick="encriptarPalabra();" class="btn btn-product col-lg-3 btn-primary" style="width: -webkit-fill-available;">Comprar ahora</button>
                         </div>
                         <div class="col-md-6 pb-3">
                             <button class="btn btn-product btn-primary" style="width: -webkit-fill-available;">Añadir al carrito</button>
@@ -192,7 +192,7 @@
                 </div>
                 <div class="col-md-4">
                     <p>Información adicional</p>
-                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, inventore neque pariatur officiis sint quam similique nesciunt repellat exercitationem omnis dicta, voluptas rerum sequi odio aspernatur recusandae voluptatem? Eaque, qui.</p>
+                    <p th:text="${producto.descripcion}"></p>
                 </div>
             </div>
         </div>
@@ -288,5 +288,6 @@
     <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
     <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
     <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
 </body>
 </html>
