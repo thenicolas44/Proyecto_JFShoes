@@ -11,8 +11,25 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+.Color_NombreUsuario{
+  color: #ffffff;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+/* ESTILO DEL BOTON LOGOUT */
+.boton-logout {
+  background-color: #252627;  /* Cambia el color de fondo del botón */
+  color: #ffffff;
+  border: none;
+  padding: 0;
+  padding-top: 8px;
+}
+
+
 /* ESTILOS DE LOS ICONOS */
 .Estilo_Icono{
+  color: #ffffff;
   font-size: 24px;
   padding-right: 10px;
   transition: color 0.3s;
@@ -32,7 +49,6 @@
   font-family: Amelinda;
   src: url(../fuentes/Amelinda.otf);
 }
-
 
 #contenedor-padre {
   width: 100%;
