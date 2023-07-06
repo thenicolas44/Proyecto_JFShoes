@@ -26,6 +26,9 @@ public class ProductoEntity implements Serializable{
 
     @Column(name="PRODUCT_TALLA",nullable=false)
     private Integer talla;
+
+    @Column(name = "PRODUCT_IMAGEN",nullable = true)
+    private String imagen;
     
     @ManyToOne(fetch=FetchType.LAZY,optional=false)
     @JoinColumn(name="CAT_ID")
@@ -73,7 +76,12 @@ public class ProductoEntity implements Serializable{
     public void setCategoria(CategoriaEntity categoria) {
         this.categoria = categoria;
     }
-
+    public String getImagen() {
+        return imagen;
+    }
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
     
     
     
