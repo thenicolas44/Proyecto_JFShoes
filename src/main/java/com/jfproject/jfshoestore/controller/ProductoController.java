@@ -29,7 +29,33 @@ public class ProductoController {
     }
 
     @RequestMapping(value = "/guardar", method = RequestMethod.POST)
-    public String guardar(ProductoEntity producto){
+    public String guardar(ProductoEntity producto, @RequestParam("file") MultipartFile imagen){
+
+        //validacion para la imagen
+        if(!imagen.isEmpty()){
+
+            //Ruta primaria
+            Path directorioImagenes = Paths.get("src//main//resources//static//assets//products");
+            //Con esto se obtiene l ruta primaria
+            String ruta = directorioImagenes.toFile().getAbsolutePath();
+
+            //Aqui se aplica una excepcion en caso no se carga la imagen
+            try {
+                //Obtiene la representacion de bytes
+                byte[] bytesImg = imagen.getBytes();
+
+                //Ruta primaria + nombre de la imagen
+                Path rutaCompleta = Paths.get(ruta + "//" + imagen.getOriginalFilename());
+                //Escribe la imagen en el directorio
+                Files.write(rutaCompleta, bytesImg);
+
+                //finalmente guardar la imagen en el objeto
+                producto.setImagen(imagen.getOriginalFilename());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         productoService.guardarProducto(producto);
         return "redirect:/producto/";
     }
