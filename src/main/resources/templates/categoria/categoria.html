@@ -23,6 +23,13 @@
                         
                         <div th:replace="layouts/plantillaMantenimiento :: paneles">
                         </div>
+
+                        <div class="alert alert-warning alert-dismissible fade show" th:if="${mensaje != null}" role="alert">
+                            <span th:text="${mensaje}"></span>
+                            <button type="button" class="btn btn-link" data-bs-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
                         
                         <br>
                         <div class="row">
