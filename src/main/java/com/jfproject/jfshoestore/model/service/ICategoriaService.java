@@ -8,5 +8,5 @@ public interface ICategoriaService {
     public void guardarCategoria(CategoriaEntity categoria);
     public List<CategoriaEntity> mostrarCategorias();
     public CategoriaEntity buscarCategoria(Long id);
-    public void eliminarCategoria(Long id);
+    public String eliminarCategoria(Long id);
 }
