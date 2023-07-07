@@ -38,10 +38,10 @@ public class SpringSecurityConfig {
     }
 
     @Bean
+
     public WebSecurityCustomizer webSecurityCustomizer() throws Exception{
-        return (web)->web.ignoring().requestMatchers("/css/**","/js/**","/images/**", "/assets/", "/demo/");
+        return (web)->web.ignoring().requestMatchers("/css/**","/js/**","/images/**", "/assets/**", "/demo/**", "/webfonts/**", "/fuentes/**","/administrador_usuarios/**");
     }
-    
     /*
     @Bean
     public InMemoryUserDetailsManager configureAuthentication(){

@@ -1,20 +1,19 @@
-package com.jfproject.jfshoestore.model.Entity.UsuarioSecurity;
+package com.jfproject.jfshoestore.model.Entity;
 
 import java.io.Serializable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
 
 @Entity
-@Table(name = "tipo_usuarios")
+@Table(name = "TIPO_USUARIOS")
 public class TipoUsuarioEntity implements Serializable{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(unique = true, nullable = false, name = "TIPO_USER_ID")
     private Long id;
+    @Column(name="USER_NAME" , length=25 , nullable = false)
     private String authority;
 
     /* GETTERS AND SETTERS */

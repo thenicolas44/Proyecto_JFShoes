@@ -13,20 +13,20 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.jfproject.jfshoestore.model.Entity.UsuarioSecurity.TipoUsuarioEntity;
-import com.jfproject.jfshoestore.model.Entity.UsuarioSecurity.UsuarioSecurityEntity;
-import com.jfproject.jfshoestore.model.dao.daoUsuarioSecurity.IUsuarioSecurityDao;
+import com.jfproject.jfshoestore.model.Entity.TipoUsuarioEntity;
+import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
+import com.jfproject.jfshoestore.model.dao.IUsuarioDao;
 
 @Service("UsuarioSecurityService")
 public class UsuarioSecurityService implements UserDetailsService {
 
     @Autowired
-    private IUsuarioSecurityDao usuarioDao;
+    private IUsuarioDao usuarioDao;
 
     @Override
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UsuarioSecurityEntity usuario = usuarioDao.findByUsername(username);
+        UsuarioEntity usuario = usuarioDao.findByUsername(username);
         List<GrantedAuthority> listaTipos = new ArrayList<>();
 
         if(usuario == null){
@@ -36,6 +36,6 @@ public class UsuarioSecurityService implements UserDetailsService {
                 listaTipos.add(new SimpleGrantedAuthority(item.getAuthority()));
             }
         }
-        return new User(usuario.getUsername(), usuario.getUSER_CONTRASEÑA(), listaTipos);
+        return new User(usuario.getUsername(), usuario.getContrasenia(), listaTipos);
     } 
 }

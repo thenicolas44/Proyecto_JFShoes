@@ -36,25 +36,5 @@ public class LoginController {
         loginService.registrarUser(user);
         return "redirect:/login/";
     }
-    @RequestMapping("/{usuario}/{contra}")
-    public String inicioSession(
-        @PathVariable(value = "usuario") String usuario,
-        @PathVariable(value = "contra") String contra,
-        Model modelo
-    ){
-        UsuarioEntity user = loginService.buscarUser(usuario);
-        if(usuario != null && user.getContrasenia().equals(contra)){
-            if(user.getTipoUsuario().equals("Administrador")){
-                return "redirect:/admin/";
-            }
-            if(user.getTipoUsuario().equals("Cliente")){
-                modelo.addAttribute("usuario", user);
-                Long id = user.getId();
-                return "redirect:/jf-store/"+ id;
-            }
-            
-        }
-        modelo.addAttribute("mensaje", "Error usuario o contraseña incorrecto");
-        return "login/LoginInicio";
-    }
+    
 }

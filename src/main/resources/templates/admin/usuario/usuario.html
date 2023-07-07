@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head th:replace="layouts/plantillaMantenimiento :: cabecera">
+    </head>
+
+
+    <body>
+        <div id="wrapper">
+            <!-- Barra de navegación en las interfaces del Administrador -->
+            <ul th:replace="layouts/plantillaMantenimiento :: asideLateral"></ul>
+
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <nav th:replace="layouts/plantillaMantenimiento :: navSuperior"></nav>
+
+                    <div class="container-fluid px-4">
+
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h1 class="page-header text-center contorno-color">USUARIOS DEL SISTEMA</h1>
+                            </div>
+                        </div>
+
+                        <br><br>
+                        <div th:replace="layouts/plantillaMantenimiento :: paneles">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <!-- Listado de los productos Registrados -->
+                            <div class="col-lg-12">
+                                <div class="card border-success">
+                                    <div class="card-header bg-success text-white">
+                                        Usuarios Registrados
+                                    </div>
+                                    <p></p>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-hover ">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <th>Apellido</th>
+                                                        <th>Correo</th>
+                                                        <th>Nickname</th>
+                                                        <th>N° de Identificación</th>
+                                                        <th>Identificación</th>
+                                                        <th>Tipo de Usuario</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr th:each="item: ${listaUsuarios}" class="text-center">
+                                                        <td th:text="${item.nombre}"></td>
+                                                        <td th:text="${item.apellido}"></td>
+                                                        <td th:text="${item.correo}"></td>
+                                                        <td th:text="${item.nickname}"></td>
+                                                        <td th:text="${item.identificacion}"></td>
+                                                        <td th:text="${item.tipoIdentificacion}"></td>
+                                                        <td th:text="${item.tipoUsuario}"></td>
+                                                        <td class="text-center">
+                                                            <a href="#" class="btn btn-primary editarUsuario" 
+                                                                th:data-id="${item.id}"
+                                                                th:data-nombre="${item.nombre}"
+                                                                th:data-apellido="${item.apellido}"
+                                                                th:data-correo="${item.correo}"
+                                                                th:data-contrasenia="${item.contrasenia}"
+                                                                th:data-nickname="${item.nickname}"
+                                                                th:data-identificacion="${item.identificacion}"
+                                                                th:data-tipoidentificacion="${item.tipoIdentificacion}"
+                                                                th:data-tipouser="${item.tipoUsuario}">
+                                                            <i class="fa-solid fa-pen-to-square"></i>
+                                                        </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a th:href="@{/usuarios/eliminar/} + ${item.id}" class="btn btn-danger" 
+                                                                onclick="return confirm('Desea eliminar el usuario?')">
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contenido de la Interfaz Usuario en el Sistema -->
+            
+            <!-- Modal -->
+            <div class="modal fade" id="modalEditarUsuario" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="staticBackdropLabel">Editar Usuario</h4>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+
+                        <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+
+                            <div class="modal-body">
+                                <input type="hidden" th:field="*{id}"/>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label>Nombre:</label>
+                                        <input type="text" name="nombre" id="txtNombre" class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label>Apellido:</label>
+                                        <input type="text" name="apellido" id="txtApellido" class="form-control" />
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label>Correo:</label>
+                                        <input type="email" name="correo" id="txtCorreo" class="form-control" readonly/>
+                                    </div>
+                                </div>
+
+                                <input type="hidden" name="contrasenia" id="txtContrasenia"/>
+                                <input type="hidden" name="nickname" id="txtNickname"/>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label>Identificacion:</label>
+                                        <input type="text" name="identificacion" id="txtIdentificacion" class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label>Tipo de identificacion:</label>
+                                        <input type="text" name="tipoIdentificacion" id="txtTipoIdentificacion" class="form-control" readonly/>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-12 mb-3">
+                                        <label>Tipo de usuario:</label>
+                                        <input type="text" name="tipoUsuario" id="txtTipoUsuario" class="form-control" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-info">
+                                    <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        <div th:replace="layouts/plantillaMantenimiento :: footer"></div>
+        <script type="text/javascript" th:src="@{/js/ModalsMantenimiento.js}"></script>
+    </body>
+</html>

@@ -14,7 +14,7 @@ public class LoginService implements ILoginService{
 
     @Override
     public UsuarioEntity buscarUser(String nombre) {
-        return userDAO.findbyname(nombre);
+        return userDAO.findByUsername(nombre);
     }
 
     @Override

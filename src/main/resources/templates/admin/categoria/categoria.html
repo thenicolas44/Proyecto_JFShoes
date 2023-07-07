@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head th:replace="layouts/plantillaMantenimiento :: cabecera">
+    </head>
+
+    <body>
+
+        <div id="wrapper">
+            <!-- Navigation -->   
+            <ul th:replace="layouts/plantillaMantenimiento :: asideLateral"></ul>
+            <div id="content-wrapper" class="d-flex flex-column">
+                <div id="content">
+                    <nav th:replace="layouts/plantillaMantenimiento :: navSuperior"></nav>
+
+                    <div class="container-fluid px-4">
+                        <div class="row pb-3">
+                            <div class="col-lg-12">
+                                <h1 class="page-header">Mantener categoria</h1>
+                            </div>
+                            <!-- /.col-lg-12 -->
+                        </div>
+                        
+                        <div th:replace="layouts/plantillaMantenimiento :: paneles">
+                        </div>
+                        
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card border-info">
+                                    <div class="card-header bg-info text-white">
+                                        <b class="card-title">Registro de categoria</b>
+                                    </div>
+                                    <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="post">
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label>Sexo: </label>
+                                                    <input th:field="*{sexo}" type="text" class="form-control" placeholder="Ingresar sexo">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Temporada: </label>
+                                                    <input th:field="*{temporada}" type="text" class="form-control" placeholder="Ingresar temporada">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row mt-3">
+                                                <div class="col-md-6">
+                                                    <label>Modelo: </label>
+                                                    <input th:field="*{modelo}" type="text" class="form-control" placeholder="Ingresar modelo">
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label>Ocasion: </label>
+                                                    <input th:field="*{ocasion}" type="text" class="form-control" placeholder="Ingresar ocasion">
+                                                </div>
+                                            </div>
+                                            <br>
+                                            <div class="row">
+                                                <div class="col-lg-6 text-right">
+                                                    <button type="submit" class="btn btn-success">
+                                                        <i class="fa-solid fa-floppy-disk"></i>
+                                                        Guardar</button>
+                                                </div>
+                                                <div class="col-lg-6 text-left">
+                                                    <button type="button" class="btn btn-info" onclick="fnLimpiarCategoria();">
+                                                        <i class="fa-solid fa-floppy-disk"></i>
+                                                        Limpiar</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+
+                        <!--Listado-->
+                        
+                        <br>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card border-success">
+                                    <div class="card-header bg-success text-white">
+                                        <b class="card-title">Todas las categorias</b>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered table-striped table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th class="text-center">Sexo</th>
+                                                        <th class="text-center">Temporada</th>
+                                                        <th class="text-center">Modelo</th>
+                                                        <th class="text-center">Ocasion</th>
+                                                        <th colspan="2" class="text-center">Acciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="table-group-divider">
+                                                    <tr th:each="item: ${listaCategorias}">
+                                                        <td th:text="${item.sexo}"></td>
+                                                        <td th:text="${item.temporada}"></td>
+                                                        <td th:text="${item.modelo}"></td>
+                                                        <td th:text="${item.ocasion}"></td>
+                                                        <td class="text-center">
+                                                            <a href="#" class="btn btn-primary editarCategoria" 
+                                                                th:data-id="${item.id}"
+                                                                th:data-sexo="${item.sexo}"
+                                                                th:data-temporada="${item.temporada}"
+                                                                th:data-modelo="${item.modelo}"
+                                                                th:data-ocacion="${item.ocasion}">
+                                                                <i class="fa-solid fa-pen-to-square"></i>
+                                                            </a>
+                                                        </td>
+                                                        <td class="text-center">
+                                                            <a th:href="@{/categoria/eliminar/} + ${item.id}" onclick="return confirm('¿Desea eliminar la categoria?')" class="btn btn-danger">
+                                                                <i class="fa-solid fa-trash"></i>
+                                                                
+                                                            </a>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+
+            </div>
+            
+                <!-- /.navbar-top-links -->
+            <!-- /#page-wrapper -->
+
+        </div>
+
+        <!-- Modal -->
+    <div class="modal fade" id="modalEditarCategoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Editar Categoria</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa-solid fa-xmark" style="color: #222020;"></i>
+                </button>
+            </div>
+            <form th:action="@{/categoria/guardar}" th:object="${categoria}" method="post">
+                <div class="modal-body">
+                    <input type="hidden" th:field="*{id}"/>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Sexo:</label>
+                            <input type="text" name="sexo" id="txtSexo" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Temporada:</label>
+                            <input type="text" name="temporada" id="txtTemporada" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Modelo:</label>
+                            <input type="text" name="modelo" id="txtModelo" class="form-control"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label>Ocacion:</label>
+                            <input type="text" name="ocasion" id="txtOcacion" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-info">
+                        <i class="fa-solid fa-floppy-disk"></i> Guardar cambios
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    
+        <!-- Bootstrap Core JavaScript -->
+        <div th:replace="layouts/plantillaMantenimiento :: footer">
+        </div>
+        <script type="text/javascript" th:src="@{/js/ModalsMantenimiento.js}"></script>
+    </body>
+
+</html>

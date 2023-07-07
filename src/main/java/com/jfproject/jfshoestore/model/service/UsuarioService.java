@@ -9,11 +9,9 @@ import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
 import com.jfproject.jfshoestore.model.dao.IUsuarioDao;
 
 @Service
-public class UsuarioServiceImp implements IUsuarioService{
-
+public class UsuarioService implements IUsuarioService{
     @Autowired
     private IUsuarioDao usuarioDAO;
-
     @Override
     public void guardarUsuario(UsuarioEntity usuario) {
         usuarioDAO.save(usuario);
@@ -23,6 +21,7 @@ public class UsuarioServiceImp implements IUsuarioService{
     public List<UsuarioEntity> mostrarUsuarios() {
         return (List<UsuarioEntity>)usuarioDAO.findAll();
     }
+        
 
     @Override
     public UsuarioEntity buscarUsuario(Long id) {
