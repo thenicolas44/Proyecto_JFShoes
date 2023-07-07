@@ -30,8 +30,15 @@ public class CategoriaService implements ICategoriaService{
     }
 
     @Override
-    public void eliminarCategoria(Long id) {
-        categoriaDAO.deleteById(id);
+    public String eliminarCategoria(Long id) {
+        String rpta = "";
+        try{
+            categoriaDAO.deleteById(id);
+            rpta = "Se eliminó la categoria correctamente";
+        }catch(Exception e ){
+            rpta = e.getMessage();
+        }
+        return rpta;
     }
     
 }
