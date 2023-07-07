@@ -29,8 +29,15 @@ public class UsuarioService implements IUsuarioService{
     }
 
     @Override
-    public void eliminarUsuario(Long id) {
-        usuarioDAO.deleteById(id);
+    public String eliminarUsuario(Long id) {
+        String rpta = "";
+        try{
+            usuarioDAO.deleteById(id);
+            rpta = "Se eliminó el usuario correctamente";
+        }catch(Exception e ){
+            rpta = e.getMessage();
+        }
+        return rpta;
     }
     
 }
