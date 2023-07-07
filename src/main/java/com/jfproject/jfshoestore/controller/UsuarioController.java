@@ -10,8 +10,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
 import com.jfproject.jfshoestore.model.service.IUsuarioService;
 
-
-
 @Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {
