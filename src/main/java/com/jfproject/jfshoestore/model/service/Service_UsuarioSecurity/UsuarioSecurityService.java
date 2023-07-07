@@ -1,7 +1,10 @@
 package com.jfproject.jfshoestore.model.service.Service_UsuarioSecurity;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,8 +30,9 @@ public class UsuarioSecurityService implements UserDetailsService {
     @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         UsuarioEntity usuario = usuarioDao.findByUsername(username);
+        /* */
         List<GrantedAuthority> listaTipos = new ArrayList<>();
-
+        Set<GrantedAuthority> authorities = new HashSet<>();
         if(usuario == null){
             throw new UsernameNotFoundException("Usuario o Contraseña Incorrecta");
         }else{
@@ -36,6 +40,7 @@ public class UsuarioSecurityService implements UserDetailsService {
                 listaTipos.add(new SimpleGrantedAuthority(item.getAuthority()));
             }
         }
-        return new User(usuario.getUsername(), usuario.getContrasenia(), listaTipos);
+        
+        return new User(usuario.getUsername(), usuario.getContrasenia(),usuario.getEnable(),true,true,true, listaTipos);
     } 
 }

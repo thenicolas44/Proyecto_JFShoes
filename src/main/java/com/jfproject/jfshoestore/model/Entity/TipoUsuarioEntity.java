@@ -13,7 +13,7 @@ public class TipoUsuarioEntity implements Serializable{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(unique = true, nullable = false, name = "TIPO_USER_ID")
     private Long id;
-    @Column(name="USER_NAME" , length=25 , nullable = false)
+    @Column(name="TIPO_USER_ROL" , length=25 , nullable = false)
     private String authority;
 
     /* GETTERS AND SETTERS */
