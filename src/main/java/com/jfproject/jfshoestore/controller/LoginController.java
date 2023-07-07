@@ -6,14 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.jfproject.jfshoestore.model.Entity.PersonaEntity;
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
+import com.jfproject.jfshoestore.model.dao.IPersonaDao;
 import com.jfproject.jfshoestore.model.service.ILoginService;
+import com.jfproject.jfshoestore.model.service.IPersonaService;
 
 @Controller
 @RequestMapping("/login")
 
 public class LoginController {
     @Autowired ILoginService loginService;
+    @Autowired IPersonaDao personaDao;
 
     @RequestMapping("/")
     public String inicio(){
@@ -33,6 +37,9 @@ public class LoginController {
     }
     @RequestMapping("/guardar")
     public String guardarRegistro(UsuarioEntity user){
+        PersonaEntity personaEntity = user.getPersonas();
+        personaEntity = personaDao.save(personaEntity);
+        user.setPersonas(personaEntity);
         loginService.registrarUser(user);
         return "redirect:/login/";
     }

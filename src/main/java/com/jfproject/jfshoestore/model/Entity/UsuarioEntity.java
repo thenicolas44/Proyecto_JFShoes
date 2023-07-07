@@ -31,7 +31,7 @@ public class UsuarioEntity implements Serializable{
     @JoinColumn(name="PERSON_ID")
     private PersonaEntity personas;
 
-
+    
     public long getId() {
         return id;
     }
@@ -90,7 +90,5 @@ public class UsuarioEntity implements Serializable{
     public void setPersonas(PersonaEntity personas) {
         this.personas = personas;
     }
-
-
     
 }
