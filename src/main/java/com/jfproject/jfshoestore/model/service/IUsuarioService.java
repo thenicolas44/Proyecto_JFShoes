@@ -8,5 +8,5 @@ public interface IUsuarioService {
     public void guardarUsuario(UsuarioEntity usuario);
     public List<UsuarioEntity> mostrarUsuarios();
     public UsuarioEntity buscarUsuario(Long id);
-    public void eliminarUsuario(Long id);
+    public String eliminarUsuario(Long id);
 }
