@@ -42,9 +42,10 @@ public class UsuarioController {
         return "usuario/index";
     }
     
-    @RequestMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable(value="id") Long id){
-        usuarioService.eliminarUsuario(id);
+   @RequestMapping("/eliminar/{id}")
+    public String eliminar(@PathVariable(value="id") Long id, Model model, RedirectAttributes flash){
+        String rpta = usuarioService.eliminarUsuario(id);
+        flash.addFlashAttribute("mensaje", rpta );
         return "redirect:/usuarios/";
     }
 }
