@@ -69,12 +69,9 @@ public class ProductoController {
     }
 
     @RequestMapping("/eliminar/{id}")
-    public String eliminar(
-        @PathVariable(value = "id") Long id,
-        Model modelo,
-        RedirectAttributes flash){
-            String rpta = productoService.eliminarProducto(id);
-            flash.addFlashAttribute("mensaje",rpta);
-            return "redirect:/producto/";
+    public String eliminar(@PathVariable(value = "id") Long id, Model model, RedirectAttributes flash){
+        String rpta = productoService.eliminarProducto(id);
+        flash.addFlashAttribute("mensaje",rpta);
+        return "redirect:/producto/";
     }
 }
