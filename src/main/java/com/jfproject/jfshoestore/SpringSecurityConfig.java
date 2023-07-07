@@ -1,24 +1,32 @@
 package com.jfproject.jfshoestore;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import com.jfproject.jfshoestore.model.service.Service_UsuarioSecurity.UsuarioSecurityService;
+
 @Configuration
 public class SpringSecurityConfig {
     
+    @Autowired
+    private UsuarioSecurityService userService;
+
+    @Bean
+    public static BCryptPasswordEncoder encriptarPassword(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Autowired
+    public void criptografiaPassword(AuthenticationManagerBuilder outh) throws Exception{
+        outh.userDetailsService(userService).passwordEncoder(encriptarPassword());
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests()
@@ -33,7 +41,8 @@ public class SpringSecurityConfig {
     public WebSecurityCustomizer webSecurityCustomizer() throws Exception{
         return (web)->web.ignoring().requestMatchers("/css/**","/js/**","/images/**", "/assets/", "/demo/");
     }
-
+    
+    /*
     @Bean
     public InMemoryUserDetailsManager configureAuthentication(){
         List<UserDetails> listaUsuarios = new ArrayList<>();
@@ -45,5 +54,5 @@ public class SpringSecurityConfig {
         listaUsuarios.add(new User("Jorge", "{noop}123456", rolesUsuarios));
         return new InMemoryUserDetailsManager(listaUsuarios);
     }
-
+     */
 }
