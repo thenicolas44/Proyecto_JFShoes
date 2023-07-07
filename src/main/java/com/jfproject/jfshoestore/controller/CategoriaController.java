@@ -40,8 +40,9 @@ public class CategoriaController {
     
 
     @RequestMapping("/eliminar/{id}")
-    public String eliminar(@PathVariable (value = "id") Long id){
-        categoriaService.eliminarCategoria(id);
+    public String eliminar(@PathVariable (value = "id") Long id, Model model, RedirectAttributes flash){
+        String rpta  = categoriaService.eliminarCategoria(id);
+        flash.addFlashAttribute("mensaje", rpta );
         return "redirect:/categoria/";
     }
 }
