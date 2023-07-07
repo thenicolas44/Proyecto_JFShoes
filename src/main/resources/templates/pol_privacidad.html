@@ -10,12 +10,144 @@
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
-        <link href="css/Estilo_Tienda.css" rel="stylesheet" />
-        <link href="css/Estilo_Letras.css" rel="stylesheet" />
-        <link href="css/Estilo_Intro.css"rel="stylesheet">
+        <link th:href="@{/css/Estilo_Tienda.css}" rel="stylesheet" />
+        <link th:href="@{/css/Estilo_Letras.css}" rel="stylesheet" />
+        <link th:href="@{/css/Estilo_Intro.css}"rel="stylesheet">
         <link href="https://s3-us-west-2.amazonaws.com/external.plus.nikecloud.com/agreementservice/legal.css" rel="stylesheet" />
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark" id="mainNav">
+    <div class="container">
+        
+        <a class=" navbar-brand" th:href="@{/jf-store/} + (${usuario.id != 0 ? usuario.id : ''})"><img class="logo-nav" src="assets/imagenes/Logo-JF.png" alt="..." /></a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ms-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
+                <li class="nav-item">
+                    <div class="input-group mb-3" >
+                        <input id="result" style="width: 220px;" type="text" class="form-control" placeholder="Buscar" aria-label="Recipient's username" aria-describedby="button-addon2">
+                        <button style="width: 55px;" class="btn btn-outline-secondary nav-link" type="button">
+                             <svg width="20" height="20" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                        </button>
+                        <button style="width: 55px;" class="btn btn-outline-secondary nav-link" type="button" id="btn-voz">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </div>
+                    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 20 20"><path d="M14.386 14.386l4.0877 4.0877-4.0877-4.0877c-2.9418 2.9419-7.7115 2.9419-10.6533 0-2.9419-2.9418-2.9419-7.7115 0-10.6533 2.9418-2.9419 7.7115-2.9419 10.6533 0 2.9419 2.9418 2.9419 7.7115 0 10.6533z" stroke="currentColor" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">
+                        <svg width="20" height="20" viewBox="0 0 17 17"><path d="m 14.176,12.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z m -8.5,-2.5 c 0.965,0 1.75,0.785 1.75,1.75 0,0.965 -0.785,1.75 -1.75,1.75 -0.965,0 -1.75,-0.785 -1.75,-1.75 0,-0.965 0.785,-1.75 1.75,-1.75 z m 0,2.5 c 0.414,0 0.75,-0.337 0.75,-0.75 0,-0.413 -0.336,-0.75 -0.75,-0.75 -0.414,0 -0.75,0.337 -0.75,0.75 0,0.413 0.336,0.75 0.75,0.75 z M 3.555,2 3.857,4 H 17 l -1.118,8.036 H 3.969 L 2.931,4.573 2.695,3 H -0.074 V 2 Z M 4,5 4.139,6 H 15.713 L 15.852,5 Z M 15.012,11.036 15.573,7 H 4.278 l 0.561,4.036 z" fill="currentColor"></path>
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login/}">
+                        <svg width="17" height="17" viewBox="0 0 17 17">
+                            <g>
+                            </g>
+                                <path d="M17 16.488c-0.063-2.687-2.778-4.999-6.521-5.609v-1.374c0.492-0.473 0.842-1.207 1.071-1.833 0.332-0.166 0.624-0.536 0.794-1.033 0.238-0.688 0.146-1.323-0.206-1.629 0.028-0.238 0.046-0.481 0.015-0.723-0.079-0.663 0.065-1.038 0.194-1.368 0.106-0.277 0.229-0.591 0.106-0.945-0.442-1.273-1.727-1.974-3.618-1.974l-0.264 0.005c-1.313 0.047-1.707 0.6-1.971 1.115-0.033 0.062-0.077 0.146-0.077 0.151-1.712 0.153-1.697 1.569-1.684 2.707l0.003 0.369c0 0.205 0.009 0.419 0.026 0.639-0.425 0.3-0.504 1.005-0.179 1.737 0.185 0.415 0.452 0.729 0.749 0.892 0.243 0.674 0.625 1.47 1.179 1.965v1.283c-3.798 0.589-6.554 2.907-6.617 5.625l-0.012 0.512h17.023l-0.011-0.512zM1.054 16c0.392-2.094 2.859-3.821 6.122-4.204l0.441-0.052v-2.666l-0.216-0.15c-0.393-0.272-0.791-0.947-1.090-1.851l-0.083-0.281-0.294-0.051c-0.053-0.019-0.208-0.153-0.33-0.428-0.075-0.168-0.104-0.312-0.112-0.415l0.51 0.143-0.096-0.749c-0.042-0.33-0.064-0.651-0.064-0.95l-0.003-0.38c-0.015-1.341 0.051-1.634 0.773-1.699 0.545-0.048 0.752-0.449 0.876-0.689 0.15-0.292 0.28-0.543 1.12-0.574l0.227-0.004c0.829 0 2.279 0.169 2.669 1.282 0 0.043-0.052 0.177-0.090 0.275-0.145 0.374-0.364 0.939-0.254 1.853 0.024 0.188-0.007 0.424-0.040 0.675l-0.089 0.805 0.441-0.048c0.008 0.104-0.004 0.269-0.075 0.472-0.097 0.289-0.242 0.438-0.237 0.454h-0.36l-0.114 0.342c-0.283 0.853-0.65 1.497-1.009 1.768l-0.198 0.15v2.726l0.438 0.055c3.211 0.401 5.641 2.123 6.030 4.192h-14.893z" fill="currentColor"></path>
+                            </svg>
+                    </a>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="#page-top">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio_principal">Productos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#portfolio">Destacados</a></li>
+                <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <div class="legalAgreement nsg-font-family--platform content" id="legalContainer">
+<br><br><br><br><br>
+
+    <p align="center"><strong>Política de privacidad y política de cookies de JF Shore</strong></p>
+    <p>Esta política de privacidad describe los datos personales recopilados o generados (tratados) 
+    cuando interactúa con JF Shore a través de nuestros sitios web, experiencias digitales, 
+    aplicaciones móviles, tiendas, eventos, o alguno de nuestros productos o servicios, todos 
+    los cuales forman parte de la Plataforma de JF Shore («<strong>Plataforma</strong>»). 
+    También explica cómo se utilizan, comparten y protegen sus datos personales, qué opciones 
+    tiene en relación con los mismos y cómo se puede poner en contacto con nosotros.</p>
+    <ul><li><strong><span style="text-decoration: underline;">¿QUIÉN es el Responsable del Tratamiento de sus datos personales?</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">¿QUÉ datos personales recopilamos y CUÁNDO?</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">MENORES</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">HERRAMIENTAS para administrar los datos personales que recopilamos</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">¿POR QUÉ y CÓMO utilizamos (tratamos) sus datos personales?</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">INTERCAMBIO de sus datos personales</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">PROTECCIÓN y GESTIÓN de sus datos personales</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">SUS DERECHOS en relación con sus datos personales</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">COOKIES y Pixel Tags</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">USO de la Plataforma de JF Shore con productos y servicios de terceros</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">CAMBIOS a nuestra Política de Privacidad</span></strong></li>
+    <li><strong><span style="text-decoration: underline;">PREGUNTAS y comentarios</span></strong></li>
+        /ul><p><strong>¿QUIÉN es Responsable del Tratamiento de sus datos personales?</strong></p>
+    <p>La sociedad JF Shore que será responsable del tratamiento de sus datos personales dependerá de cómo interactúe con la Plataforma de JF Shore y del lugar donde se encuentre. En esta política de privacidad se hace referencia a JF Shore como “<strong>JF Shore</strong>” o “<strong>nosotros</strong>”.</p>
+    <p>Por favor revise nuestra <span style="text-decoration: underline;"><a href="http://agreementservice.svs.JF Shore.com/es/es_es/rest/agreement?requestType=redirect&agreementType=localentities&country=ES&language=es&uxId=com.JF Shore.unite" shape="rect">Lista de Sociedades Locales</a> </span>para ver el nombre de la sociedad JF Shore responsable y la información de contacto adecuada.</p>
+    <p><strong>¿QUÉ datos personales recopilamos y CUÁNDO?</strong></p>
+<p>Para proporcionarle los productos o servicios que solicite, le pediremos ciertos datos personales. Por ejemplo, cuando realice compras, se ponga en contacto con nuestros servicios de atención al consumidor, solicite recibir comunicaciones, cree una cuenta, participe en nuestros eventos o concursos, o utilice nuestra Plataforma. Además, cuando solicite servicios específicos en las tiendas, es posible que le pidamos que inicie sesión a fin de proporcionarle servicios que posteriormente se asociarán a su cuenta (por ejemplo, talla, ajuste, preferencias).</p>
+<p>Estos datos personales incluyen sus:</p>
+<ul><li>datos de contacto, incluyendo nombre, correo electrónico, número de teléfono y dirección de envío y facturación;</li>
+<li>información de acceso y cuenta, incluyendo nombre de usuario, contraseña e ID de usuario único;</li>
+<li>datos personales incluyendo sexo, ciudad natal, fecha de nacimiento e historial de compra;</li>
+<li>información de pago o tarjeta de crédito;</li>
+<li>imágenes, fotos y videos;</li>
+<li>datos sobre las características físicas, incluyendo el peso, la estatura y las medidas corporales (tales como la zancada estimada y las medidas del zapato/pie o la talla de ropa);</li>
+<li>datos de actividad física que han sido proporcionados por usted o generados a través de nuestra Plataforma (tiempo, duración, distancia, ubicación, cantidad de calorías, ritmo/zancada);</li>
+<li>preferencias personales incluyendo su lista de deseos, así como las preferencias de marketing y cookies.</li>
+</ul><p>Recogemos datos personales adicionales suyos para habilitar funciones particulares dentro de nuestra Plataforma. Por ejemplo, solicitamos el acceso a los datos de localización de su teléfono para registrar sus rutas de running, sus contactos para que pueda interactuar con sus amigos, su calendario para programar un plan de entrenamiento o sus credenciales de red social para poder publicar contenido desde nuestra Plataforma a una red social. Estos datos personales incluyen sus:</p>
+<ul><li>datos de movimiento del acelerómetro de su dispositivo;</li>
+<li>fotografías, audios, contactos e información del calendario;</li>
+<li>datos del sensor, incluyendo frecuencia cardíaca y datos de localización (GPS); o</li>
+<li>información de redes sociales, incluyendo credenciales y cualquier información de sus publicaciones públicas sobre JF Shore o sus comunicaciones con nosotros.</li>
+</ul><p>Al interactuar con nuestra Plataforma, ciertos datos se recopilan automáticamente y son compartidos desde su navegador web o dispositivo móvil. En la sección de “<strong>Cookies y Pixel Tags</strong>” de esta política de privacidad se incluye más información sobre estas prácticas. Dichos datos incluyen:</p>
+<ul><li>Identificadores e información del modelo del dispositivo desde el que accede, estado de llamada, acceso a la red, información de almacenamiento e información de la batería,</li>
+<li>Datos de tráfico web de su visita e interacciones con nuestra Plataforma, entre los que se incluyen los productos que ha visualizado, buscado o añadido a la cesta y si el acceso se ha realizado iniciando sesión en su cuenta de JF Shore.</li>
+<li>Cookies, direcciones IP, encabezados de referencia, datos que identifican su navegador web y versión, contadores de visita, etiquetas web e interacciones con nuestra Plataforma.</li>
+</ul><p><strong>MENORES</strong></p>
+<p>Cumplimos con la normativa local y no permitimos que los menores se registren en nuestra Plataforma cuando estén por debajo del límite legal del país en el que residan. Se requerirá el consentimiento de los padres para que los menores participen en experiencias JF Shore y eventos.</p>
+<p><strong>HERRAMIENTAS para administrar los datos personales que recopilamos</strong></p>
+<p>Al usar nuestra Plataforma, también le facilitamos avisos al momento u obtenemos el consentimiento para ciertas prácticas. Por ejemplo, obtendremos el consentimiento para usar su localización o enviar notificaciones push. Podremos obtener este consentimiento a través de la Plataforma o usando los permisos estándar disponibles en su dispositivo.</p>
+<p>En muchos casos, su navegador web o plataforma de dispositivo móvil proporcionará otras herramientas adicionales que le permitirán controlar cuándo su dispositivo recopila o comparte determinadas categorías de datos personales. Por ejemplo, su dispositivo móvil o navegador web puede ofrecerle herramientas que le permitan gestionar el uso de cookies o el uso compartido de ubicaciones.  Le animamos a que se familiarice y utilice las herramientas disponibles en sus dispositivos.   </p>
+<p><strong>¿POR QUÉ y CÓMO utilizamos sus datos personales?                        </strong></p>
+<p> Usamos sus datos personales de la siguiente manera:</p>
+<p><strong>Para proporcionar las funciones de la Plataforma y Servicios que solicita </strong></p>
+<p>Cuando utilice nuestra Plataforma, utilizaremos sus datos personales para proporcionarle el producto o servicio que solicite.  Por ejemplo, si hace una compra en JF Shore.com, o participa en un evento o promoción, utilizaremos la información de contacto que nos proporcione para comunicarnos con usted sobre la compra, evento o promoción. Si contacta con nuestros servicios de atención al consumidor, utilizaremos información suya, tal como la información de entrega o pago, o el producto que ha comprado, con la finalidad de ayudarle a resolver un problema o pregunta.   </p>
+<p>Si utiliza nuestra Plataforma para realizar un seguimiento de su actividad física o características físicas, recopilaremos estos datos personales y los guardaremos para que pueda revisarlos en la Plataforma. Los datos de actividad física pueden incluir datos que introduce sobre su actividad, o datos recabados por el dispositivo durante el transcurso de su actividad, tales como datos de ubicación y datos de movimiento.  Podemos utilizar estos datos de actividad para calcular más información sobre su actividad, tales como la distancia recorrida o las calorías quemadas, de modo que la información calculada le pueda ser proporcionada como parte de la funcionalidad de la Plataforma.</p>
+<p>En muchos casos, para utilizar funciones particulares dentro de nuestra Plataforma, es posible que necesite proporcionar a JF Shore datos adicionales o un consentimiento adicional para utilizar determinados datos de determinada manera.  Por ejemplo, para utilizar las funciones de seguimiento de frecuencia cardíaca de nuestra Plataforma, es posible que se necesite conectar a un dispositivo de monitoreo de frecuencia cardíaca. Del mismo modo, para compartir contenido en redes sociales, es posible que deba proporcionar las credenciales de su cuenta de redes sociales para registrarse.</p>
+<p><strong>Para comunicar información sobre nuestros productos, servicios, eventos y para otros objetivos promocionales</strong></p>
+<p>Cuando dé su consentimiento, le enviaremos comunicaciones de marketing y noticias sobre los productos, servicios, eventos y otras promociones de JF Shore que puedan ser de su interés.  Puede renunciar a ello en cualquier momento después de haber dado su consentimiento.</p>
+<p><em><span style="text-decoration: underline;">Marketing directo</span></em></p>
+<p>Si usted es un cliente actual de JF Shore (por ejemplo, si ha realizado un pedido con nosotros), podemos utilizar los datos de contacto que nos ha proporcionado para enviarle comunicaciones de marketing sobre productos o servicios similares de JF Shore, cuando así lo permita la ley aplicable (salvo que haya renunciado a ello). En otros casos, le solicitaremos su consentimiento para enviarle información de marketing.</p>
+<p><em><span style="text-decoration: underline;">Personalización</span></em></p>
+<p>Podemos utilizar la información que usted nos proporciona, así como la información de otros productos o servicios de JF Shore - tales como el uso que hace de la Plataforma de JF Shore, sus visitas o compras realizadas en las tiendas JF Shore, su participación en eventos y concursos de JF Shore - con el fin de personalizar las comunicaciones sobre productos y servicios que puedan ser de su interés. Al hacerlo, podemos combinar la información que usted nos proporciona con la información que generamos sobre su actividad en línea, incluyendo perspectivas y análisis internos. Cuando lo exija la legislación aplicable, obtendremos su consentimiento para llevar a cabo estas actividades. </p>
+<p>Si usted inicia sesión en su cuenta de JF Shore utilizando diferentes dispositivos, podremos asociarle a los diferentes dispositivos con los que navegue por nuestra Plataforma y podremos utilizar toda la información recopilada de estos dispositivos para personalizar las comunicaciones sobre nuestros productos y servicios.</p>
+<p><strong>Para operar, mejorar y mantener nuestro negocio, productos y servicios </strong></p>
+<p>Es posible que utilicemos los datos que usted nos proporciona para operar nuestro negocio.  Por ejemplo, cuando realiza una compra, podemos utilizar esa información para la contabilidad, auditoría y para otras funciones internas.  Otro ejemplo podría ser la posibilidad de que utilicemos datos acerca de cómo utiliza nuestros productos y servicios para mejorar su experiencia de usuario y para ayudarnos a diagnosticar problemas técnicos y de servicio, así como para administrar nuestra Plataforma.</p>
+<p><strong>Para proteger nuestra propiedad o seguridad o derechos propios o de terceros</strong></p>
+<p>También es posible que utilicemos datos personales acerca de cómo utiliza nuestra Plataforma para prevenir, detectar o investigar fraudes, abusos, usos ilegales, infracciones de nuestros Términos de uso, y para cumplir con las órdenes judiciales, solicitudes gubernamentales o leyes aplicables.</p>
+<p><strong>Para objetivos generales de investigación y análisis </strong></p>
+<p>Utilizamos datos acerca de cómo nuestros visitantes utilizan nuestra Plataforma y servicios para comprender el comportamiento o las preferencias de los clientes.  Por ejemplo, podemos utilizar la información acerca de cómo los visitantes de JF Shore.com buscan y encuentran productos para comprender mejor las distintas formas de organizar y presentar ofertas de productos en nuestra tienda.  </p>
+<p><strong>Uso (tratamiento) de la Información del Entrenamiento </strong></p>
+<p>Como se ha comentado anteriormente, JF Shore recopila datos sobre su actividad física o sus características físicas (conjuntamente, “la Información de Entrenamiento”) para proveer nuestros servicios en la Plataforma.  Debido a la naturaleza personal de estos datos, nos esforzamos por proporcionarle información clara sobre cómo se utilizará la Información de Entrenamiento.  Como estos datos pueden ser considerados sensibles en ciertas jurisdicciones, tomamos las medidas apropiadas para proteger y utilizar estos datos y, cuando sea requerido por la ley aplicable o bajo las políticas internas de JF Shore, obtendremos su consentimiento para el uso de su Información de Entrenamiento.  Haga clic <a href="http://agreementservice.svs.nike.com/es/es_es/rest/agreement?requestType=redirect&agreementType=DataLearnMore&country=ES&language=es&uxId=com.nike.unite" shape="rect">aquí</a> para obtener más información.</p>
+<p><strong>Vinculación de cuentas</strong></p>
+<p>Si usted decide vincular su cuenta de JF Shore con otra cuenta de usuario de uno de los Socios comerciales de JF Shore ("Vinculación de cuentas"), JF Shore obtiene su consentimiento para vincular y utilizar los datos personales obtenidos de la Vinculación de Cuentas, incluyendo sus compras y devoluciones. Utilizamos estos datos personales para configurar la página de Pedidos de Socios que se muestra en su cuenta de JF Shore y ofrecerle determinados beneficios, como el acceso a productos exclusivos de JF Shore, recompensas y experiencias cuando compre con nuestros Socios. JF Shore también utilizará los datos personales para personalizar su experiencia en nuestra Plataforma y, si ha dado su consentimiento, enviarle comunicaciones de marketing personalizadas. Haga clic <a href="http://agreementservice.svs.nike.com/es/es_es/rest/agreement?requestType=redirect&agreementType=alconsentlearnmore&country=ES&language=es&uxId=com.nike.unite" shape="rect">aquí</a> para obtener más información.</p>
+<p><strong>Otras finalidades</strong></p>
+<p>También podemos utilizar sus datos personales para otras finalidades y, para ello, le proporcionaremos un aviso específico en el momento de la recopilación y obtendremos su consentimiento cuando sea necesario.</p>
+<p><strong>Legitimación</strong></p>
+<p>Para el tratamiento de sus datos personales, nuestra base legal depende de cómo interactúe con nuestra Plataforma.</p>
+<ul><li>Cuando compra productos JF Shore desde nuestra Plataforma, necesitamos sus datos personales para el cumplimiento de nuestra relación contractual. Por ejemplo, necesitaremos sus datos bancarios y de contacto para la entrega de su pedido.</li>
+<li>Cuando usa nuestras Apps, dependemos de su consentimiento para el tratamiento y para ciertos fines limitados para el cumplimiento de nuestro contrato con usted (por ejemplo, para las compras dentro de la App).</li>
+<li>También nos basamos en otros fundamentos legales, tales como nuestros intereses legítimos como empresa, para tratar información acerca de la eficacia de nuestras campañas de marketing, nuestros productos, servicios, eventos y otras iniciativas promocionales; para operar, mejorar y mantener nuestro negocio, productos y servicios; para proteger nuestros derechos, propiedad o seguridad o los de otros; y para fines generales de investigación y análisis. Cuando tratamos los datos personales para nuestros intereses legítimos, adoptamos las medidas oportunas para garantizar que los intereses que perseguimos estén en consonancia con sus intereses, derechos y libertades, lo cual le explicaremos con mucho gusto si lo solicita</li>
+<li>Asimismo, tratamos sus datos personales para cumplir con una obligación legal o proteger sus intereses vitales.</li>        
+        
 </body>
 </html>
