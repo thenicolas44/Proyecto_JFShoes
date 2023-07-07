@@ -17,10 +17,15 @@
                     </div>
                     <div th:replace="layouts/plantillaMantenimiento :: paneles"></div>
                     <br>
+                    
+                    
                     <div class="alert alert-warning alert-dismissible fade show" th:if="${mensaje != null}" role="alert">
-                        <span th:text="${mensaje}">borradoXD</span>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <span th:text="${mensaje}"></span>
+                        <button type="button" class="btn btn-link" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    
                     <div class="row">
                         <div class="col-lg-10 form-container">
                             <div class="card border-info">
