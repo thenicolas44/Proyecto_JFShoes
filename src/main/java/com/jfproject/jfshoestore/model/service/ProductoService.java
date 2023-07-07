@@ -31,12 +31,12 @@ public class ProductoService implements IProductoService{
 
     @Override
     public String eliminarProducto(Long id) {
-        String rpta="";
-        try {
+        String rpta = "";
+        try{
             productDao.deleteById(id);
-            rpta="Se elimino el producto correctamente";
-        } catch (Exception e) {
-            rpta=e.getMessage();
+            rpta = "Se eliminó el producto correctamente";
+        }catch(Exception e ){
+            rpta = e.getMessage();
         }
         return rpta;
     }
