@@ -46,7 +46,9 @@
                         <i class="fa-solid fa-user-gear"></i>
                         <span>Inicio</span></a>
                 </li>
-    
+                
+                
+
                 <!-- Divider -->
                 <hr class="sidebar-divider">
     
@@ -70,7 +72,15 @@
                         <span>Productos</span>
                     </a>
                 </li>
-    
+                
+                <li>
+                    <form th:action="@{/logout}" method="post">
+                        <button type="submit" class="boton-logout Estilo_Salir">
+                            <i class="fa-solid fa-door-open"></i>
+                            <span>Salir</span>
+                        </button>
+                    </form>
+                </li>
                 <!-- Divider -->
                 <hr class="sidebar-divider">
     
@@ -166,11 +176,12 @@
     
                             <div class="topbar-divider d-none d-sm-block"></div>
     
+                            
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Jhonatan</span>
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small" sec:authentication="name"></span>
                                     <img class="img-profile rounded-circle" th:src="@{/assets/imagenes/team/Jhonatan.jpg}">
                                 </a>
                                 <!-- Dropdown - User Information -->
