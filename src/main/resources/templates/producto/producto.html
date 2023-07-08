@@ -14,13 +14,16 @@
                         <div class="col-lg-12 text-center">
                             <h1 class="page-header">Mantener Productos</h1>
                         </div>
-                    </div>
+                    </div>                    
                     <div th:replace="layouts/plantillaMantenimiento :: paneles"></div>
-                    <br>
+                    <br>                                   
                     <div class="alert alert-warning alert-dismissible fade show" th:if="${mensaje != null}" role="alert">
-                        <span th:text="${mensaje}">borradoXD</span>
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <span th:text="${mensaje}"></span>
+                        <button type="button" class="btn btn-link" data-bs-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
+                    
                     <div class="row">
                         <div class="col-lg-10 form-container">
                             <div class="card border-info">
@@ -34,10 +37,12 @@
                                                 <label>Nombre: </label>
                                                 <input th:field="*{nombre_producto}" type="text" class="form-control">
                                             </div>
+                                            
                                             <div class="col-md-6">
                                                 <label>Description: </label>
                                                 <input th:field="*{descripcion}" type="text" class="form-control">
                                             </div>
+                                            
                                         </div>
                                         <div class="row mt-3">
                                             <div class="col-md-6">
@@ -72,7 +77,8 @@
                                                         <input type="file" name="file" id="imagen" class="custom-file-input">
                                                         <label class="custom-file-label" for="imagen">Subir imagen: </label>
                                                     </div>
-                                                </div>                                                
+                                                </div>
+                                                
                                                 
                                             </div>
                                             
@@ -130,7 +136,6 @@
                                                     
                                                     <td th:text="${item.precio}"></td>
                                                     
-                                                    
                                                     <td th:text="${item.color}"></td>
                                                     <td th:text="${item.talla}"></td>
                                                     <td th:text="${item.categoria.modelo}"></td>
@@ -158,16 +163,11 @@
                                         </table>
                                     </div>
                                 </div>
-                                
                             </div>
-                            
                         </div>
                     </div>
-    
                 </div>
-
             </div>
-
         </div>
     </div>
 
@@ -181,6 +181,7 @@
                     <i class="fa-solid fa-xmark" style="color: #222020;"></i>
                 </button>
             </div>
+            
             <form th:action="@{/producto/guardar}" th:object="${producto}" method="post" enctype="multipart/form-data">
                 <div class="modal-body">
                     <input type="hidden" th:field="*{id}"/>
@@ -193,42 +194,49 @@
                             </select>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Nombre del producto:</label>
                             <input type="text" name="nombre_producto" id="txtNombre" class="form-control"/>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Description del producto:</label>
                             <input type="text" name="descripcion" id="txtDescripcion" class="form-control"/>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Talla del producto:</label>
                             <input type="text" name="talla" id="txtTalla" class="form-control"/>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Color del producto:</label>
                             <input type="text" name="color" id="txtColor" class="form-control"/>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Precio del producto:</label>
                             <input type="text" name="precio" id="txtPrecio" class="form-control"/>
                         </div>
                     </div>
+                    
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label>Imagen del producto:</label>
                             <input type="file" name="file" id="txtImagen" class="form-control"/>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
