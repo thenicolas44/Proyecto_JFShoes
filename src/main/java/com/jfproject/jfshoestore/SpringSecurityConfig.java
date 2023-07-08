@@ -37,7 +37,11 @@ public class SpringSecurityConfig{
         outh.userDetailsService(userService).passwordEncoder(encriptarPassword());
     }
 
-    
+    @Bean
+    public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandlerNew(){
+        return new CustomAuthenticationSuccessHandler();
+    }
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
         http.authorizeHttpRequests()
@@ -45,19 +49,16 @@ public class SpringSecurityConfig{
         .requestMatchers("/detalle/**").hasAuthority("Usuario")
         .requestMatchers("/admin/**").hasAuthority("ADMINISTRADOR")
         .anyRequest().authenticated()
-        .and().formLogin().loginPage("/login/").defaultSuccessUrl("/jf-store/",true)
+        .and().formLogin().loginPage("/login/").successHandler(customAuthenticationSuccessHandlerNew())// Utiliza el controlador personalizado en lugar de defaultSuccessUrl
         .and().logout().permitAll();
         return http.build();
     }
 
     /*
-     * @Bean
-    public CustomAuthenticationSuccessHandler customAuthenticationSuccessHandlerNew(){
-        return new CustomAuthenticationSuccessHandler();
-    }
+     * 
      */
     
-
+    
 
 
 
