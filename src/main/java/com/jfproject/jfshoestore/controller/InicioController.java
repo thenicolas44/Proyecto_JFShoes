@@ -86,5 +86,9 @@ public class InicioController {
     public String login(){
         return "redirect:/login/";
     }
-    
+
+    @RequestMapping("/politicas/")
+    public String privacidad(){
+        return "pol_privacidad";
+    }
 }
