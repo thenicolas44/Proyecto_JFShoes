@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JF - Carrito </title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" th:href="@{/assets/Logo-JF-BN.ico}" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link rel="stylesheet" th:href="@{/css/Estilo_Tienda.css}">
+    <link rel="stylesheet" th:href="@{/css/Estilo_Personalizacion.css}">
+</head>
+<body style="background-color: rgb(245, 245, 245);">
+    <nav th:replace="layouts/plantillaNav :: nav" ></nav>
+
+    <section class="pb-0">
+        <div class="container pt-3 pb-4">
+            <div class="row justify-content-center pt-2 pb-3">
+                <div class="col-lg-8">
+                    Carrito <span th:text="${#lists.size(listaDetalles)}">x</span> productos
+                </div>
+                <div class="col-lg-3">
+                    <div>Resumen de la Orden</div>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <ul th:each="detalle : ${listaDetalles}" class="list-group">
+                        <li class="list-group-item py-4">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img class="rounded" style="max-width: 150px; max-height: 150px;" th:src="@{'/assets/products/' + ${detalle.producto.imagen}}" alt="...">
+                                </div>
+                                <div class="col-lg-6 col-md-3 align-middle">
+                                    <h5 th:text="${detalle.producto.nombre_producto}"></h5>
+                                    <div class="text-body-tertiary" th:text="'Color ' + ${detalle.producto.color}"></div>
+                                    <div th:text="'Talla: ' + ${detalle.producto.talla}"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <h4 class="text-center" th:text="'S/.' + ${detalle.producto.precio}"></h4>
+                                    <p style="font-size: 15px;" class="text-center" th:text="'Cantidad: ' + ${detalle.cantidad}"></p>
+                                </div>
+                                
+                            </div>
+                        </li>
+                    </ul>
+
+                    
+                </div>
+                
+                <div class="col-lg-3 border text-center" style="background-color: white;">
+                    a
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="layouts/plantillaNav :: redes" ></div>
+    
+    <footer th:replace="layouts/plantillaNav :: footer"></footer>
+
+</body>
+</html>
