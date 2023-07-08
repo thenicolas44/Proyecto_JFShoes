@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
-
     <head th:replace="layouts/plantillaMantenimiento :: cabecera">
     </head>
-
     <body>
-
         <div id="wrapper">
             <!-- Navigation -->   
+            
             <ul th:replace="layouts/plantillaMantenimiento :: asideLateral"></ul>
             <div id="content-wrapper" class="d-flex flex-column">
                 <div id="content">
@@ -19,6 +17,7 @@
                                 <h1 class="page-header">Mantener categoria</h1>
                             </div>
                             <!-- /.col-lg-12 -->
+                            
                         </div>
                         
                         <div th:replace="layouts/plantillaMantenimiento :: paneles">
@@ -81,8 +80,7 @@
                         </div>
                         
 
-                        <!--Listado-->
-                        
+                        <!--Listado-->            
                         <br>
                         <div class="row">
                             <div class="col-lg-12">
@@ -140,9 +138,8 @@
             
                 <!-- /.navbar-top-links -->
             <!-- /#page-wrapper -->
-
         </div>
-
+        
         <!-- Modal -->
     <div class="modal fade" id="modalEditarCategoria" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog">
