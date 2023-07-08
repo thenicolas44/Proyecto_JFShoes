@@ -30,8 +30,8 @@ public class UsuarioService implements IUsuarioService{
     
     @Override
     public void guardarUsuario(UsuarioEntity usuario) {
-        usuario = usuarioDAO.findByUsername(usuario.getUsername());
-        if(usuario!=null){
+        UsuarioEntity existenciaEntity = usuarioDAO.findByUsername(usuario.getUsername());
+        if(existenciaEntity!=null){
             throw new IllegalArgumentException("El nombre de usuario ya está en uso");
         }
         String passwordEncriptada = passwordEncoder.encode(usuario.getContrasenia());
