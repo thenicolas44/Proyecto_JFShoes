@@ -21,10 +21,10 @@ public class UsuarioEntity implements Serializable{
     private String contrasenia;
     @Column(name = "USER_ENABLE", nullable = false)
     private Boolean enable;
-    
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "USER_ID")
-    private List<TipoUsuarioEntity> tipo_usuarios;
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "TIPO_USER_ID")
+    private TipoUsuarioEntity tipo_usuarios;
     
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -71,17 +71,6 @@ public class UsuarioEntity implements Serializable{
         this.enable = enable;
     }
 
-
-    public List<TipoUsuarioEntity> getTipo_usuarios() {
-        return tipo_usuarios;
-    }
-
-
-    public void setTipo_usuarios(List<TipoUsuarioEntity> tipo_usuarios) {
-        this.tipo_usuarios = tipo_usuarios;
-    }
-
-
     public PersonaEntity getPersonas() {
         return personas;
     }
@@ -89,6 +78,16 @@ public class UsuarioEntity implements Serializable{
 
     public void setPersonas(PersonaEntity personas) {
         this.personas = personas;
+    }
+
+
+    public TipoUsuarioEntity getTipo_usuarios() {
+        return tipo_usuarios;
+    }
+
+
+    public void setTipo_usuarios(TipoUsuarioEntity tipo_usuarios) {
+        this.tipo_usuarios = tipo_usuarios;
     }
     
 }

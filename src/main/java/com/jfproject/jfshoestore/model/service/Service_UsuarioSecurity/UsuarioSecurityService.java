@@ -33,12 +33,18 @@ public class UsuarioSecurityService implements UserDetailsService {
         /* */
         List<GrantedAuthority> listaTipos = new ArrayList<>();
         Set<GrantedAuthority> authorities = new HashSet<>();
+        
         if(usuario == null){
             throw new UsernameNotFoundException("Usuario o Contraseña Incorrecta");
         }else{
-            for(TipoUsuarioEntity item:usuario.getTipo_usuarios()){
+
+                listaTipos.add(new SimpleGrantedAuthority(usuario.getTipo_usuarios().getAuthority()));
+            /*
+             * for(TipoUsuarioEntity item:usuario.getTipo_usuarios()){
                 listaTipos.add(new SimpleGrantedAuthority(item.getAuthority()));
             }
+             */
+            
         }
         
         return new User(usuario.getUsername(), usuario.getContrasenia(),usuario.getEnable(),true,true,true, listaTipos);

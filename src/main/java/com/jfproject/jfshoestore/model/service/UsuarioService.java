@@ -3,6 +3,7 @@ package com.jfproject.jfshoestore.model.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
@@ -10,10 +11,32 @@ import com.jfproject.jfshoestore.model.dao.IUsuarioDao;
 
 @Service
 public class UsuarioService implements IUsuarioService{
+
+
+
     @Autowired
     private IUsuarioDao usuarioDAO;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
+
+
+    @Autowired
+    public UsuarioService(IUsuarioDao usuarioDAO, BCryptPasswordEncoder passwordEncoder){
+        this.usuarioDAO = usuarioDAO;
+        this.passwordEncoder = passwordEncoder;
+    }
+
+
+    
     @Override
     public void guardarUsuario(UsuarioEntity usuario) {
+        usuario = usuarioDAO.findByUsername(usuario.getUsername());
+        if(usuario!=null){
+            throw new IllegalArgumentException("El nombre de usuario ya está en uso");
+        }
+        String passwordEncriptada = passwordEncoder.encode(usuario.getContrasenia());
+
+        usuario.setContrasenia(passwordEncriptada);
         usuarioDAO.save(usuario);
     }
 

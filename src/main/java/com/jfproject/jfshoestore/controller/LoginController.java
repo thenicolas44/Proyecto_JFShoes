@@ -7,8 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jfproject.jfshoestore.model.Entity.PersonaEntity;
+import com.jfproject.jfshoestore.model.Entity.TipoUsuarioEntity;
 import com.jfproject.jfshoestore.model.Entity.UsuarioEntity;
 import com.jfproject.jfshoestore.model.dao.IPersonaDao;
+import com.jfproject.jfshoestore.model.dao.ITipoUsuarioDao;
 import com.jfproject.jfshoestore.model.service.ILoginService;
 import com.jfproject.jfshoestore.model.service.IPersonaService;
 
@@ -18,6 +20,7 @@ import com.jfproject.jfshoestore.model.service.IPersonaService;
 public class LoginController {
     @Autowired ILoginService loginService;
     @Autowired IPersonaDao personaDao;
+    @Autowired ITipoUsuarioDao tipoUsuarioDao;
 
     @RequestMapping("/")
     public String inicio(){
@@ -39,6 +42,9 @@ public class LoginController {
     public String guardarRegistro(UsuarioEntity user){
         PersonaEntity personaEntity = user.getPersonas();
         personaEntity = personaDao.save(personaEntity);
+        TipoUsuarioEntity tipoUsuarioEntity= user.getTipo_usuarios();
+        tipoUsuarioEntity = tipoUsuarioDao.findById(tipoUsuarioEntity.getId()).orElse(null);
+        user.setTipo_usuarios(tipoUsuarioEntity);
         user.setPersonas(personaEntity);
         loginService.registrarUser(user);
         return "redirect:/login/";
