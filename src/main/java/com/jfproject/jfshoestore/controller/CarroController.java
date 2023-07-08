@@ -26,7 +26,6 @@ public class CarroController {
         String username = authentication.getName();
 
         model.addAttribute("listaDetalles", detalleCarroCompraService.mostrarDetalleCarroComprasUser(username));
-        model.addAttribute("listaProductosDetalle", productoService.mostrarProductosporDetalle(username));
         return "carrito";
     }
 
