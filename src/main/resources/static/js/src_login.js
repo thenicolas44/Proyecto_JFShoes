@@ -14,7 +14,7 @@ function fnProcesaPaciente(comp){
 function fnRedireccionDetalle(id_producto){
     let id = id_producto.id;
     //window.alert(id);
-    window.location.href = "http://localhost:8080/jf-store/detalle/"+ id + "/";
+    window.location.href = "http://localhost:8080/detalle/"+ id + "/";
 }
 
 const contenedorProductos = document.getElementById('contenedor-productos');

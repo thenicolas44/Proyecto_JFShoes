@@ -29,91 +29,106 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-5 col-md-12 pb-5 text-center">
-                    <img class="img-fluid" th:src="@{'/assets/products/' + ${producto.imagen}}" alt="..." style="max-height: 400px;">
-                </div>
-                
-                <div class="col-lg-7">
-                    <div class="py-1 px-5">
-                        <h2>Zapatilla <span th:text="${producto.nombre_producto}"></span></h2>
-                    </div>
-                    <div class="py-1 px-5 text-lg-end">
-                        <h3>S/<span th:text="${producto.precio}"></span></h3>
-                    </div>
-                    <div class="row py-1 px-5">
-                        <div class="star-rating">
-                            <input type="radio" name="rating" id="rating-1" value="1">
-                            <label for="rating-1">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-2" value="2">
-                            <label for="rating-2">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-3" value="3">
-                            <label for="rating-3">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-4" value="4">
-                            <label for="rating-4">&#9733;</label>
-                            <input type="radio" name="rating" id="rating-5" value="5">
-                            <label for="rating-5">&#9733;</label>
-                        </div>
-                        
-                        <div class="pt-2">
-                            <p>4.8</p>
-                        </div>
-                        <div class="pt-2">
-                            <a id="owo" href="#contact" style="text-decoration: underline;">Escribir un comentario</a>
-                        </div>
-                    </div>
-                    
-                    <div class="row py-1 px-5">
-                        <div>
-                            <p>Seleccionar color</p>
-                        </div>
-                        
-                        <div>
-                            <select class="form-select" name="" id="colorProduct">
-                                <option>Elige una opción</option>
-                                <option value="" th:text="${producto.color}"></option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="row py-1 px-5">
-                        <div>
-                            <p>Seleccionar Talla</p>
-                        </div>
-                        <div>
-                            <select class="form-select" name="" id="sizeProduct">
-                                <option>Elige una opción</option>
-                                <option th:text="${producto.talla}"></option>
-                            </select>
-                        </div>
 
-                        <div class="py-1 px-5">
-                            <span style="cursor:pointer;" onclick="disminuirCantidad();">
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17" class="bg-light">
-                                    <g>
-                                    </g>
-                                    <path d="M15 8v1h-13v-1h13z" fill="#000000"></path>
-                                </svg>
-                            </span>
-                            <input id="txtCantidad" type="number" class="text-center input-text qty text ajax-ready" value="1" title="Cantidad" size="4" min="1" max="10" step="1" placeholder="" inputmode="numeric" autocomplete="off">
-                            <span style="cursor:pointer;" onclick="aumentarCantidad();">
-                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
-                                    <g>
-                                    </g>
-                                        <path d="M16 9h-7v7h-1v-7h-7v-1h7v-7h1v7h7v1z" fill="#000000"></path>
-                                </svg>
-                            </span>
-                        </div>
+                    <div class="col-lg-5 col-md-12 pb-5 text-center">
+                        <img class="img-fluid" th:src="@{'/assets/products/' + ${producto.imagen}}" alt="..." style="max-height: 400px;">
                     </div>
                     
-                    <div class="row py-3 px-5">
-                        <div class="col-md-6 pb-3">
-                            <button onclick="encriptarPalabra();" class="btn btn-product col-lg-3 btn-primary" style="width: -webkit-fill-available;">Comprar ahora</button>
+                    <div class="col-lg-7">
+                        <div class="py-1 px-5">
+                            <h2>Zapatilla <span th:text="${producto.nombre_producto}"></span></h2>
                         </div>
-                        <div class="col-md-6 pb-3">
-                            <button class="btn btn-product btn-primary" style="width: -webkit-fill-available;">Añadir al carrito</button>
+                        <div class="py-1 px-5 text-lg-end">
+                            <h3>S/<span th:text="${producto.precio}"></span></h3>
                         </div>
-                    </div>
-                </div>    
+                        <div class="row py-1 px-5">
+                            <div class="star-rating">
+                                <input type="radio" name="rating" id="rating-1" value="1">
+                                <label for="rating-1">&#9733;</label>
+                                <input type="radio" name="rating" id="rating-2" value="2">
+                                <label for="rating-2">&#9733;</label>
+                                <input type="radio" name="rating" id="rating-3" value="3">
+                                <label for="rating-3">&#9733;</label>
+                                <input type="radio" name="rating" id="rating-4" value="4">
+                                <label for="rating-4">&#9733;</label>
+                                <input type="radio" name="rating" id="rating-5" value="5">
+                                <label for="rating-5">&#9733;</label>
+                            </div>
+                            
+                            <div class="pt-2">
+                                <p>4.8</p>
+                            </div>
+                            <div class="pt-2">
+                                <a id="owo" href="#contact" style="text-decoration: underline;">Escribir un comentario</a>
+                            </div>
+                        </div>
+                        
+                        <div class="row py-1 px-5">
+                            <div>
+                                <p>Seleccionar color</p>
+                            </div>
+                            
+                            <div>
+                                <select class="form-select" name="" id="colorProduct">
+                                    <option>Elige una opción</option>
+                                    <option value="" th:text="${producto.color}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <form th:action="@{/detalle/guardar}" th:object="${detalle}" method="post">
+                            <select th:field="*{producto.id}" hidden>
+                                <option th:value="${producto.id}" th:text="${producto.id}"></option>
+                            </select>
+        
+                            <select th:field="*{carrito.id}" hidden>
+                                <option th:value="${idCarrito.id}" th:text="${idCarrito.id}"></option>
+                            </select>
+                            <div class="row py-1 px-5">
+                                <div>
+                                    <p>Seleccionar Talla</p>
+                                </div>
+                                <div>
+                                    <select class="form-select" name="" id="sizeProduct">
+                                        <option>Elige una opción</option>
+                                        <option th:text="${producto.talla}"></option>
+                                    </select>
+                                </div>
+                                
+                    
+                                <div class="py-1 px-5">
+                                    <span style="cursor:pointer;" onclick="disminuirCantidad();">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17" class="bg-light">
+                                            <g>
+                                            </g>
+                                            <path d="M15 8v1h-13v-1h13z" fill="#000000"></path>
+                                        </svg>
+                                    </span>
+                                    <input th:field="*{cantidad}"  id="txtCantidad" type="number" class="text-center input-text qty text ajax-ready" value="1" title="Cantidad" size="4" min="1" max="10" step="1" placeholder="" inputmode="numeric" autocomplete="off">
+                                    <span style="cursor:pointer;" onclick="aumentarCantidad();">
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="17" height="17" viewBox="0 0 17 17">
+                                            <g>
+                                            </g>
+                                                <path d="M16 9h-7v7h-1v-7h-7v-1h7v-7h1v7h7v1z" fill="#000000"></path>
+                                        </svg>
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="row py-3 px-5">
+                                <div class="col-md-6 pb-3">
+                                    <button onclick="encriptarPalabra();" class="btn btn-product col-lg-3 btn-primary" style="width: -webkit-fill-available;">Comprar ahora</button>
+                                </div>
+                                <div class="col-md-6 pb-3">
+                                    <button class="btn btn-product btn-primary" type="submit" style="width: -webkit-fill-available;">Añadir al carrito</button>
+                                </div>
+                            </div>
+
+                        </form>
+                        
+                    </div>    
+                   
+                
+                
             </div> 
         </div>
     </section>

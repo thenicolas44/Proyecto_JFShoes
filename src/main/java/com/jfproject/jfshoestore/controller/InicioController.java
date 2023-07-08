@@ -33,28 +33,9 @@ public class InicioController {
         return "catalogo";
     }
 
-    @RequestMapping("/detalle/{producto}/")
-    public String detalle(
-        @PathVariable(value = "producto") Long producto,
-        Model modelo
-    ){
-        ProductoEntity product = new ProductoEntity();
-        product = productoService.buscarProducto(producto);
-        if(product == null){
-            product = new ProductoEntity();
-            product.setNombre_producto("producto no encontrado");
-            product.setPrecio(0);
-            product.setDescripcion("Sin descripcion");
-            product.setColor("--");
-            product.setTalla(0);
-            product.setImagen("...");   
-        }
-        
-        modelo.addAttribute("producto", product);
+    
 
-        return "detalle";
-    }
-
+    
 /* 
     @RequestMapping("/detalle/{user}/{password}/{element}")
     public String detalle(
