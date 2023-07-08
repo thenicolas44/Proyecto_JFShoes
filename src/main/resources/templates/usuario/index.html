@@ -55,33 +55,12 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr th:each="item: ${listaUsuarios}" class="text-center">
-                                                        <td th:text="${item.nombre}"></td>
-                                                        <td th:text="${item.apellido}"></td>
-                                                        <td th:text="${item.correo}"></td>
-                                                        <td th:text="${item.nickname}"></td>
-                                                        <td th:text="${item.identificacion}"></td>
-                                                        <td th:text="${item.tipoIdentificacion}"></td>
-                                                        <td th:text="${item.tipoUsuario}"></td>
-                                                        <td class="text-center">
-                                                            <a href="#" class="btn btn-primary editarUsuario" 
-                                                                th:data-id="${item.id}"
-                                                                th:data-nombre="${item.nombre}"
-                                                                th:data-apellido="${item.apellido}"
-                                                                th:data-correo="${item.correo}"
-                                                                th:data-contrasenia="${item.contrasenia}"
-                                                                th:data-nickname="${item.nickname}"
-                                                                th:data-identificacion="${item.identificacion}"
-                                                                th:data-tipoidentificacion="${item.tipoIdentificacion}"
-                                                                th:data-tipouser="${item.tipoUsuario}">
-                                                            <i class="fa-solid fa-pen-to-square"></i>
-                                                        </a>
-                                                        </td>
-                                                        <td class="text-center">
-                                                            <a th:href="@{/usuarios/eliminar/} + ${item.id}" class="btn btn-danger" 
-                                                                onclick="return confirm('Desea eliminar el usuario?')">
-                                                                <i class="fa fa-trash" aria-hidden="true"></i>
-                                                            </a>
-                                                        </td>
+                                                        <td th:text="${item.personas.nombre}"></td>
+                                                        <td th:text="${item.personas.apellido}"></td>
+                                                        <td th:text="${item.personas.correo}"></td>
+                                                        <td th:text="${item.username}"></td>
+                                                        <td th:text="${item.personas.identificacion}"></td>
+                                                        <td th:text="${item.personas.tipoIdentificacion}"></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
