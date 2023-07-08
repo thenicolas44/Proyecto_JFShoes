@@ -23,7 +23,7 @@ public class UsuarioController {
         modeL.addAttribute("usuario", usuario);
         modeL.addAttribute("titulo", "Registrar Nuevo Usuario");
         modeL.addAttribute("listaUsuarios", usuarioService.mostrarUsuarios());
-        return "usuario/index";
+        return "admin/usuario/usuario";
     }
 
     @RequestMapping("/guardar")
@@ -39,7 +39,7 @@ public class UsuarioController {
         modeL.addAttribute("usuario", usuario);
         modeL.addAttribute("titulo", "Editar Usuario");
         modeL.addAttribute("listaUsuarios", usuarioService.mostrarUsuarios());
-        return "usuario/index";
+        return "admin/usuario/usuario";
     }
     
     @RequestMapping("/eliminar/{id}")

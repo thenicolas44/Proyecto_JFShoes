@@ -21,7 +21,7 @@ public class CategoriaController {
         CategoriaEntity categoria = new CategoriaEntity();
         model.addAttribute("categoria", categoria);
         model.addAttribute("listaCategorias", categoriaService.mostrarCategorias());
-        return "categoria/categoria";
+        return "admin/categoria/categoria";
     }
 
     @RequestMapping("/guardar")

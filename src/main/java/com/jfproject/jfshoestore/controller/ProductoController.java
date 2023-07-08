@@ -32,7 +32,7 @@ public class ProductoController {
         modelo.addAttribute("producto", producto);
         modelo.addAttribute("listaProducto", productoService.mostrarProducto());
         modelo.addAttribute("listaCategoria", categoriaService.mostrarCategorias());
-        return "producto/producto";
+        return "admin/producto/producto";
     }
 
     //agregando requestParam para almacenar la imagen

@@ -70,8 +70,7 @@
                         <div>
                             <select class="form-select" name="" id="colorProduct">
                                 <option>Elige una opción</option>
-                                <option>Azul</option>
-                                <option>Negro</option>
+                                <option value="" th:text="${producto.color}"></option>
                             </select>
                         </div>
                     </div>
@@ -83,12 +82,7 @@
                         <div>
                             <select class="form-select" name="" id="sizeProduct">
                                 <option>Elige una opción</option>
-                                <option>35</option>
-                                <option>36</option>
-                                <option>37</option>
-                                <option>38</option>
-                                <option>39</option>
-                                <option>40</option>
+                                <option th:text="${producto.talla}"></option>
                             </select>
                         </div>
 

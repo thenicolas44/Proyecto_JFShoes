@@ -39,9 +39,11 @@
 
                     <!-- ICONO DEL CERRAR SESION -->
                     <li>
-                        <a class="nav-link">
-                            <i class="fa-solid fa-door-open Estilo_Icono"></i>
-                        </a>
+                        <form th:action="@{/logout}" method="post">
+                            <button type="submit" class="boton-logout">
+                                <i class="fa-solid fa-door-open Estilo_Icono"></i>
+                            </button>
+                        </form>
                     </li>
 
                     <!-- ICONO DEL CARRITO -->
