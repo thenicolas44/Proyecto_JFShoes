@@ -27,7 +27,9 @@ public class InicioController {
     @RequestMapping("/catalogo/")
     public String catalogo(Model modelo){
         UsuarioEntity user = new UsuarioEntity();
+        
         modelo.addAttribute("usuario", user);
+        modelo.addAttribute("listaproducto", productoService.mostrarProducto());
         return "catalogo";
     }
 

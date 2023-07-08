@@ -10,6 +10,13 @@ function fnProcesaPaciente(comp){
     window.location.href="http://localhost:8080/jf-store/detalle"+rutaDeseada+"/"+escogido;
     
 }
+
+function fnRedireccionDetalle(id_producto){
+    let id = id_producto.id;
+    //window.alert(id);
+    window.location.href = "http://localhost:8080/jf-store/detalle/"+ id + "/";
+}
+
 const contenedorProductos = document.getElementById('contenedor-productos');
 
 // Calcula el ancho total del contenedor de productos

@@ -24,7 +24,7 @@
     <div class="wrapper ">
       <div class="sidebar" data-color="footer-black" data-active-color="danger">
         <div class="logo">
-          <a th:href="@{/jf-store/} + (${usuario.id != 0 ? usuario.id : ''})"><img class="logo-normal" th:src="@{/assets/Logo-JF.png}" alt="..." /></a>
+          <a th:href="@{/jf-store/}"><img class="logo-normal" th:src="@{/assets/Logo-JF.png}" alt="..." /></a>
           <span class="simple-text text-center">
             JF CALZADOS
           </span>
@@ -92,8 +92,13 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                   <a class="dropdown-item" href="#">MI CUENTA</a>
-                  <a class="dropdown-item" href="#">CARRITO</a>
-                  <a class="dropdown-item" href="#">CERRAR SESIÓN</a>
+                  <a class="dropdown-item" th:href="@{/jf-store/carrito/}">CARRITO</a>
+                  <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="dropdown-item">
+                        CERRAR SESIÓN
+                    </button>
+                  </form>
+                  
                 </div>
               </li>
               
@@ -116,332 +121,36 @@
       <div id="productos">
         <section class="py-5">
           <div class="container px-4 px-lg-5 mt-5">
-              <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                  <div class="col mb-5 producto Zapatillas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- PRODUCTO ALBA-->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <img class="card-img-top product_Store" th:src="@{/assets/products/Alba.JPG}" alt="..." />
-                          <!-- DETALLE-->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE-->
-                                  <h5 class="fw-bolder">Zapatilla Alba</h5>
-                                  <!-- PRECIO-->
-                                  S/219.00
-                              </div>
-                          </div>
-                          <!-- ACCIONES-->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a id ="3" onclick="fnDetalle(this);" class="btn btn-outline-dark mt-auto btn-rd" >Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col mb-5 producto Zapatillas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- EN VENTA-->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <!--PRODUCTO HANNA-->
-                          <img class="card-img-top" th:src="@{/assets/products/Hanna.JPG}" alt="..." />
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE-->
-                                  <h5 class="fw-bolder">Zapatilla Hanna</h5>
-                                  
-                                  <div class="d-flex justify-content-center small text-warning mb-2">
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                  </div>
-                                  <!-- PRECIO-->
-                                  <!-- <span class="text-muted text-decoration-line-through">S/249.00</span>-->
-                                  S/230.00
-                              </div>
-                          </div>
-                          <!-- ACCIONES-->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col mb-5 producto Zapatillas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- EN VENTA-->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <!-- IMAGEN ITZELL -->
-                          <img class="card-img-top" th:src="@{/assets/products/Itzell.JPG}" alt="..." />
-                          <!-- DETALLE -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE-->
-                                  <h5 class="fw-bolder">Zapatilla Itzell</h5>
-                                  <!-- PRECIO-->
-                                  <!--<span class="text-muted text-decoration-line-through">S/269.00</span>-->
-                                  S/209.00
-                              </div>
-                          </div>
-                          <!-- ACCIÓN -->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col mb-5 producto Pantuflas" data-genero="M">
-                      <div class="card h-100">
-                          <!-- IMAGEN CABALLERO -->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <img class="card-img-top " th:src="@{/assets/products/Pantufla caballero2.jpg}" alt="..." />
-                          <!-- DETALLE -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE-->
-                                  <h5 class="fw-bolder">Pantufla Caballero</h5>
-
-                                
-                                  <div class="d-flex justify-content-center small text-warning mb-2">
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                  </div>
-                                  <!-- PRECIO-->
-                                  S/99.00
-                              </div>
-                          </div>
-                          <!-- ACCIÓN -->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                  <div class="col mb-5 producto Pantuflas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- EN VENTA -->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <!-- PANTUFLA IMAGEN -->
-                          <img class="card-img-top" th:src="@{/assets/products/Pantufla dama2.jpg}" alt="..." />
-                          <!-- DETALLE -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE PRODUCTO-->
-                                  <h5 class="fw-bolder">Pantufla Dama</h5>
-                                  <!-- PRECIO -->
-                                  <span class="text-muted text-decoration-line-through">S/99.00</span>
-                              </div>
-                          </div>
-                          <!-- ACCIONES -->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                
-                  <div class="col mb-5 producto Zapatillas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- EN VENTA -->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <!-- IMAGEN ANDREW -->
-                          <img class="card-img-top" th:src="@{/assets/products/Zapatilla Alessia2.jpg}" alt="..." />
-                          <!-- DETALLE DE PRODUCTO-->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE ANDREW -->
-                                  <h5 class="fw-bolder">Zapatilla Alessia</h5>
-                                  <!-- PRECIO -->
-                                  <!--<span class="text-muted text-decoration-line-through">S/159.00</span>-->
-                                  S/189.00
-                              </div>
-                          </div>
-                          <!-- ACCIÓN -->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                
-                  <div class="col mb-5 producto Zapatillas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- EN VENTA -->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <!-- IMAGEN XIME -->
-                          <img class="card-img-top" th:src="@{/assets/products/Xime.JPG}" alt="..." />
-                          <!-- DETALLE PRODUCTO -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE PRODUCTO -->
-                                  <h5 class="fw-bolder">Zapatilla Xime</h5>
-  
-                                  <div class="d-flex justify-content-center small text-warning mb-2">
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                  </div>
-                                  <!-- PRECIO-->
-                                  S/219.00
-                              </div>
-                          </div>
-                          <!-- ACCIÓN -->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-                
-                  <div class="col mb-5 producto Zapatillas" data-genero="F">
-                      <div class="card h-100">
-                          <!-- IMAGEN YUMMY -->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <img class="card-img-top" th:src="@{/assets/products/Yummy.JPG}" alt="..." />
-                          <!-- DETALLE PRODUCTO -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE PRODUCTO -->
-                                  <h5 class="fw-bolder">Zapatilla Yummy</h5>
-  
-                                  <div class="d-flex justify-content-center small text-warning mb-2">
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                  </div>
-                                  <!-- PRECIO-->
-                                  S/195.00
-                              </div>
-                          </div>
-                        
-                          <!-- ACCIÓN-->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col mb-5 producto Zapatillas" data-genero="M">
-                      <div class="card h-100">
-                          <!-- IMAGEN KIEV -->
-                          <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                          <img class="card-img-top" th:src="@{/assets/products/Kiev.jpg}" alt="..." />
-                          <!-- DETALLE PRODUCTO -->
-                          <div class="card-body p-4">
-                              <div class="text-center">
-                                  <!-- NOMBRE PRODUCTO -->
-                                  <h5 class="fw-bolder">Zapatilla Kiev</h5>
-  
-                                  <div class="d-flex justify-content-center small text-warning mb-2">
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                      <div class="bi-star-fill"></div>
-                                  </div>
-                                
-                                  <!-- PRECIO-->
-                                  S/195.00
-                              </div>
-                          </div>
-                        
-                          <!-- ACCIÓN-->
-                          <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                              <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="col mb-5 producto Zapatillas" data-genero="M">
-                  <div class="card h-100">
-                    
-                      <!-- IMAGEN KIEV NEGRO -->
+            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+                <div th:each="producto : ${listaproducto}" class="col mb-5 producto" th:data-genero="${producto.categoria.sexo}">
+                    <div class="card h-100">
                       <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                      <img class="card-img-top" th:src="@{/assets/products/KievN.JPG}" alt="..." />
-                    
-                      <!-- DETALLE PRODUCTO -->
-                      <div class="card-body p-4">
-                          <div class="text-center">
-                              <!-- NOMBRE PRODUCTO -->
-                            
-                              <h5 class="fw-bolder">Zapatilla Kiev Negro</h5>
+                      <img class="card-img-top product_Store" th:src="@{'/assets/products/' + ${producto.imagen}}" alt="..." />
 
-                              <div class="d-flex justify-content-center small text-warning mb-2">
-                                  <div class="bi-star-fill"></div>
-                                  <div class="bi-star-fill"></div>
-                                  <div class="bi-star-fill"></div>
-                                  <div class="bi-star-fill"></div>
-                                  <div class="bi-star-fill"></div>
-                              </div>
-                              <!-- PRECIO-->
-                              S/195.00
+                      <div class="card-body p-4">
+                          <div class="text-center"> 
+                            <h5 class="fw-bolder" th:text="${producto.nombre_producto}"></h5>
+                            <span th:text="${producto.precio}"></span>
                           </div>
                       </div>
-                      <!-- ACCIÓN-->
+
                       <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                          <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                      </div>
-                  </div>
-              </div>
-
-              <div class="col mb-5 producto Zapatillas" data-genero="M">
-                <div class="card h-100">
-                    <!-- IMAGEN MILAN -->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <img class="card-img-top" th:src="@{/assets/products/Milan.JPG}" alt="..." />
-                    <!-- DETALLE PRODUCTO -->
-                    <div class="card-body p-4">
                         <div class="text-center">
-                            <!-- NOMBRE PRODUCTO -->
-                            <h5 class="fw-bolder">Zapatilla Milan</h5>
-
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <!-- PRECIO-->
-                            S/195.00
+                          <a class="btn btn-outline-dark mt-auto btn-rd" th:id="${producto.id}" onclick=" fnRedireccionDetalle(this);" >Agregar al carrito</a>
                         </div>
-                    </div>
-                    <!-- ACCIÓN-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
+                      </div>
                     </div>
                 </div>
-              </div>
+<!--
+listaproducto
+id ="3" onclick="fnDetalle(this);" 
 
-              <div class="col mb-5 producto Zapatillas" data-genero="M">
-                <div class="card h-100">
-                  <!-- IMAGEN FRANCISCANAS -->
-                  <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                  <img class="card-img-top" th:src="@{/assets/products/KievB.JPG}" alt="..." />
-                  <!-- DETALLE PRODUCTO -->
-                  <div class="card-body p-4">
-                      <div class="text-center">
-                          <!-- NOMBRE PRODUCTO -->
-                          <h5 class="fw-bolder">Zapatilla Kiev Blanco</h5>
 
-                          <div class="d-flex justify-content-center small text-warning mb-2">
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                              <div class="bi-star-fill"></div>
-                          </div>
-                          <!-- PRECIO-->
-                          S/195.00
-                      </div>
-                  </div>
-                  <!-- ACCIÓN-->
-                  <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                      <div class="text-center"><a class="btn btn-outline-dark mt-auto btn-rd" href="#">Agregar al carrito</a></div>
-                  </div>
-              </div>
-            </div>   
+
+
+-->
+
+
                 
             </div>
           </div>
